@@ -1,3 +1,18 @@
 <p>person-details works!</p>
-<a routerLink="edit">Edit</a>
-<a routerLink="..">Back</a>
+
+<div *ngIf="personExists">
+  <img src="{{ person?.image }}" />
+  <h3>Details:</h3>
+  <p>
+    {{ person?.id }}<br />
+    {{ person?.name }}<br />
+    {{ person?.birthday }}<br />
+    {{ person?.gender }}
+  </p>
+  <a routerLink="edit">Edit</a>
+  <a routerLink="..">Back</a>
+</div>
+
+<div *ngIf="!personExists">
+  <span>Person with id: {{ componentId }} could not be found</span>
+</div>

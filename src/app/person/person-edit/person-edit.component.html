@@ -1,4 +1,6 @@
 <p>person-edit works!</p>
 <a routerLink="..">Cancel</a>
-<a routerLink="../..">Delete</a>
+<form (ngSubmit)="onDelete()" novalidate>
+  <button type="submit">Delete</button>
+</form>
 <a routerLink="../..">Save</a>
