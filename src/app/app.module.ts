@@ -5,24 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { PersonsComponent } from './persons/persons.component';
-import { PersonDetailsComponent } from './persons/person-details/person-details.component';
-import { PersonEditComponent } from './persons/person-edit/person-edit.component';
+import { PersonComponent } from './person/person.component';
+import { PersonDetailsComponent } from './person/person-details/person-details.component';
+import { PersonEditComponent } from './person/person-edit/person-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    PersonsComponent,
     PersonDetailsComponent,
-    PersonEditComponent
+    PersonEditComponent,
+    PersonComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
