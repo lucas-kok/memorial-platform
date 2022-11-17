@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PersonComponent } from './person/person.component';
 import { PersonDetailsComponent } from './person/person-details/person-details.component';
 import { PersonEditComponent } from './person/person-edit/person-edit.component';
+import { PersonCreateComponent } from './person/person-create/person-create.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PersonEditComponent } from './person/person-edit/person-edit.component'
     PersonDetailsComponent,
     PersonEditComponent,
     PersonComponent,
+    PersonCreateComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
