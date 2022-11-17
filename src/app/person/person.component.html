@@ -1,2 +1,22 @@
 <p>persons works!</p>
-<a routerLink="1">Details</a>
+<table>
+  <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Birthday</th>
+    <th>Gender</th>
+    <th>Image</th>
+    <th></th>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let person of persons">
+      <td>{{ person.id }}</td>
+      <td>{{ person.name }}</td>
+      <td>{{ person.birthday }}</td>
+      <td>{{ person.gender }}</td>
+      <td><img src="{{ person.image }}" /></td>
+      <a routerLink="{{ person.id }}">Details</a>
+    </tr>
+  </tbody>
+</table>
