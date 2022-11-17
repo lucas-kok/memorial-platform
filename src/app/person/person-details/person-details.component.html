@@ -14,5 +14,6 @@
 </div>
 
 <div *ngIf="!personExists">
-  <span>Person with id: {{ componentId }} could not be found</span>
+  <span>Person with id: {{ componentId }} does not exists</span>
+  <a routerLink="..">Back</a>
 </div>

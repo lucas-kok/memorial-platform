@@ -1,6 +1,14 @@
 <p>person-edit works!</p>
-<a routerLink="..">Cancel</a>
-<form (ngSubmit)="onDelete()" novalidate>
-  <button type="submit">Delete</button>
-</form>
-<a routerLink="../..">Save</a>
+
+<div *ngIf="personExists">
+  <a routerLink="..">Cancel</a>
+  <form (ngSubmit)="onDelete()" novalidate>
+    <button type="submit">Delete</button>
+  </form>
+  <a routerLink="../..">Save</a>
+</div>
+
+<div *ngIf="!personExists">
+  <span>Person with id: {{ componentId }} does not exists</span>
+  <a routerLink="../..">Back</a>
+</div>

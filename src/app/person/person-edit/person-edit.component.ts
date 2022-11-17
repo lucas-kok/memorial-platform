@@ -10,6 +10,7 @@ import { PersonService } from '../person.service';
 })
 export class PersonEditComponent {
   componentId: string | null | undefined;
+  personExists: boolean = false;
   person: Person | undefined;
 
   constructor(
@@ -25,6 +26,8 @@ export class PersonEditComponent {
       if (this.componentId == null) return;
 
       this.person = this.personService.getPersonById(this.componentId);
+
+      if (this.person != null) this.personExists = true;
     });
   }
 
