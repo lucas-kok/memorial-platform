@@ -15,4 +15,8 @@ export class PersonComponent {
   ngOnInit(): void {
     this.persons = this.personService.getAllPersons();
   }
+
+  dateToString(date: Date): string {
+    return date.toLocaleDateString();
+  }
 }

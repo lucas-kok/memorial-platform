@@ -1,12 +1,15 @@
-<div class="component">
-  <p>root works!</p>
+<div class="container-fluid">
+  <app-navbar></app-navbar>
 
-  <app-navbar class="component"></app-navbar>
-
-  <h1>Hello, World!</h1>
-  <div class="component">
-    <router-outlet></router-outlet>
+  <div
+    id="homeContainer"
+    class="col col-12 d-flex flex-column justify-content-center"
+  >
+    <h1>Memorial Application!</h1>
+    <div class="component col-7 mt-5 p-4">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 
-  <app-footer class="component"></app-footer>
+  <app-footer></app-footer>
 </div>

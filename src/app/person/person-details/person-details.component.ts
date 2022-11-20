@@ -30,4 +30,8 @@ export class PersonDetailsComponent {
       if (this.person != null) this.personExists = true;
     });
   }
+
+  dateToString(date: Date): string {
+    return date.toLocaleDateString();
+  }
 }

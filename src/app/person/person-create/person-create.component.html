@@ -1,3 +1,93 @@
-<p>person-create works!</p>
-<a routerLink="..">Cancel</a>
-<a routerLink="..">Create</a>
+<form name="form" (ngSubmit)="onCreate()" novalidate>
+  <!-- Name -->
+  <div class="form-group">
+    <label for="name">Naam</label>
+    <input
+      required
+      type="text"
+      name="name"
+      id="name"
+      class="form-control"
+      [(ngModel)]="newPerson!.name"
+      #name="ngModel"
+    />
+  </div>
+  <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+    Naam is een verplicht veld
+  </div>
+
+  <!-- Birthday -->
+  <div class="form-group">
+    <label for="birthday">Geboren</label>
+    <input
+      required
+      type="date"
+      name="birthday"
+      id="birthday"
+      class="form-control"
+      [(ngModel)]="newPerson!.birthday"
+      #birthday="ngModel"
+    />
+  </div>
+  <div class="alert alert-danger" *ngIf="birthday.touched && !birthday.valid">
+    Geboortedatum is een verplicht veld!
+  </div>
+
+  <!-- Deathday -->
+  <div class="form-group">
+    <label for="deathday">Overleden</label>
+    <input
+      required
+      type="date"
+      name="deathday"
+      id="deathday"
+      class="form-control"
+      [(ngModel)]="newPerson!.deathday"
+      #deathday="ngModel"
+    />
+  </div>
+  <div class="alert alert-danger" *ngIf="deathday.touched && !deathday.valid">
+    Overlijdensdatum is een verplicht veld!
+  </div>
+
+  <!-- Gender -->
+  <div class="form-group">
+    <label for="gender">Geslacht</label>
+    <select
+      required
+      name="gender"
+      id="gender"
+      class="form-control"
+      [(ngModel)]="newPerson!.gender"
+    >
+      <option *ngFor="let gender of genders" [value]="gender">
+        {{ gender }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Image -->
+  <div class="form-group">
+    <label class="image-upload-container">
+      <label for="imageInput">Kies afbeelding</label>
+      <input
+        id="imageInput"
+        name="imageInput"
+        #imageInput
+        type="file"
+        accept="image/*"
+        (change)="handleFileSelect(imageInput)"
+        class="form-control"
+      />
+    </label>
+  </div>
+
+  <div class="mt-5">
+    <button class="btn btn-primary">Aanmaken</button>
+    <a routerLink=".." class="btn btn-secondary ms-2">Annuleer</a>
+  </div>
+</form>
+
+<pre class="mt-5"
+  >{{ newPerson | json }}
+</pre>

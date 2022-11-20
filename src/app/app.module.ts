@@ -9,6 +9,8 @@ import { PersonComponent } from './person/person.component';
 import { PersonDetailsComponent } from './person/person-details/person-details.component';
 import { PersonEditComponent } from './person/person-edit/person-edit.component';
 import { PersonCreateComponent } from './person/person-create/person-create.component';
+import { FormsModule } from '@angular/forms';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,9 @@ import { PersonCreateComponent } from './person/person-create/person-create.comp
     PersonEditComponent,
     PersonComponent,
     PersonCreateComponent,
+    AboutComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

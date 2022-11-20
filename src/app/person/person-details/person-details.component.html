@@ -1,19 +1,20 @@
-<p>person-details works!</p>
-
 <div *ngIf="personExists">
   <img src="{{ person?.image }}" />
-  <h3>Details:</h3>
+  <h3 class="mt-3">Details:</h3>
   <p>
-    {{ person?.id }}<br />
-    {{ person?.name }}<br />
-    {{ person?.birthday }}<br />
-    {{ person?.gender }}
+    <b>Id:</b> {{ person!.id }}<br />
+    <b>Naam:</b> {{ person!.name }}<br />
+    <b>Geboren:</b> {{ dateToString(person!.birthday!) }}<br />
+    <b>Overleden:</b> {{ dateToString(person!.deathday!) }} <br />
+    <b>Geslacht:</b> {{ person!.gender }}
   </p>
-  <a routerLink="edit">Edit</a>
-  <a routerLink="..">Back</a>
+  <a routerLink="edit" class="btn btn-primary">Wijzig</a>
+  <a routerLink=".." class="btn btn-secondary ms-2">Terug</a>
 </div>
 
 <div *ngIf="!personExists">
-  <span>Person with id: {{ componentId }} does not exists</span>
-  <a routerLink="..">Back</a>
+  <span class="danger text-danger"
+    >Person with id: {{ componentId }} does not exists</span
+  ><br />
+  <a routerLink=".." class="btn btn-primary mt-2">Terug</a>
 </div>
