@@ -11,6 +11,7 @@ import { PersonEditComponent } from './person/person-edit/person-edit.component'
 import { PersonCreateComponent } from './person/person-create/person-create.component';
 import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AboutComponent } from './about/about.component';
     PersonComponent,
     PersonCreateComponent,
     AboutComponent,
+    UserComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

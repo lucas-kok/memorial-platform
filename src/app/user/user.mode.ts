@@ -1,10 +1,11 @@
 import { Gender } from '../shared/gender.model';
 
-export class Person {
+export class User {
   id: string | undefined;
   name: string | undefined;
+  email: string | undefined;
+  password: string | undefined;
+  phoneNumber: string | undefined;
   birthday: Date | undefined;
-  deathday: Date | undefined;
   gender: Gender | undefined;
-  image: string | undefined;
 }
