@@ -17,6 +17,6 @@ export class PersonComponent {
   }
 
   dateToString(date: Date): string {
-    return date.toLocaleDateString();
+    return new Date(date).toLocaleDateString();
   }
 }
