@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Gender, Person } from './person.model';
+import { Person } from './person.model';
 import { PersonService } from './person.service';
 
 @Component({

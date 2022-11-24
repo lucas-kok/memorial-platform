@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Gender, Person } from '../person.model';
+import { Gender } from 'src/app/shared/gender.model';
+import { Person } from '../person.model';
 import { PersonService } from '../person.service';
 
 @Component({

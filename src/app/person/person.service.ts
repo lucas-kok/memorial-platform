@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Gender, Person } from './person.model';
+import { Gender } from '../shared/gender.model';
+import { Person } from './person.model';
 
 @Injectable({
   providedIn: 'root',
