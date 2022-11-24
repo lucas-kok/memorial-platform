@@ -14,7 +14,8 @@
     <!-- Birthday -->
     <div class="form-group">
       <label for="birthday">Geboren</label>
-      <input required type="date" name="birthday" id="birthday" class="form-control" [ngModel]="person!.birthday"
+      <input required type="date" name="birthday" id="birthday" class="form-control"
+        [ngModel]="person!.birthday | date:'yyyy-MM-dd'" (ngModelChange)="person!.birthday = $event"
         #birthday="ngModel" />
     </div>
     <div class="alert alert-danger" *ngIf="birthday.touched && !birthday.valid">
