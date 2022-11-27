@@ -22,7 +22,7 @@ export class UserService {
     return this.users;
   }
 
-  getUserById(id: string): User | null {
+  getUserById(id: string): User {
     return this.users.filter((user: User) => user.id == id)[0];
   }
 
