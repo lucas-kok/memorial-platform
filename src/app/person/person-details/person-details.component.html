@@ -1,5 +1,5 @@
 <div *ngIf="personExists">
-  <img src="{{ person?.image }}" />
+  <img src="{{ person?.image }}" class="profile-image" />
   <h3 class="mt-3">Details:</h3>
   <p>
     <b>Id:</b> {{ person!.id }}<br />
@@ -13,8 +13,6 @@
 </div>
 
 <div *ngIf="!personExists">
-  <span class="danger text-danger"
-    >Person with id: {{ componentId }} does not exists</span
-  ><br />
+  <span class="danger text-danger">Person with id: {{ componentId }} does not exists</span><br />
   <a routerLink=".." class="btn btn-primary mt-2">Terug</a>
 </div>
