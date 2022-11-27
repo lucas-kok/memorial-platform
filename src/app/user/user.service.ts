@@ -18,7 +18,7 @@ export class UserService {
     },
   ];
 
-  getAllUsers(): User[] | null {
+  getAllUsers(): User[] {
     return this.users;
   }
 
