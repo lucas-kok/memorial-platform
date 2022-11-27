@@ -10,6 +10,7 @@
             <th scope="col">Tel</th>
             <th scope="col">Geboren</th>
             <th scope="col">Geslacht</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
             <td>{{ user.phoneNumber }}</td>
             <td>{{ dateToString(user.birthday!) }}</td>
             <td>{{ user.gender }}</td>
+            <td><a routerLink=" {{ user.id }}" class="btn btn-secondary">Details</a></td>
         </tr>
     </tbody>
 </table>
