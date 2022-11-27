@@ -12,6 +12,7 @@ import { PersonCreateComponent } from './person/person-create/person-create.comp
 import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
 import { UserComponent } from './user/user.component';
+import { UserCreateComponent } from './user/user-create/user-create.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { UserComponent } from './user/user.component';
     PersonCreateComponent,
     AboutComponent,
     UserComponent,
+    UserCreateComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
