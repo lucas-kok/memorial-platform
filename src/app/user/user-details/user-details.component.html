@@ -9,7 +9,8 @@
         <b>Geboren:</b> {{ user!.birthday }}<br />
         <b>Geslacht:</b> {{ user!.gender }}<br />
     </p>
-    <a routerLink=".." class="btn btn-secondary">Terug</a>
+    <a routerLink="edit" class="btn btn-primary">Wijzig</a>
+    <a routerLink=".." class="btn btn-secondary ms-2">Terug</a>
 </div>
 
 <div *ngIf="!userExists">
