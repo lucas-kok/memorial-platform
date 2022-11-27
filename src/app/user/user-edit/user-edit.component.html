@@ -61,9 +61,12 @@
             </select>
         </div>
 
-        <div class="mt-5">
-            <button type="submit" class="btn btn-primary">Registreer</button>
-            <a routerLink=".." class="btn btn-secondary ms-2">Annuleer</a>
+        <div class="mt-5 d-flex flex-row">
+            <button type="submit" class="btn btn-primary">Wijzigen</button>
+            <form name="deleteForm" (ngSubmit)="onDelete()">
+                <button type="submit" class="btn btn-danger ms-2">Verwijderen</button>
+            </form>
+            <a routerLink=".." class="btn btn-secondary ms-2">Terug</a>
         </div>
     </form>
 
