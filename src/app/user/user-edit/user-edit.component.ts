@@ -11,7 +11,7 @@ import { UserService } from '../user.service';
 })
 export class UserEditComponent {
   componentId: string | null | undefined;
-  componentExists: boolean = false;
+  userExists: boolean = false;
   user: User | undefined;
   genders: string[] | undefined;
 
@@ -27,7 +27,7 @@ export class UserEditComponent {
 
       this.user = this.userService.getUserById(this.componentId);
 
-      if (this.user != null) this.componentExists = true;
+      if (this.user != null) this.userExists = true;
     });
   }
 

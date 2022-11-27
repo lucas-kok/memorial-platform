@@ -7,6 +7,7 @@ import { PersonEditComponent } from './person/person-edit/person-edit.component'
 import { PersonComponent } from './person/person.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserDetailsComponent } from './user/user-details/user-details.component';
+import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'users', pathMatch: 'full', component: UserComponent },
   { path: 'users/create', pathMatch: 'full', component: UserCreateComponent },
   { path: 'users/:id', pathMatch: 'full', component: UserDetailsComponent },
+  { path: 'users/:id/edit', pathMatch: 'full', component: UserEditComponent },
 ];
 
 @NgModule({
