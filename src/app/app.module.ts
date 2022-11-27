@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
 import { UserComponent } from './user/user.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
+import { UserDetailsComponent } from './user/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
     AboutComponent,
     UserComponent,
     UserCreateComponent,
+    UserDetailsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
