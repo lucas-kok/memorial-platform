@@ -14,6 +14,7 @@ import { AboutComponent } from './about/about.component';
 import { UserComponent } from './user/user.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserDetailsComponent } from './user/user-details/user-details.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UserDetailsComponent } from './user/user-details/user-details.component
     UserComponent,
     UserCreateComponent,
     UserDetailsComponent,
+    UserEditComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
