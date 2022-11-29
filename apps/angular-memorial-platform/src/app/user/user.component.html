@@ -1,0 +1,28 @@
+<h2>Users</h2>
+<a routerLink="create" class="btn btn-primary mt-3">Registreer</a>
+<table class="table mt-2">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Naam</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">Tel</th>
+            <th scope="col">Geboren</th>
+            <th scope="col">Geslacht</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users" scope="row">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.password }}</td>
+            <td>{{ user.phoneNumber }}</td>
+            <td>{{ dateToString(user.birthday!) }}</td>
+            <td>{{ user.gender }}</td>
+            <td><a routerLink="{{ user.id }}" class="btn btn-secondary">Details</a></td>
+        </tr>
+    </tbody>
+</table>

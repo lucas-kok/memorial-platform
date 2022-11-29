@@ -1,0 +1,18 @@
+<div *ngIf="personExists">
+  <img src="{{ person?.image }}" class="profile-image" />
+  <h3 class="mt-3">Details:</h3>
+  <p>
+    <b>Id:</b> {{ person!.id }}<br />
+    <b>Naam:</b> {{ person!.name }}<br />
+    <b>Geboren:</b> {{ dateToString(person!.birthday!) }}<br />
+    <b>Overleden:</b> {{ dateToString(person!.deathday!) }} <br />
+    <b>Geslacht:</b> {{ person!.gender }}
+  </p>
+  <a routerLink="edit" class="btn btn-primary">Wijzig</a>
+  <a routerLink=".." class="btn btn-secondary ms-2">Terug</a>
+</div>
+
+<div *ngIf="!personExists">
+  <span class="danger text-danger">Person with id: {{ componentId }} does not exists</span><br />
+  <a routerLink=".." class="btn btn-primary mt-2">Terug</a>
+</div>

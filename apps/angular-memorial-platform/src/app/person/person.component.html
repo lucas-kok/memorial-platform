@@ -1,0 +1,29 @@
+<h2>Personen:</h2>
+<a routerLink="create" class="btn btn-primary mt-3">Create</a>
+<table class="table mt-2">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Naam</th>
+            <th scope="col">Geboren</th>
+            <th scope="col">Overleden</th>
+            <th scope="col">Geslacht</th>
+            <th scope="col">Afbeelding</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let person of persons" scope="row">
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ dateToString(person.birthday!) }}</td>
+            <td>{{ dateToString(person.deathday!) }}</td>
+            <td>{{ person.gender }}</td>
+            <td><img src="{{ person.image }}" class="profile-image-avatar" /></td>
+            <td>
+                <a routerLink="{{ person.id }}" class="btn btn-secondary">Details</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

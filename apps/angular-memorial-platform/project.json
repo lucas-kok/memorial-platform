@@ -1,0 +1,95 @@
+{
+  "name": "angular-memorial-platform",
+  "projectType": "application",
+  "generators": {},
+  "sourceRoot": "apps/angular-memorial-platform/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/angular-memorial-platform",
+        "index": "apps/angular-memorial-platform/src/index.html",
+        "main": "apps/angular-memorial-platform/src/main.ts",
+        "polyfills": [
+          "zone.js"
+        ],
+        "tsConfig": "apps/angular-memorial-platform/tsconfig.app.json",
+        "assets": [
+          "apps/angular-memorial-platform/src/favicon.ico",
+          "apps/angular-memorial-platform/src/assets"
+        ],
+        "styles": [
+          "apps/angular-memorial-platform/src/styles.css",
+          "node_modules/bootstrap/dist/css/bootstrap.css",
+          "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+        ],
+        "scripts": [
+          "node_modules/bootstrap/dist/js/bootstrap.js"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "angular-memorial-platform:build:production"
+        },
+        "development": {
+          "browserTarget": "angular-memorial-platform:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "angular-memorial-platform:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "polyfills": [
+          "zone.js",
+          "zone.js/testing"
+        ],
+        "tsConfig": "apps/angular-memorial-platform/tsconfig.spec.json",
+        "assets": [
+          "apps/angular-memorial-platform/src/favicon.ico",
+          "apps/angular-memorial-platform/src/assets"
+        ],
+        "styles": [
+          "apps/angular-memorial-platform/src/styles.css"
+        ],
+        "scripts": []
+      }
+    }
+  }
+}

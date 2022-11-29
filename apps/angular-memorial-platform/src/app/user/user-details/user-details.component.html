@@ -1,0 +1,19 @@
+<div *ngIf="userExists">
+    <h3>Details</h3>
+    <p>
+        <b>Id:</b> {{ user!.id }}<br />
+        <b>Naam:</b> {{ user!.name }}<br />
+        <b>Email:</b> {{ user!.email }}<br />
+        <b>Password:</b> {{ user!.password }}<br />
+        <b>Tel:</b> {{ user!.phoneNumber }}<br />
+        <b>Geboren:</b> {{ user!.birthday }}<br />
+        <b>Geslacht:</b> {{ user!.gender }}<br />
+    </p>
+    <a routerLink="edit" class="btn btn-primary">Wijzig</a>
+    <a routerLink=".." class="btn btn-secondary ms-2">Terug</a>
+</div>
+
+<div *ngIf="!userExists">
+    <span class="danger text-danger">User met id: {{ componentId }} bestaat niet</span><br />
+    <a routerLink=".." class="btn btn-primary mt-2">Terug</a>
+</div>
