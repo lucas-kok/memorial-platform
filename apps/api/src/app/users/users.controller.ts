@@ -1,14 +1,40 @@
-import { Controller, Delete, Get, Param, Post, Put, Res } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Logger,
+  Param,
+  Post,
+  Put,
+  Req,
+  Res,
+} from '@nestjs/common';
 import { User } from './user.model';
 import { UsersService } from './users.service';
 import { Response } from 'express';
+import { json } from 'stream/consumers';
+import { CreateUserDto } from './user.dto';
 
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
+  @Post()
+  addUser(@Body() createUserDto: CreateUserDto, @Res() res: Response) {
+    Logger.log('AddUser called with {' + JSON.stringify(createUserDto) + '}');
+
+    let user = this.usersService.addUser(createUserDto);
+    res.status(201).json({
+      status: 201,
+      result: user,
+    });
+    return 'addUser called';
+  }
+
   @Get()
   getAllUsers(@Res() res: Response) {
+    Logger.log('GetAllUsers called');
     let users = this.usersService.getAllUsers();
 
     res.status(200).json({
@@ -19,6 +45,7 @@ export class UsersController {
 
   @Get(':id')
   getUserById(@Param('id') id: string, @Res() res: Response) {
+    Logger.log('GetUserById called with id {' + id + '}');
     let user: User | null = this.usersService.getUserById(id);
 
     if (user == null) {
@@ -34,18 +61,15 @@ export class UsersController {
     });
   }
 
-  @Post()
-  addUser(): string {
-    return 'addUser called';
-  }
-
   @Put()
   updateUser(): string {
+    Logger.log('UpdateUser called');
     return 'updateUser called';
   }
 
   @Delete(':id')
   removeUser(@Param('id') id: string, @Res() res: Response) {
+    Logger.log('RemoveUser called with id {' + id + '}');
     let user: User | null = this.usersService.getUserById(id);
 
     if (user == null) {
@@ -64,4 +88,7 @@ export class UsersController {
 
     return 'removeUser called';
   }
+}
+function ApiBody(arg0: { type: any }) {
+  throw new Error('Function not implemented.');
 }
