@@ -9,6 +9,3 @@ export class CreateUserDto {
   birthday: Date | undefined;
   gender: Gender | undefined;
 }
-function IsNotEmpty() {
-  throw new Error('Function not implemented.');
-}
