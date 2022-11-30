@@ -7,7 +7,7 @@ import {
   Equals,
 } from 'class-validator';
 
-export class CreateUserDto {
+export class UserDto {
   @IsNotEmpty()
   @IsString()
   readonly name: string | undefined;

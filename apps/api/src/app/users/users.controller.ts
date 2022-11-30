@@ -13,15 +13,14 @@ import {
 import { User } from './user.model';
 import { UsersService } from './users.service';
 import { Response } from 'express';
-import { json } from 'stream/consumers';
-import { CreateUserDto } from './user.dto';
+import { UserDto } from './user.dto';
 
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Post()
-  addUser(@Body() createUserDto: CreateUserDto, @Res() res: Response) {
+  addUser(@Body() createUserDto: UserDto, @Res() res: Response) {
     Logger.log('AddUser called with {' + JSON.stringify(createUserDto) + '}');
 
     let user = this.usersService.addUser(createUserDto);

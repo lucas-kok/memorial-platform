@@ -1,6 +1,6 @@
 import { createHash, Hash, randomBytes, randomInt } from 'crypto';
 import { Gender } from '../shared/gender.model';
-import { CreateUserDto } from './user.dto';
+import { UserDto } from './user.dto';
 import { User } from './user.model';
 
 export class UsersService {
@@ -17,7 +17,7 @@ export class UsersService {
     },
   ];
 
-  addUser(userDto: CreateUserDto): User {
+  addUser(userDto: UserDto): User {
     this.idCounter++;
     const user: User = {
       id: this.idCounter.toString(),
