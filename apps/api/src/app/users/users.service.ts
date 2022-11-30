@@ -1,8 +1,6 @@
-import { Injectable } from '@angular/core';
 import { Gender } from '../shared/gender.model';
 import { User } from './user.model';
 
-@Injectable()
 export class UsersService {
   users: User[] = [
     {
