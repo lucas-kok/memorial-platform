@@ -21,14 +21,14 @@ export class UsersController {
 
   @Post()
   addUser(@Body() createUserDto: UserDto, @Res() res: Response) {
-    Logger.log('AddUser called with {' + JSON.stringify(createUserDto) + '}');
+    Logger.log('AddUser called');
+    Logger.log(createUserDto);
 
     let user = this.usersService.addUser(createUserDto);
     res.status(201).json({
       status: 201,
       result: user,
     });
-    return 'addUser called';
   }
 
   @Get()
@@ -61,7 +61,7 @@ export class UsersController {
   }
 
   @Put()
-  updateUser(): string {
+  updateUser() {
     Logger.log('UpdateUser called');
     return 'updateUser called';
   }
