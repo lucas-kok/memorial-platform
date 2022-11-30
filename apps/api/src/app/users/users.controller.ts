@@ -25,7 +25,7 @@ export class UsersController {
     Logger.log(userDto);
 
     let user = this.usersService.addUser(userDto);
-    res.status(201).json({
+    return res.status(201).json({
       status: 201,
       result: user,
     });
@@ -36,7 +36,7 @@ export class UsersController {
     Logger.log('[GET]/users called');
     let users = this.usersService.getAllUsers();
 
-    res.status(200).json({
+    return res.status(200).json({
       status: 200,
       result: users,
     });
@@ -48,13 +48,13 @@ export class UsersController {
     let user: User | null = this.usersService.getUserById(id);
 
     if (user == null) {
-      res.status(404).json({
+      return res.status(404).json({
         status: 404,
         error: 'User with id {' + id + '} not found',
       });
     }
 
-    res.status(200).json({
+    return res.status(200).json({
       status: 200,
       result: user,
     });
@@ -70,7 +70,7 @@ export class UsersController {
     Logger.log(userDto);
 
     let user = this.usersService.updateUser(id, userDto);
-    res.status(201).json({
+    return res.status(201).json({
       status: 201,
       result: user,
     });
@@ -82,7 +82,7 @@ export class UsersController {
     let user: User | null = this.usersService.getUserById(id);
 
     if (user == null) {
-      res.status(404).json({
+      return res.status(404).json({
         status: 404,
         error: 'User with id {' + id + '} not found',
       });
@@ -90,11 +90,9 @@ export class UsersController {
 
     this.usersService.removeUserById(id);
 
-    res.status(200).json({
+    return res.status(200).json({
       status: 200,
       message: 'User with id {' + id + '} deleted',
     });
-
-    return 'removeUser called';
   }
 }
