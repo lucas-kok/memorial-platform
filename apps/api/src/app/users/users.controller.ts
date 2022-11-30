@@ -24,7 +24,7 @@ export class UsersController {
     if (user == null) {
       res.status(404).json({
         status: 404,
-        error: 'User with id: ' + id + ' not found',
+        error: 'User with id {' + id + '} not found',
       });
     }
 
@@ -44,8 +44,24 @@ export class UsersController {
     return 'updateUser called';
   }
 
-  @Delete()
-  removeUser(): string {
+  @Delete(':id')
+  removeUser(@Param('id') id: string, @Res() res: Response) {
+    let user: User | null = this.usersService.getUserById(id);
+
+    if (user == null) {
+      res.status(404).json({
+        status: 404,
+        error: 'User with id {' + id + '} not found',
+      });
+    }
+
+    this.usersService.removeUserById(id);
+
+    res.status(200).json({
+      status: 200,
+      message: 'User with id {' + id + '} deleted',
+    });
+
     return 'removeUser called';
   }
 }

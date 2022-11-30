@@ -32,10 +32,9 @@ export class UsersService {
     this.addUser(user);
   }
 
+  // Validation of user existing happens in Controller
   removeUserById(id: string) {
-    let user: User | null = this.getUserById(id);
-    if (user == null) return;
-
+    let user: User = this.getUserById(id)!;
     let index = this.users.indexOf(user, 0);
 
     this.users.splice(index, 1);
