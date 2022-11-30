@@ -1,4 +1,19 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
 
 @Controller()
-export class UsersController {}
+export class UsersController {
+  @Get()
+  getAllUsers() {}
+
+  @Get()
+  getUserById() {}
+
+  @Post()
+  addUser() {}
+
+  @Put()
+  updateUser() {}
+
+  @Delete()
+  removeUser() {}
+}
