@@ -1,11 +1,23 @@
 import { Gender } from '../shared/gender.model';
+import { IsNotEmpty, IsEmail } from 'class-validator';
 
 export class CreateUserDto {
   @IsNotEmpty()
   readonly name: string | undefined;
-  email: string | undefined;
-  password: string | undefined;
-  phoneNumber: string | undefined;
-  birthday: Date | undefined;
-  gender: Gender | undefined;
+
+  @IsNotEmpty()
+  @IsEmail()
+  readonly email: string | undefined;
+
+  @IsNotEmpty()
+  readonly password: string | undefined;
+
+  @IsNotEmpty()
+  readonly phoneNumber: string | undefined;
+
+  @IsNotEmpty()
+  readonly birthday: Date | undefined;
+
+  @IsNotEmpty()
+  readonly gender: Gender | undefined;
 }
