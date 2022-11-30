@@ -1,10 +1,14 @@
 import { Gender } from '../shared/gender.model';
 
 export class CreateUserDto {
-  name: string | undefined;
+  @IsNotEmpty()
+  readonly name: string | undefined;
   email: string | undefined;
   password: string | undefined;
   phoneNumber: string | undefined;
   birthday: Date | undefined;
   gender: Gender | undefined;
+}
+function IsNotEmpty() {
+  throw new Error('Function not implemented.');
 }
