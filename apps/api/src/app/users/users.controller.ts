@@ -20,11 +20,11 @@ export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Post()
-  addUser(@Body() createUserDto: UserDto, @Res() res: Response) {
+  addUser(@Body() userDto: UserDto, @Res() res: Response) {
     Logger.log('AddUser called');
-    Logger.log(createUserDto);
+    Logger.log(userDto);
 
-    let user = this.usersService.addUser(createUserDto);
+    let user = this.usersService.addUser(userDto);
     res.status(201).json({
       status: 201,
       result: user,
