@@ -60,10 +60,20 @@ export class UsersController {
     });
   }
 
-  @Put()
-  updateUser() {
+  @Put(':id')
+  updateUser(
+    @Param('id') id: string,
+    @Body() userDto: UserDto,
+    @Res() res: Response
+  ) {
     Logger.log('UpdateUser called');
-    return 'updateUser called';
+    Logger.log(userDto);
+
+    let user = this.usersService.updateUser(id, userDto);
+    res.status(201).json({
+      status: 201,
+      result: user,
+    });
   }
 
   @Delete(':id')

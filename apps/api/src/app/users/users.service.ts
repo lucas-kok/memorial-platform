@@ -36,11 +36,14 @@ export class UsersService {
     return this.users.filter((user: User) => user.id == id)[0];
   }
 
-  updateUser(user: User) {
-    if (user == null) return;
+  updateUser(id: string, userDto: UserDto) {
+    const user: User = {
+      id,
+      ...userDto,
+    };
 
     this.removeUserById(user.id!);
-    this.addUser(user);
+    return this.addUser(user);
   }
 
   // Validation of user existing happens in Controller
