@@ -88,6 +88,3 @@ export class UsersController {
     return 'removeUser called';
   }
 }
-function ApiBody(arg0: { type: any }) {
-  throw new Error('Function not implemented.');
-}
