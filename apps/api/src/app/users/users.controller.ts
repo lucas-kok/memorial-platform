@@ -8,8 +8,13 @@ export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Get()
-  getAllUsers(): string {
-    return 'getAllUsers called';
+  getAllUsers(@Res() res: Response) {
+    let users = this.usersService.getAllUsers();
+
+    res.status(200).json({
+      status: 200,
+      result: users,
+    });
   }
 
   @Get(':id')
@@ -24,7 +29,7 @@ export class UsersController {
     }
 
     res.status(200).json({
-      status: 201,
+      status: 200,
       result: user,
     });
   }
