@@ -7,22 +7,28 @@ import {
   Param,
   Post,
   Put,
-  Req,
   Res,
 } from '@nestjs/common';
 import { User } from './user.model';
 import { UsersService } from './users.service';
 import { Response } from 'express';
 import { UserDto } from './user.dto';
+import * as bcrypt from 'bcrypt';
 
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Post()
-  addUser(@Body() userDto: UserDto, @Res() res: Response) {
+  async addUser(@Body() userDto: UserDto, @Res() res: Response) {
     Logger.log('[POST]/users called');
     Logger.log(userDto);
+
+    const saltOrRounds = 10;
+    userDto.passwordHash = await bcrypt.hash(
+      userDto.passwordHash!,
+      saltOrRounds
+    );
 
     let user = this.usersService.addUser(userDto);
     return res.status(201).json({
