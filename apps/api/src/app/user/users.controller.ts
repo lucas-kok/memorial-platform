@@ -21,7 +21,7 @@ export class UsersController {
 
   @Post()
   async addUser(@Body() userDto: UserDto, @Res() res: Response) {
-    Logger.log('[POST]/users called');
+    Logger.log('[UsersController][POST]/users called');
     Logger.log(userDto);
 
     const saltOrRounds = 10;
@@ -30,7 +30,7 @@ export class UsersController {
       saltOrRounds
     );
 
-    let user = this.usersService.addUser(userDto);
+    const user: User = await this.usersService.addUser(userDto);
     return res.status(201).json({
       status: 201,
       result: user,
@@ -38,9 +38,9 @@ export class UsersController {
   }
 
   @Get()
-  getAllUsers(@Res() res: Response) {
-    Logger.log('[GET]/users called');
-    let users = this.usersService.getAllUsers();
+  async getAllUsers(@Res() res: Response) {
+    Logger.log('[UsersController][GET]/users called');
+    const users: User[] = await this.usersService.getAllUsers();
 
     return res.status(200).json({
       status: 200,
@@ -50,7 +50,7 @@ export class UsersController {
 
   @Get(':id')
   getUserById(@Param('id') id: string, @Res() res: Response) {
-    Logger.log('[GET]/users/' + id + ' called');
+    Logger.log('[UsersController][GET]/users/' + id + ' called');
     let user: User | null = this.usersService.getUserById(id);
 
     if (user == null) {
@@ -72,7 +72,7 @@ export class UsersController {
     @Body() userDto: UserDto,
     @Res() res: Response
   ) {
-    Logger.log('[PUT]/users/' + id + ' called');
+    Logger.log('[UsersController][PUT]/users/' + id + ' called');
     Logger.log(userDto);
 
     let user = this.usersService.updateUser(id, userDto);
@@ -84,7 +84,7 @@ export class UsersController {
 
   @Delete(':id')
   removeUser(@Param('id') id: string, @Res() res: Response) {
-    Logger.log('[DELETE]/users/' + id + ' called');
+    Logger.log('[UsersController][DELETE]/users/' + id + ' called');
     let user: User | null = this.usersService.getUserById(id);
 
     if (user == null) {

@@ -1,6 +1,6 @@
 import { Gender } from '../shared/gender.model';
 import { UserDto } from './user.dto';
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User, UserDocument } from './user.model';
@@ -25,11 +25,16 @@ export class UsersService {
   ) {}
 
   addUser(userDto: UserDto): Promise<User> {
+    Logger.log('[UsersService] addUser called');
+    Logger.log(userDto);
+
     return this.userModel.create(userDto);
   }
 
-  getAllUsers(): User[] {
-    return this.users;
+  async getAllUsers(): Promise<User[]> {
+    Logger.log('[UsersSerivce] getAllUsers called');
+
+    return await this.userModel.find();
   }
 
   getUserById(id: string): User | null {
