@@ -1,8 +1,11 @@
-import { createHash, Hash, randomBytes, randomInt } from 'crypto';
 import { Gender } from '../shared/gender.model';
 import { UserDto } from './user.dto';
-import { User } from './user.model';
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { User, UserDocument } from './user.model';
 
+@Injectable()
 export class UsersService {
   idCounter = 1;
   users: User[] = [
@@ -16,6 +19,8 @@ export class UsersService {
       gender: Gender.male,
     },
   ];
+
+  constructor() {}
 
   addUser(userDto: UserDto): User {
     this.idCounter++;
