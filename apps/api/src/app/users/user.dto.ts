@@ -4,7 +4,7 @@ import {
   IsEmail,
   IsString,
   IsDateString,
-  Equals,
+  IsIn,
 } from 'class-validator';
 
 export class UserDto {
@@ -30,6 +30,6 @@ export class UserDto {
   readonly birthday: Date | undefined;
 
   @IsNotEmpty()
-  @Equals('male' || 'female')
+  @IsIn(['male', 'female'])
   gender: Gender | undefined;
 }
