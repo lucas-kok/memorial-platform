@@ -24,15 +24,8 @@ export class UsersService {
     @InjectModel('user') private readonly userModel: Model<UserDocument>
   ) {}
 
-  addUser(userDto: UserDto): User {
-    this.idCounter++;
-    const user: User = {
-      id: this.idCounter.toString(),
-      ...userDto,
-    };
-    this.users.push(user);
-
-    return user;
+  addUser(userDto: UserDto): Promise<User> {
+    return this.userModel.create(userDto);
   }
 
   getAllUsers(): User[] {
