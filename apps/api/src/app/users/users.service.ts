@@ -10,7 +10,7 @@ export class UsersService {
       id: '1',
       name: 'Lucas Kok',
       email: 'lucas.kok@hotmail.nl',
-      password: 'Secret!123',
+      passwordHash: 'Secret!123',
       phoneNumber: '0640052439',
       birthday: new Date('09-01-2005'),
       gender: Gender.male,
