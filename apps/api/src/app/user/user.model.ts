@@ -6,25 +6,25 @@ export type UserDocument = User & Document;
 
 @Schema()
 export class User {
-  @Prop()
+  @Prop({ type: 'string' })
   id: string | undefined;
 
-  @Prop()
+  @Prop({ type: 'string' })
   name: string | undefined;
 
-  @Prop()
+  @Prop({ type: 'string' })
   email: string | undefined;
 
-  @Prop()
+  @Prop({ type: 'string' })
   passwordHash: string | undefined;
 
-  @Prop()
+  @Prop({ type: 'string' })
   phoneNumber: string | undefined;
 
-  @Prop()
+  @Prop({ type: 'Date' })
   birthday: Date | undefined;
 
-  @Prop()
+  @Prop({ type: 'string' })
   gender: Gender | undefined;
 }
 

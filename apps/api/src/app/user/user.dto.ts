@@ -33,3 +33,13 @@ export class UserDto {
   @IsIn(['male', 'female'])
   gender: Gender | undefined;
 }
+
+export class UserLoginDto {
+  @IsNotEmpty()
+  @IsString()
+  readonly email: string | undefined;
+
+  @IsNotEmpty()
+  @IsString()
+  readonly password: string | undefined;
+}

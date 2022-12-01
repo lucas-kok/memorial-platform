@@ -36,6 +36,10 @@ export class UsersService {
     return this.users.filter((user: User) => user.id == id)[0];
   }
 
+  getUserByEmail(email: string): User | null {
+    return this.users.filter((user: User) => user.email == email)[0];
+  }
+
   updateUser(id: string, userDto: UserDto) {
     const user: User = {
       id,
