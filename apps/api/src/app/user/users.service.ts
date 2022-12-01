@@ -20,7 +20,9 @@ export class UsersService {
     },
   ];
 
-  constructor() {}
+  constructor(
+    @InjectModel('user') private readonly userModel: Model<UserDocument>
+  ) {}
 
   addUser(userDto: UserDto): User {
     this.idCounter++;
