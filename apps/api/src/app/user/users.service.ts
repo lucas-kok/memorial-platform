@@ -2,7 +2,7 @@ import { Gender } from '../shared/gender.model';
 import { UserDto } from './user.dto';
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { User, UserDocument } from './user.model';
 
 @Injectable()
@@ -37,8 +37,10 @@ export class UsersService {
     return await this.userModel.find();
   }
 
-  getUserById(id: string): User | null {
-    return this.users.filter((user: User) => user.id == id)[0];
+  async getUserById(id: string): Promise<User | null> {
+    Logger.log('[UsersServices] getUserById(' + id + ') called');
+
+    return await this.userModel.findById({ _id: new Types.ObjectId(id) });
   }
 
   getUserByEmail(email: string): User | null {
@@ -57,9 +59,8 @@ export class UsersService {
 
   // Validation of user existing happens in Controller
   removeUserById(id: string) {
-    let user: User = this.getUserById(id)!;
-    let index = this.users.indexOf(user, 0);
-
-    this.users.splice(index, 1);
+    // let user: User = this.getUserById(id)!;
+    // let index = this.users.indexOf(user, 0);
+    // this.users.splice(index, 1);
   }
 }

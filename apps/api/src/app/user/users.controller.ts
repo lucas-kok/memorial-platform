@@ -49,9 +49,9 @@ export class UsersController {
   }
 
   @Get(':id')
-  getUserById(@Param('id') id: string, @Res() res: Response) {
+  async getUserById(@Param('id') id: string, @Res() res: Response) {
     Logger.log('[UsersController][GET]/users/' + id + ' called');
-    let user: User | null = this.usersService.getUserById(id);
+    const user: User | null = await this.usersService.getUserById(id);
 
     if (user == null) {
       return res.status(404).json({
@@ -82,23 +82,23 @@ export class UsersController {
     });
   }
 
-  @Delete(':id')
-  removeUser(@Param('id') id: string, @Res() res: Response) {
-    Logger.log('[UsersController][DELETE]/users/' + id + ' called');
-    let user: User | null = this.usersService.getUserById(id);
+  // @Delete(':id')
+  // async removeUser(@Param('id') id: string, @Res() res: Response) {
+  //   Logger.log('[UsersController][DELETE]/users/' + id + ' called');
+  //   const user: User | null = this.usersService.getUserById(id);
 
-    if (user == null) {
-      return res.status(404).json({
-        status: 404,
-        error: 'User with id {' + id + '} not found',
-      });
-    }
+  //   if (user == null) {
+  //     return res.status(404).json({
+  //       status: 404,
+  //       error: 'User with id {' + id + '} not found',
+  //     });
+  //   }
 
-    this.usersService.removeUserById(id);
+  //   this.usersService.removeUserById(id);
 
-    return res.status(200).json({
-      status: 200,
-      message: 'User with id {' + id + '} deleted',
-    });
-  }
+  //   return res.status(200).json({
+  //     status: 200,
+  //     message: 'User with id {' + id + '} deleted',
+  //   });
+  // }
 }
