@@ -26,6 +26,10 @@ export class AuthService {
       return null;
     }
 
+    Logger.log(
+      '[AuthSerice] User found with email: {' + userLoginDto.email + '}'
+    );
+
     const passwordValid = await bcrypt.compare(
       userLoginDto.password!,
       user.passwordHash!
