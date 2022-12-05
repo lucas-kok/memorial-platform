@@ -51,8 +51,9 @@ export class AuthService {
       sub: user.id,
     };
 
-    return {
-      acces_token: this.jwtService.sign(payload),
-    };
+    const jwtToken = this.jwtService.sign(payload);
+    Logger.log('[AuthService] JwtToken created: {' + jwtToken + '}');
+
+    return jwtToken;
   }
 }

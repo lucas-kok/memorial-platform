@@ -19,7 +19,7 @@ export class AuthController {
       });
     }
 
-    const result = this.authService.login(user);
+    const result = await this.authService.login(user);
     return res.status(200).json({
       status: 200,
       result: result,
