@@ -8,12 +8,14 @@ import {
   Post,
   Put,
   Res,
+  UseGuards,
 } from '@nestjs/common';
 import { User } from './user.model';
 import { UsersService } from './users.service';
 import { Response } from 'express';
 import { UserDto } from './user.dto';
 import * as bcrypt from 'bcrypt';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('users')
 export class UsersController {
@@ -37,6 +39,7 @@ export class UsersController {
     });
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   async getAllUsers(@Res() res: Response) {
     Logger.log('[UsersController][GET]/users called');
