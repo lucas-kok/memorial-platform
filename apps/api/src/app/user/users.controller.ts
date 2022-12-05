@@ -51,6 +51,7 @@ export class UsersController {
     });
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get(':id')
   async getUserById(@Param('id') id: string, @Res() res: Response) {
     Logger.log('[UsersController][GET]/users/' + id + ' called');
@@ -69,6 +70,7 @@ export class UsersController {
     });
   }
 
+  @UseGuards(JwtAuthGuard)
   @Put(':id')
   updateUser(
     @Param('id') id: string,
