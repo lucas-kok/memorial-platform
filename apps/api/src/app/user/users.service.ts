@@ -43,8 +43,10 @@ export class UsersService {
     return await this.userModel.findById({ _id: new Types.ObjectId(id) });
   }
 
-  getUserByEmail(email: string): User | null {
-    return this.users.filter((user: User) => user.email == email)[0];
+  async getUserByEmail(email: string): Promise<User | null> {
+    Logger.log('[UsersServices] getUserByEmail(' + email + ') called');
+
+    return await this.userModel.findOne({ email: email });
   }
 
   updateUser(id: string, userDto: UserDto) {
