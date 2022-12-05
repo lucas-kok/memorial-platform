@@ -1,4 +1,4 @@
-import { Injectable, NotAcceptableException } from '@nestjs/common';
+import { Injectable, Logger, NotAcceptableException } from '@nestjs/common';
 import { UsersService } from '../user/users.service';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
@@ -13,10 +13,16 @@ export class AuthService {
   ) {}
 
   async validateUser(userLoginDto: UserLoginDto): Promise<User | null> {
+    Logger.log('[AuthService] validateUser called');
+    Logger.log(userLoginDto);
+
     const user: User | null = await this.userService.getUserByEmail(
       userLoginDto.email!
     );
     if (!user) {
+      Logger.log(
+        '[AuthService] No user found with email: {' + userLoginDto.email + '}'
+      );
       return null;
     }
 
@@ -25,6 +31,11 @@ export class AuthService {
       user.passwordHash!
     );
     if (passwordValid) {
+      Logger.log(
+        '[AuthService] Invalid password for user with email: {' +
+          userLoginDto.email +
+          '}'
+      );
       return user;
     }
 
@@ -32,6 +43,9 @@ export class AuthService {
   }
 
   async login(user: User) {
+    Logger.log('[AuthService] login called');
+    Logger.log(user);
+
     const payload = {
       email: user.email,
       sub: user.id,
