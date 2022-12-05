@@ -8,18 +8,19 @@ import { UsersService } from '../user/users.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserSchema } from '../user/user.model';
 import { LocalStrategy } from './local.strategy';
+import { SessionSerializer } from './sessions.serializer';
 
 @Module({
   imports: [
     UsersModule,
-    PassportModule,
+    PassportModule.register({ session: true }),
     JwtModule.register({
       secret: 'secretKey',
       signOptions: { expiresIn: '60s' },
     }),
     MongooseModule.forFeature([{ name: 'user', schema: UserSchema }]),
   ],
-  providers: [AuthService, UsersService, LocalStrategy],
+  providers: [AuthService, UsersService, LocalStrategy, SessionSerializer],
   controllers: [AuthController],
 })
 export class AuthModule {}
