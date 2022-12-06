@@ -77,7 +77,7 @@ export class PersonsController {
       });
     }
 
-    if (person == null) {
+    if (!person) {
       return res.status(404).json({
         status: 404,
         error: 'Person with id: {' + id + '} not found',
@@ -108,7 +108,7 @@ export class PersonsController {
     }
 
     const findPerson = await this.personsService.getPersonById(id);
-    if (findPerson == null) {
+    if (!findPerson) {
       return res.status(404).json({
         status: 404,
         error: 'Person with id: {' + id + '} not found',
