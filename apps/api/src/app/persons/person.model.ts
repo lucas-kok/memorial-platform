@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Gender } from '../app/shared/gender.model';
+import { Gender } from '../shared/gender.model';
 
 export type PersonDocument = Person & Document;
 

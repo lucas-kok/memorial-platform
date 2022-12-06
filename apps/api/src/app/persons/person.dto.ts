@@ -1,5 +1,5 @@
 import { IsDateString, IsIn, IsNotEmpty, IsString } from 'class-validator';
-import { Gender } from '../app/shared/gender.model';
+import { Gender } from '../shared/gender.model';
 
 export class PersonDto {
   @IsNotEmpty()
