@@ -15,6 +15,7 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { PersonDto } from './person.dto';
 import { PersonsService } from './persons.service';
 import { IGetUserAuthInfoReqeust } from '../shared/auth.inforequest.interface';
+import { Person } from './person.model';
 
 @Controller('persons')
 export class PersonsController {
@@ -22,7 +23,7 @@ export class PersonsController {
 
   @UseGuards(JwtAuthGuard)
   @Post()
-  addPerson(
+  async addPerson(
     @Body() personDto: PersonDto,
     @Req() req: IGetUserAuthInfoReqeust,
     @Res() res: Response
@@ -32,7 +33,10 @@ export class PersonsController {
 
     const userId = req.user._id;
 
-    const person: Person = this.personsService.addPerson(personDto, userId);
+    const person: Person = await this.personsService.addPerson(
+      personDto,
+      userId
+    );
   }
 
   @UseGuards(JwtAuthGuard)
