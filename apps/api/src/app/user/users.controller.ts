@@ -25,7 +25,7 @@ export class UsersController {
     Logger.log('[UsersController][POST]/users called');
     Logger.log(userDto);
 
-    const findUser = await this.usersService.getUserByEmail(userDto.email);
+    const findUser = await this.usersService.getUserByEmail(userDto.email!);
     if (findUser) {
       return res.status(403).json({
         status: 403,
@@ -76,7 +76,7 @@ export class UsersController {
 
   @UseGuards(JwtAuthGuard)
   @Put(':id')
-  updateUser(
+  async updateUser(
     @Param('id') id: string,
     @Body() userDto: UserDto,
     @Req() req: Request,
@@ -85,10 +85,10 @@ export class UsersController {
     Logger.log('[UsersController][PUT]/users/' + id + ' called');
     Logger.log(userDto);
 
-    let user = this.usersService.updateUser(id, userDto);
+    let user = await this.usersService.updateUser(id, userDto);
     return res.status(201).json({
       status: 201,
-      result: req.user,
+      result: user,
     });
   }
 

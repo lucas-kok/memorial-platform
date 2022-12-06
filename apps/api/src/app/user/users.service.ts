@@ -49,14 +49,15 @@ export class UsersService {
     return await this.userModel.findOne({ email: email });
   }
 
-  updateUser(_id: string, userDto: UserDto) {
+  async updateUser(_id: string, userDto: UserDto): Promise<User | null> {
     const user: User = {
       _id,
       ...userDto,
     };
 
-    this.removeUserById(user._id!);
-    return this.addUser(user);
+    return await this.userModel.findOneAndUpdate({ _id: _id }, user, {
+      new: true,
+    });
   }
 
   // Validation of user existing happens in Controller
