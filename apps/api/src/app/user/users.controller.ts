@@ -34,8 +34,7 @@ export class UsersController {
       });
     }
 
-    const saltOrRounds = 10;
-    userDto.password = await bcrypt.hash(userDto.password!, saltOrRounds);
+    userDto.password = await this.hashPassword(userDto.password!);
 
     const user: User = await this.usersService.addUser(userDto);
     return res.status(201).json({
@@ -86,9 +85,27 @@ export class UsersController {
     Logger.log('[UsersController][PUT]/users/' + id + ' called');
     Logger.log(userDto);
 
-    Logger.log(req.user._id);
+    const requestId = req.user._id;
+    if (requestId != id) {
+      return res.status(403).json({
+        status: 403,
+        error: "You don't have permission to update this user",
+      });
+    }
 
-    let user = await this.usersService.updateUser(id, userDto);
+    if (req.user.email != userDto.email) {
+      const findUser = await this.usersService.getUserByEmail(userDto.email!);
+      if (findUser) {
+        return res.status(403).json({
+          status: 403,
+          error: 'The given email is already in use',
+        });
+      }
+    }
+
+    userDto.password = await this.hashPassword(userDto.password!);
+
+    const user = await this.usersService.updateUser(id, userDto);
     return res.status(201).json({
       status: 201,
       result: user,
@@ -114,4 +131,9 @@ export class UsersController {
   //     message: 'User with id {' + id + '} deleted',
   //   });
   // }
+
+  async hashPassword(password: string): Promise<string> {
+    const saltOrRounds = 10;
+    return await bcrypt.hash(password, saltOrRounds);
+  }
 }
