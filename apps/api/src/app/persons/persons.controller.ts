@@ -108,7 +108,7 @@ export class PersonsController {
     if (!IdValidator.validate(id)) {
       return res.status(400).json({
         status: 400,
-        error: 'Id must be a string of 12 bytes',
+        error: 'Id is not in a valid string format',
       });
     }
 
@@ -148,6 +148,13 @@ export class PersonsController {
   ) {
     Logger.log('[PersonsController][DELETE]/persons/' + id + ' called');
 
+    if (!IdValidator.validate(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Id is not in a valid string format',
+      });
+    }
+
     const findPerson = await this.personsService.getPersonById(id);
     if (!findPerson) {
       return res.status(404).json({
@@ -167,7 +174,7 @@ export class PersonsController {
     await this.personsService.removePersonById(id);
     return res.status(200).json({
       status: 200,
-      message: 'Person with id: {' + id + ' deleted',
+      message: 'Person with id: {' + id + '} deleted',
     });
   }
 }
