@@ -18,6 +18,7 @@ import { UserDto } from './user.dto';
 import * as bcrypt from 'bcrypt';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { IGetUserAuthInfoReqeust } from '../shared/auth.inforequest.interface';
+import { IdValidator } from '../shared/id.validator';
 
 @Controller('users')
 export class UsersController {
@@ -38,7 +39,7 @@ export class UsersController {
 
     userDto.password = await this.hashPassword(userDto.password!);
 
-    const user: User = await this.usersService.addUser(userDto);
+    const user = await this.usersService.addUser(userDto);
     return res.status(201).json({
       status: 201,
       result: user,
@@ -49,8 +50,8 @@ export class UsersController {
   @Get()
   async getAllUsers(@Res() res: Response) {
     Logger.log('[UsersController][GET]/users called');
-    const users: User[] = await this.usersService.getAllUsers();
 
+    const users = await this.usersService.getAllUsers();
     return res.status(200).json({
       status: 200,
       result: users,
@@ -61,9 +62,17 @@ export class UsersController {
   @Get(':id')
   async getUserById(@Param('id') id: string, @Res() res: Response) {
     Logger.log('[UsersController][GET]/users/' + id + ' called');
-    const user: User | null = await this.usersService.getUserById(id);
 
-    if (user == null) {
+    if (!IdValidator.validate(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Id must be a string of 12 bytes',
+      });
+    }
+
+    const user = await this.usersService.getUserById(id);
+
+    if (!user) {
       return res.status(404).json({
         status: 404,
         error: 'User with id {' + id + '} not found',
@@ -86,6 +95,13 @@ export class UsersController {
   ) {
     Logger.log('[UsersController][PUT]/users/' + id + ' called');
     Logger.log(userDto);
+
+    if (!IdValidator.validate(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Id must be a string of 12 bytes',
+      });
+    }
 
     const requestId = req.user._id;
     if (requestId != id) {
@@ -123,6 +139,13 @@ export class UsersController {
   ) {
     Logger.log('[UsersController][DELETE]/users/' + id + ' called');
 
+    if (!IdValidator.validate(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Id must be a string of 12 bytes',
+      });
+    }
+
     const requestId = req.user._id;
     if (requestId != id) {
       return res.status(403).json({
@@ -131,9 +154,9 @@ export class UsersController {
       });
     }
 
-    const user: User | null = await this.usersService.getUserById(id);
+    const user = await this.usersService.getUserById(id);
 
-    if (user == null) {
+    if (!user) {
       return res.status(404).json({
         status: 404,
         error: 'User with id {' + id + '} not found',
@@ -141,7 +164,6 @@ export class UsersController {
     }
 
     await this.usersService.removeUserById(id);
-
     return res.status(200).json({
       status: 200,
       message: 'User with id {' + id + '} deleted',
