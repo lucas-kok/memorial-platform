@@ -47,7 +47,24 @@ export class PersonsController {
 
   @UseGuards(JwtAuthGuard)
   @Get()
-  getAllPersonsFromUser(@Res() res: Response) {}
+  async getAllPersonsFromUser(
+    @Req() req: IGetUserAuthInfoReqeust,
+    @Res() res: Response
+  ) {
+    const userId = req.user._id;
+    Logger.log(
+      '[PersonsController][GET]/persons called for userId: {' + userId + '}'
+    );
+
+    const persons: Person[] = await this.personsService.getAllPersonsFromUser(
+      userId
+    );
+
+    return res.status(200).json({
+      status: 200,
+      result: persons,
+    });
+  }
 
   @UseGuards(JwtAuthGuard)
   @Get(':id')

@@ -24,8 +24,10 @@ export class PersonsService {
     return this.personModel.create(person);
   }
 
-  getAllPersons() {
-    Logger.log('[PersonsService] getAllPersons called');
+  async getAllPersonsFromUser(userId: string): Promise<Person[]> {
+    Logger.log('[PersonsService] getAllPersons(' + userId + ') called');
+
+    return await this.personModel.find({ userId: userId });
   }
 
   getPersonById(_id: string) {
