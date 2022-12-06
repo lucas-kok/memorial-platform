@@ -50,6 +50,9 @@ export class UsersService {
   }
 
   async updateUser(_id: string, userDto: UserDto): Promise<User | null> {
+    Logger.log('[UsersServices] updateUser(' + _id + ') called');
+    Logger.log(userDto);
+
     const user: User = {
       _id,
       ...userDto,

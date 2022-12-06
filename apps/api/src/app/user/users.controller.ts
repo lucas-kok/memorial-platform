@@ -13,12 +13,12 @@ import {
 } from '@nestjs/common';
 import { User } from './user.model';
 import { UsersService } from './users.service';
-import { Response, Request } from 'express';
+import { Response } from 'express';
 import { UserDto } from './user.dto';
 import * as bcrypt from 'bcrypt';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { IGetUserAuthInfoReqeust } from '../shared/auth.inforequest.interface';
-import { AuthGuard } from '@nestjs/passport';
+
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
@@ -149,6 +149,8 @@ export class UsersController {
   }
 
   async hashPassword(password: string): Promise<string> {
+    Logger.log('[UsersController] hashPassword(' + password + ') called');
+
     const saltOrRounds = 10;
     return await bcrypt.hash(password, saltOrRounds);
   }
