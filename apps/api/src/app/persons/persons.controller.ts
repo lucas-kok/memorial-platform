@@ -5,21 +5,21 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 export class PersonsController {
   @UseGuards(JwtAuthGuard)
   @Post()
-  addUser() {}
+  addPerson() {}
 
   @UseGuards(JwtAuthGuard)
   @Get()
-  getAllUsers() {}
+  getAllPersonsFromUser() {}
 
   @UseGuards(JwtAuthGuard)
   @Get(':id')
-  getUserById() {}
+  getPersonById() {}
 
   @UseGuards(JwtAuthGuard)
   @Put(':id')
-  updateUser() {}
+  updatePerson() {}
 
   @UseGuards(JwtAuthGuard)
   @Delete()
-  removeUser() {}
+  removePerson() {}
 }
