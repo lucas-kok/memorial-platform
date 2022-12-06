@@ -8,12 +8,13 @@ import {
   Post,
   Put,
   Res,
+  Req,
   UseGuards,
 } from '@nestjs/common';
-import { Response } from 'express';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { PersonDto } from './person.dto';
 import { PersonsService } from './persons.service';
+import { IGetUserAuthInfoReqeust } from '../shared/auth.inforequest.interface';
 
 @Controller('persons')
 export class PersonsController {
@@ -21,9 +22,17 @@ export class PersonsController {
 
   @UseGuards(JwtAuthGuard)
   @Post()
-  addPerson(@Body() personDto: PersonDto, @Res() res: Response) {
+  addPerson(
+    @Body() personDto: PersonDto,
+    @Req() req: IGetUserAuthInfoReqeust,
+    @Res() res: Response
+  ) {
     Logger.log('[PersonsController][POST]/persons called');
     Logger.log(personDto);
+
+    const userId = req.user._id;
+
+    const person: Person = this.personsService.addPerson(personDto, userId);
   }
 
   @UseGuards(JwtAuthGuard)
