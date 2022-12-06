@@ -10,10 +10,10 @@ export class UsersService {
   idCounter = 1;
   users: User[] = [
     {
-      id: '1',
+      _id: '1',
       name: 'Lucas Kok',
       email: 'lucas.kok@hotmail.nl',
-      passwordHash: 'Secret!123',
+      password: 'Secret!123',
       phoneNumber: '0640052439',
       birthday: new Date('09-01-2005'),
       gender: Gender.male,
@@ -49,13 +49,13 @@ export class UsersService {
     return await this.userModel.findOne({ email: email });
   }
 
-  updateUser(id: string, userDto: UserDto) {
+  updateUser(_id: string, userDto: UserDto) {
     const user: User = {
-      id,
+      _id,
       ...userDto,
     };
 
-    this.removeUserById(user.id!);
+    this.removeUserById(user._id!);
     return this.addUser(user);
   }
 

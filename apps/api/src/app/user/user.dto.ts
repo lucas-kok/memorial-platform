@@ -18,7 +18,7 @@ export class UserDto {
 
   @IsNotEmpty()
   @IsString()
-  passwordHash: string | undefined;
+  password: string | undefined;
 
   @IsNotEmpty()
   @IsString()

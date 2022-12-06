@@ -6,17 +6,16 @@ export type UserDocument = User & Document;
 
 @Schema()
 export class User {
-  @Prop({ type: 'string' })
-  id: string | undefined;
+  _id: string | undefined;
 
   @Prop({ type: 'string' })
   name: string | undefined;
 
-  @Prop({ type: 'string' })
+  @Prop({ type: 'string', unique: true })
   email: string | undefined;
 
   @Prop({ type: 'string' })
-  passwordHash: string | undefined;
+  password: string | undefined;
 
   @Prop({ type: 'string' })
   phoneNumber: string | undefined;

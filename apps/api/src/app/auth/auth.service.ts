@@ -30,9 +30,17 @@ export class AuthService {
       '[AuthSerice] User found with email: {' + userLoginDto.email + '}'
     );
 
+    Logger.log(
+      'UserLogin password: {' +
+        userLoginDto.password +
+        '}, UserPassword: {' +
+        user.password +
+        '}'
+    );
+
     const passwordValid = await bcrypt.compare(
       userLoginDto.password!,
-      user.passwordHash!
+      user.password!
     );
     if (passwordValid) {
       Logger.log(
@@ -40,6 +48,7 @@ export class AuthService {
           userLoginDto.email +
           '}'
       );
+
       return user;
     }
 
@@ -51,8 +60,8 @@ export class AuthService {
     Logger.log(user);
 
     const payload = {
-      email: user.email,
-      sub: user.id,
+      tid: user._id,
+      name: user.name,
     };
 
     const jwtToken = this.jwtService.sign(payload);

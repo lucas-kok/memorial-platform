@@ -1,7 +1,6 @@
 import {
   Body,
   Controller,
-  Delete,
   Get,
   Logger,
   Param,
@@ -9,14 +8,14 @@ import {
   Put,
   Res,
   UseGuards,
+  Req,
 } from '@nestjs/common';
 import { User } from './user.model';
 import { UsersService } from './users.service';
-import { Response } from 'express';
+import { Response, Request } from 'express';
 import { UserDto } from './user.dto';
 import * as bcrypt from 'bcrypt';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
@@ -26,11 +25,16 @@ export class UsersController {
     Logger.log('[UsersController][POST]/users called');
     Logger.log(userDto);
 
+    const findUser = await this.usersService.getUserByEmail(userDto.email);
+    if (findUser) {
+      return res.status(403).json({
+        status: 403,
+        error: 'The given email is already in use',
+      });
+    }
+
     const saltOrRounds = 10;
-    userDto.passwordHash = await bcrypt.hash(
-      userDto.passwordHash!,
-      saltOrRounds
-    );
+    userDto.password = await bcrypt.hash(userDto.password!, saltOrRounds);
 
     const user: User = await this.usersService.addUser(userDto);
     return res.status(201).json({
@@ -75,6 +79,7 @@ export class UsersController {
   updateUser(
     @Param('id') id: string,
     @Body() userDto: UserDto,
+    @Req() req: Request,
     @Res() res: Response
   ) {
     Logger.log('[UsersController][PUT]/users/' + id + ' called');
@@ -83,7 +88,7 @@ export class UsersController {
     let user = this.usersService.updateUser(id, userDto);
     return res.status(201).json({
       status: 201,
-      result: user,
+      result: req.user,
     });
   }
 
