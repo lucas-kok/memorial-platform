@@ -141,7 +141,33 @@ export class PersonsController {
 
   @UseGuards(JwtAuthGuard)
   @Delete(':id')
-  removePerson(@Param('id') id: string, @Res() res: Response) {
+  async removePerson(
+    @Param('id') id: string,
+    @Req() req: IGetUserAuthInfoReqeust,
+    @Res() res: Response
+  ) {
     Logger.log('[PersonsController][DELETE]/persons/' + id + ' called');
+
+    const findPerson = await this.personsService.getPersonById(id);
+    if (!findPerson) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Person with id: {' + id + '} not found',
+      });
+    }
+
+    const requestId = req.user._id;
+    if (requestId != findPerson.userId) {
+      return res.status(403).json({
+        status: 403,
+        error: "You don't have permission to delete this person",
+      });
+    }
+
+    await this.personsService.removePersonById(id);
+    return res.status(200).json({
+      status: 200,
+      message: 'Person with id: {' + id + ' deleted',
+    });
   }
 }
