@@ -17,6 +17,7 @@ import { PersonDto } from './person.dto';
 import { PersonsService } from './persons.service';
 import { IGetUserAuthInfoReqeust } from '../shared/auth.inforequest.interface';
 import { Person } from './person.model';
+import { IdValidator } from '../shared/id.validator';
 
 @Controller('persons')
 export class PersonsController {
@@ -73,6 +74,13 @@ export class PersonsController {
     Logger.log('[PersonsController][GET]/persons/' + id + ' called');
 
     const person = await this.personsService.getPersonById(id);
+
+    if (!IdValidator.validate(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Id must be a string of 12 bytes',
+      });
+    }
 
     if (person == null) {
       return res.status(404).json({

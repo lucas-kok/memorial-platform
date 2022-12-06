@@ -1,5 +1,5 @@
 export class IdValidator {
-  validate(id: string): boolean {
+  public static validate(id: string): boolean {
     return id.length == 12;
   }
 }
