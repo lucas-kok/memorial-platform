@@ -16,6 +16,7 @@ import { Response, Request } from 'express';
 import { UserDto } from './user.dto';
 import * as bcrypt from 'bcrypt';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { IGetUserAuthInfoReqeust } from '../shared/auth.inforequest.interface';
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
@@ -79,11 +80,13 @@ export class UsersController {
   async updateUser(
     @Param('id') id: string,
     @Body() userDto: UserDto,
-    @Req() req: Request,
+    @Req() req: IGetUserAuthInfoReqeust,
     @Res() res: Response
   ) {
     Logger.log('[UsersController][PUT]/users/' + id + ' called');
     Logger.log(userDto);
+
+    Logger.log(req.user._id);
 
     let user = await this.usersService.updateUser(id, userDto);
     return res.status(201).json({

@@ -60,8 +60,8 @@ export class AuthService {
     Logger.log(user);
 
     const payload = {
-      tid: user._id,
-      name: user.name,
+      _id: user._id,
+      email: user.email,
     };
 
     const jwtToken = this.jwtService.sign(payload);
