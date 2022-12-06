@@ -41,6 +41,7 @@ export class PersonsService {
 
     const person = {
       _id,
+      userId = userId,
       ...personDto,
     };
 
