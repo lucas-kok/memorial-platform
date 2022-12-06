@@ -6,6 +6,8 @@ export type PersonDocument = Person & Document;
 @Schema()
 export class Person {
   _id: string | undefined;
+
+  @Prop({ type: 'string' })
   userId: string | undefined;
 
   @Prop({ type: 'string' })

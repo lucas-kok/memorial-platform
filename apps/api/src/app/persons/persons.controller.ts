@@ -29,10 +29,11 @@ export class PersonsController {
     @Req() req: IGetUserAuthInfoReqeust,
     @Res() res: Response
   ) {
-    Logger.log('[PersonsController][POST]/persons called');
-    Logger.log(personDto);
-
     const userId = req.user._id;
+    Logger.log(
+      '[PersonsController][POST]/persons called for userId: {' + userId + '}'
+    );
+    Logger.log(personDto);
 
     const person: Person = await this.personsService.addPerson(
       personDto,
