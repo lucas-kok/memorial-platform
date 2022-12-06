@@ -97,8 +97,42 @@ export class PersonsController {
 
   @UseGuards(JwtAuthGuard)
   @Put(':id')
-  updatePerson(@Param('id') id: string, @Res() res: Response) {
+  async updatePerson(
+    @Param('id') id: string,
+    @Body() personDto: PersonDto,
+    @Req() req: IGetUserAuthInfoReqeust,
+    @Res() res: Response
+  ) {
     Logger.log('[PersonsController][PUT]/persons/' + id + ' called');
+
+    if (!IdValidator.validate(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Id must be a string of 12 bytes',
+      });
+    }
+
+    const findPerson = await this.personsService.getPersonById(id);
+    if (findPerson == null) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Person with id: {' + id + '} not found',
+      });
+    }
+
+    const requestId = req.user._id;
+    if (requestId != findPerson.userId) {
+      return res.status(403).json({
+        status: 403,
+        error: "You don't have permission to update this person",
+      });
+    }
+
+    const person = await this.personsService.updatePerson(id, personDto);
+    return res.status(201).json({
+      status: 201,
+      result: person,
+    });
   }
 
   @UseGuards(JwtAuthGuard)
