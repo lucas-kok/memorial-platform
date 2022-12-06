@@ -9,6 +9,7 @@ import {
   Res,
   UseGuards,
   Req,
+  Delete,
 } from '@nestjs/common';
 import { User } from './user.model';
 import { UsersService } from './users.service';
@@ -17,6 +18,7 @@ import { UserDto } from './user.dto';
 import * as bcrypt from 'bcrypt';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { IGetUserAuthInfoReqeust } from '../shared/auth.inforequest.interface';
+import { AuthGuard } from '@nestjs/passport';
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
@@ -112,25 +114,39 @@ export class UsersController {
     });
   }
 
-  // @Delete(':id')
-  // async removeUser(@Param('id') id: string, @Res() res: Response) {
-  //   Logger.log('[UsersController][DELETE]/users/' + id + ' called');
-  //   const user: User | null = this.usersService.getUserById(id);
+  @UseGuards(JwtAuthGuard)
+  @Delete(':id')
+  async removeUser(
+    @Param('id') id: string,
+    @Req() req: IGetUserAuthInfoReqeust,
+    @Res() res: Response
+  ) {
+    Logger.log('[UsersController][DELETE]/users/' + id + ' called');
 
-  //   if (user == null) {
-  //     return res.status(404).json({
-  //       status: 404,
-  //       error: 'User with id {' + id + '} not found',
-  //     });
-  //   }
+    const requestId = req.user._id;
+    if (requestId != id) {
+      return res.status(403).json({
+        status: 403,
+        error: "You don't have permission to delete this user",
+      });
+    }
 
-  //   this.usersService.removeUserById(id);
+    const user: User | null = await this.usersService.getUserById(id);
 
-  //   return res.status(200).json({
-  //     status: 200,
-  //     message: 'User with id {' + id + '} deleted',
-  //   });
-  // }
+    if (user == null) {
+      return res.status(404).json({
+        status: 404,
+        error: 'User with id {' + id + '} not found',
+      });
+    }
+
+    await this.usersService.removeUserById(id);
+
+    return res.status(200).json({
+      status: 200,
+      message: 'User with id {' + id + '} deleted',
+    });
+  }
 
   async hashPassword(password: string): Promise<string> {
     const saltOrRounds = 10;
