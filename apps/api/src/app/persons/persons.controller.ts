@@ -36,10 +36,7 @@ export class PersonsController {
     );
     Logger.log(personDto);
 
-    const person: Person = await this.personsService.addPerson(
-      personDto,
-      userId
-    );
+    const person = await this.personsService.addPerson(personDto, userId);
 
     return res.status(201).json({
       status: 200,
@@ -58,9 +55,7 @@ export class PersonsController {
       '[PersonsController][GET]/persons called for userId: {' + userId + '}'
     );
 
-    const persons: Person[] = await this.personsService.getAllPersonsFromUser(
-      userId
-    );
+    const persons = await this.personsService.getAllPersonsFromUser(userId);
 
     return res.status(200).json({
       status: 200,
