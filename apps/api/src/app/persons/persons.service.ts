@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { PersonDto } from './person.dto';
 import { Person, PersonDocument } from './person.model';
 
@@ -17,7 +17,7 @@ export class PersonsService {
     Logger.log(personDto);
 
     const person = {
-      userId: userId,
+      userId: new Types.ObjectId(userId),
       ...personDto,
     };
 
@@ -27,7 +27,7 @@ export class PersonsService {
   async getAllPersonsFromUser(userId: string): Promise<Person[]> {
     Logger.log('[PersonsService] getAllPersons(' + userId + ') called');
 
-    return await this.personModel.find({ userId: userId });
+    return await this.personModel.find({ userId: new Types.ObjectId(userId) });
   }
 
   getPersonById(_id: string) {
