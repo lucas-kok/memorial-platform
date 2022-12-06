@@ -10,7 +10,7 @@ export class PersonsService {
     @InjectModel('person') private readonly personModel: Model<PersonDocument>
   ) {}
 
-  addPerson(personDto: PersonDto, userId: string): Promise<Person> {
+  async addPerson(personDto: PersonDto, userId: string): Promise<Person> {
     Logger.log(
       '[PersonsService] addPerson called with userId: {' + userId + '}'
     );
@@ -21,7 +21,7 @@ export class PersonsService {
       ...personDto,
     };
 
-    return this.personModel.create(person);
+    return await this.personModel.create(person);
   }
 
   async getAllPersonsFromUser(userId: string): Promise<Person[]> {
