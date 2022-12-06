@@ -37,7 +37,14 @@ export class PersonsService {
   }
 
   async updatePerson(_id: string, userId: string, personDto: PersonDto) {
-    Logger.log('[PersonsService] updatePerson(' + _id + ') called');
+    Logger.log(
+      '[PersonsService] updatePerson(' +
+        _id +
+        ') called with userId: {' +
+        userId +
+        '}'
+    );
+    Logger.log(personDto);
 
     const person = {
       _id,
