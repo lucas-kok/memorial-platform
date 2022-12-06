@@ -57,7 +57,9 @@ export class PersonsService {
     });
   }
 
-  removePersonById(_id: string) {
+  async removePersonById(_id: string): Promise<Person | null> {
     Logger.log('[PersonsService] removePersonById(' + _id + ') called');
+
+    return await this.personModel.findOneAndDelete({ _id: _id });
   }
 }
