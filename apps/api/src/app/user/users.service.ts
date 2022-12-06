@@ -7,19 +7,6 @@ import { User, UserDocument } from './user.model';
 
 @Injectable()
 export class UsersService {
-  idCounter = 1;
-  users: User[] = [
-    {
-      _id: '1',
-      name: 'Lucas Kok',
-      email: 'lucas.kok@hotmail.nl',
-      password: 'Secret!123',
-      phoneNumber: '0640052439',
-      birthday: new Date('09-01-2005'),
-      gender: Gender.male,
-    },
-  ];
-
   constructor(
     @InjectModel('user') private readonly userModel: Model<UserDocument>
   ) {}
