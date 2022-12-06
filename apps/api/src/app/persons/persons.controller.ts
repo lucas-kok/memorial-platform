@@ -128,7 +128,11 @@ export class PersonsController {
       });
     }
 
-    const person = await this.personsService.updatePerson(id, personDto);
+    const person = await this.personsService.updatePerson(
+      id,
+      requestId,
+      personDto
+    );
     return res.status(201).json({
       status: 201,
       result: person,
