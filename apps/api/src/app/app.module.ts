@@ -9,7 +9,7 @@ import { PersonModule } from './persons/person.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/authentication'),
+    MongooseModule.forRoot('mongodb://localhost/memorial-platform'),
     UsersModule,
     AuthModule,
     PersonModule,
