@@ -36,8 +36,17 @@ export class PersonsService {
     return await this.personModel.findById({ _id: new Types.ObjectId(_id) });
   }
 
-  updatePerson(_id: string) {
+  async updatePerson(_id: string, personDto: PersonDto) {
     Logger.log('[PersonsService] updatePerson(' + _id + ') called');
+
+    const person = {
+      _id,
+      ...personDto,
+    };
+
+    return await this.personModel.findOneAndUpdate({ _id: _id }, person, {
+      new: true,
+    });
   }
 
   removePersonById(_id: string) {
