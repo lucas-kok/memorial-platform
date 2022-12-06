@@ -11,6 +11,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
+import { Response } from 'express';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { PersonDto } from './person.dto';
 import { PersonsService } from './persons.service';
@@ -37,6 +38,11 @@ export class PersonsController {
       personDto,
       userId
     );
+
+    return res.status(201).json({
+      status: 200,
+      result: person,
+    });
   }
 
   @UseGuards(JwtAuthGuard)
