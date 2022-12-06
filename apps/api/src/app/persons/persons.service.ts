@@ -30,8 +30,10 @@ export class PersonsService {
     return await this.personModel.find({ userId: new Types.ObjectId(userId) });
   }
 
-  getPersonById(_id: string) {
+  async getPersonById(_id: string): Promise<Person | null> {
     Logger.log('[PersonsService] getPersonById(' + _id + ') called');
+
+    return await this.personModel.findById({ _id: new Types.ObjectId(_id) });
   }
 
   updatePerson(_id: string) {

@@ -69,12 +69,22 @@ export class PersonsController {
 
   @UseGuards(JwtAuthGuard)
   @Get(':id')
-  getPersonById(
-    @Param(':id') id: string,
-    @Body() personDto: PersonDto,
-    @Res() res: Response
-  ) {
+  async getPersonById(@Param('id') id: string, @Res() res: Response) {
     Logger.log('[PersonsController][GET]/persons/' + id + ' called');
+
+    const person = await this.personsService.getPersonById(id);
+
+    if (person == null) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Person with id: {' + id + '} not found',
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      result: person,
+    });
   }
 
   @UseGuards(JwtAuthGuard)
