@@ -65,6 +65,8 @@ export class UsersService {
 
   // Validation of user existing happens in Controller
   async removeUserById(_id: string): Promise<User | null> {
+    Logger.log('[UsersService] removeUserById(' + _id + '} called');
+
     return await this.userModel.findOneAndDelete({ _id: _id });
   }
 }
