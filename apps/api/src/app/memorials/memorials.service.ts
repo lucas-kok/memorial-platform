@@ -48,7 +48,29 @@ export class MemorialsService {
     return await this.memorialModel.findOne({ funeralId: funeralId });
   }
 
-  updateMemorial() {}
+  async updateMemorial(
+    _id: string,
+    userId: string,
+    memorialDto: MemorialDto
+  ): Promise<Memorial | null> {
+    Logger.log(
+      '[MemorialsService] updateMemorial(' +
+        _id +
+        ') called with userId: {' +
+        userId +
+        '}'
+    );
+    Logger.log(memorialDto);
+
+    const memorial = {
+      userId,
+      ...memorialDto,
+    };
+
+    return await this.memorialModel.findOneAndUpdate({ _id: _id }, memorial, {
+      new: true,
+    });
+  }
 
   removeMemorialById() {}
 }
