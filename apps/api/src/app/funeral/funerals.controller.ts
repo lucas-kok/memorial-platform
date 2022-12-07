@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
@@ -6,7 +7,12 @@ import {
   Param,
   Post,
   Put,
+  Req,
+  Res,
 } from '@nestjs/common';
+import { Response } from 'express';
+import { IGetUserAuthInfoReqeust } from '../shared/auth.inforequest.interface';
+import { FuneralDto } from './funeral.dto';
 import { FuneralsService } from './funerals.service';
 
 @Controller('funerals')
@@ -14,8 +20,23 @@ export class FuneralsController {
   constructor(private funeralsService: FuneralsService) {}
 
   @Post()
-  addFuneral() {
+  async addFuneral(
+    @Body() funeralDto: FuneralDto,
+    @Req() req: IGetUserAuthInfoReqeust,
+    @Res() res: Response
+  ) {
+    const requestId = req.user._id;
     Logger.log('[FuneralsController][POST]/funerals called');
+    Logger.log(funeralDto);
+
+    const funeral = await this.funeralsService.addFuneral(
+      funeralDto,
+      requestId
+    );
+    return res.status(201).json({
+      status: 201,
+      result: funeral,
+    });
   }
 
   @Get()
