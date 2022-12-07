@@ -81,5 +81,9 @@ export class MessagesService {
     });
   }
 
-  removeMessageById() {}
+  async removeMessageById(_id: string): Promise<Message | null> {
+    Logger.log('[MessagesService] removeMessageById(' + _id + ') called');
+
+    return await this.messageModel.findOneAndDelete({ _id: _id });
+  }
 }
