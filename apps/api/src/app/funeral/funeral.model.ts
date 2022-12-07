@@ -1,3 +1,6 @@
+import { Schema } from '@nestjs/mongoose';
+
+@Schema()
 export class Funeral {
   _id: string | undefined;
   userId: string | undefined;
