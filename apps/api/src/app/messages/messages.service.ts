@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { MemorialDto } from '../memorials/memorial.dto';
 import { MemorialsService } from '../memorials/memorials.service';
 import { MessageDto } from './message.dto';
@@ -44,6 +44,12 @@ export class MessagesService {
     );
 
     return await this.messageModel.find({ memorialid: memorialId });
+  }
+
+  async getMessageById(_id: string): Promise<Message | null> {
+    Logger.log('[MessagesService] getMessageById(' + _id + ') called');
+
+    return await this.messageModel.findById({ _id: new Types.ObjectId(_id) });
   }
 
   updateMessage() {}
