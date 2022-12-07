@@ -1,4 +1,6 @@
-import { Prop, Schema } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+
+export type MemorialDocument = Memorial & Document;
 
 @Schema()
 export class Memorial {
@@ -19,3 +21,5 @@ export class Memorial {
   @Prop({ type: 'string ' })
   imageBase64: string | undefined;
 }
+
+export const MemorialSchema = SchemaFactory.createForClass(Memorial);
