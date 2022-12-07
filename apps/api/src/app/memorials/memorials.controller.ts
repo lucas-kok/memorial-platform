@@ -82,7 +82,29 @@ export class MemorialsController {
   }
 
   @Get('/funeral/:id')
-  getMemorialByFuneralId() {}
+  async getMemorialByFuneralId(@Param('id') id: string, @Res() res: Response) {
+    Logger.log('[MemorialsService][GET]/memorials/funeral/' + id + ' called');
+
+    if (!IdValidator.validate(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Id is not in a valid string format',
+      });
+    }
+
+    const memorial = await this.memorialsService.getMemorialFromFuneralId(id);
+    if (!memorial) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Memorial with funeralId: {' + id + '} not found',
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      result: memorial,
+    });
+  }
 
   @Put(':id')
   updateMemorial() {}
