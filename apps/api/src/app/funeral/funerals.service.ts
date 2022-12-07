@@ -1,14 +1,24 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 
 @Injectable()
 export class FuneralsService {
-  addFuneral() {}
+  addFuneral() {
+    Logger.log('[FuneralsService] addfuneral called');
+  }
 
-  getAllFunerals() {}
+  getAllFunerals() {
+    Logger.log('[FuneralsService] getAllFunerals called');
+  }
 
-  getFuneralById() {}
+  getFuneralById() {
+    Logger.log('[FuneralsService] getFuneralById called');
+  }
 
-  updateFuneral() {}
+  updateFuneral() {
+    Logger.log('[FuneralsService] updateFuneral called');
+  }
 
-  removeFuneralById() {}
+  removeFuneralById() {
+    Logger.log('[FuneralsService] removeFuneralById called');
+  }
 }
