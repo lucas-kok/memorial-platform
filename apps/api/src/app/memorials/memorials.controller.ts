@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Logger,
+  Param,
   Post,
   Put,
   Req,
@@ -13,6 +14,7 @@ import {
 import { Response } from 'express';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { IGetUserAuthInfoReqeust } from '../shared/auth.inforequest.interface';
+import { IdValidator } from '../shared/id.validator';
 import { MemorialDto } from './memorial.dto';
 import { MemorialsService } from './memorials.service';
 
@@ -55,7 +57,29 @@ export class MemorialsController {
   }
 
   @Get(':id')
-  getMemorialById() {}
+  async getMemorialById(@Param('id') id: string, @Res() res: Response) {
+    Logger.log('[MemorialsController][GET]/memorials/' + id + ' called');
+
+    if (!IdValidator.validate(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Id is not in a valid string format',
+      });
+    }
+
+    const memorial = await this.memorialsService.getMemorialById(id);
+    if (!memorial) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Memorial with id: {' + id + '} not found',
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      result: memorial,
+    });
+  }
 
   @Get('/funeral/:id')
   getMemorialByFuneralId() {}
