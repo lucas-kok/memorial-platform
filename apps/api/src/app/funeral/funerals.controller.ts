@@ -43,8 +43,15 @@ export class FuneralsController {
   }
 
   @Get()
-  getAllFunerals() {
+  async getAllFunerals(@Res() res: Response) {
     Logger.log('[FuneralsController][GET]/funerals called');
+
+    const funerals = await this.funeralsService.getAllFunerals();
+
+    return res.status(200).json({
+      status: 200,
+      result: funerals,
+    });
   }
 
   @Get(':id')
