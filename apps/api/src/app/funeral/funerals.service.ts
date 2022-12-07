@@ -57,11 +57,9 @@ export class FuneralsService {
       ...funeralDto,
     };
 
-    return await this.funeralModel.findOneAndUpdate(
-      { _id: new Types.ObjectId(_id) },
-      funeral,
-      { new: true }
-    );
+    return await this.funeralModel.findOneAndUpdate({ _id: _id }, funeral, {
+      new: true,
+    });
   }
 
   async removeFuneralById(_id: string): Promise<Funeral | null> {
