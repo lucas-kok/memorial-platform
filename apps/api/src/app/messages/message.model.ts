@@ -1,5 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
+export type MessageDocument = Message & Document;
+
 @Schema()
 export class Message {
   _id: string | undefined;
