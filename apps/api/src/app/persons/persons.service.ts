@@ -17,7 +17,7 @@ export class PersonsService {
     Logger.log(personDto);
 
     const person = {
-      userId: new Types.ObjectId(userId),
+      userId,
       ...personDto,
     };
 
@@ -48,7 +48,7 @@ export class PersonsService {
 
     const person = {
       _id,
-      userId: userId,
+      userId,
       ...personDto,
     };
 
