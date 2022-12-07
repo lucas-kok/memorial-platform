@@ -1,4 +1,12 @@
-import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  Get,
+  Logger,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { FuneralsService } from './funerals.service';
 
 @Controller('funerals')
@@ -6,17 +14,27 @@ export class FuneralsController {
   constructor(private funeralsService: FuneralsService) {}
 
   @Post()
-  addFuneral() {}
+  addFuneral() {
+    Logger.log('[FuneralsController][POST]/funerals called');
+  }
 
   @Get()
-  getAllFunerals() {}
+  getAllFunerals() {
+    Logger.log('[FuneralsController][GET]/funerals called');
+  }
 
   @Get(':id')
-  getFuneralById() {}
+  getFuneralById(@Param('id') id: string) {
+    Logger.log('[FuneralsController][GET]/funerals/' + id + ' called');
+  }
 
-  @Put()
-  updateFuneral() {}
+  @Put(':id')
+  updateFuneral(@Param('id') id: string) {
+    Logger.log('[FuneralsController][PUT]/funerals/' + id + ' called');
+  }
 
   @Delete(':id')
-  removeFuneralById() {}
+  removeFuneralById(@Param('id') id: string) {
+    Logger.log('[FuneralsController][DELETE]/funerals/' + id + ' called');
+  }
 }
