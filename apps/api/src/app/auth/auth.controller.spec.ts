@@ -20,5 +20,12 @@ describe('AuhtController', () => {
         },
       ],
     }).compile();
+
+    authController = app.get<AuthController>(AuthController);
+    authService = app.get<AuthService>(AuthService);
+  });
+
+  beforeEach(() => {
+    jest.clearAllMocks();
   });
 });
