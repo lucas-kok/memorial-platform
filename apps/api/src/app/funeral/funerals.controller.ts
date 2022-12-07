@@ -9,8 +9,10 @@ import {
   Put,
   Req,
   Res,
+  UseGuards,
 } from '@nestjs/common';
 import { Response } from 'express';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { IGetUserAuthInfoReqeust } from '../shared/auth.inforequest.interface';
 import { FuneralDto } from './funeral.dto';
 import { FuneralsService } from './funerals.service';
@@ -19,6 +21,7 @@ import { FuneralsService } from './funerals.service';
 export class FuneralsController {
   constructor(private funeralsService: FuneralsService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   async addFuneral(
     @Body() funeralDto: FuneralDto,
@@ -49,11 +52,13 @@ export class FuneralsController {
     Logger.log('[FuneralsController][GET]/funerals/' + id + ' called');
   }
 
+  @UseGuards(JwtAuthGuard)
   @Put(':id')
   updateFuneral(@Param('id') id: string) {
     Logger.log('[FuneralsController][PUT]/funerals/' + id + ' called');
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   removeFuneralById(@Param('id') id: string) {
     Logger.log('[FuneralsController][DELETE]/funerals/' + id + ' called');
