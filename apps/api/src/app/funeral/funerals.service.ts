@@ -1,7 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { FuneralDocument } from './funeral.model';
+import { FuneralDto } from './funeral.dto';
+import { Funeral, FuneralDocument } from './funeral.model';
 
 @Injectable()
 export class FuneralsService {
@@ -10,8 +11,18 @@ export class FuneralsService {
     private readonly funeralModel: Model<FuneralDocument>
   ) {}
 
-  addFuneral() {
-    Logger.log('[FuneralsService] addfuneral called');
+  async addFuneral(funeralDto: FuneralDto, userId: string): Promise<Funeral> {
+    Logger.log(
+      '[FuneralsService] addfuneral called with userId: {' + userId + '}'
+    );
+    Logger.log(funeralDto);
+
+    const funeral = {
+      userId: userId,
+      ...funeralDto,
+    };
+
+    return await this.funeralModel.create(funeral);
   }
 
   getAllFunerals() {
