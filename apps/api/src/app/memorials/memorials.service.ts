@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { MemorialDto } from './memorial.dto';
 import { Memorial, MemorialDocument } from './memorial.model';
 
@@ -34,7 +34,11 @@ export class MemorialsService {
     return await this.memorialModel.find({});
   }
 
-  getMemorialById() {}
+  async getMemorialById(_id: string): Promise<Memorial | null> {
+    Logger.log('[MemorialsService] getMemorialById(' + _id + ') called');
+
+    return await this.memorialModel.findById({ _id: new Types.ObjectId(_id) });
+  }
 
   getMemorialFromFuneral() {}
 
