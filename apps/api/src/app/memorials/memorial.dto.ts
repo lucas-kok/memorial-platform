@@ -4,19 +4,19 @@ export class MemorialDto {
   @IsNotEmpty()
   @IsString()
   @IsMongoId()
-  personId: string | undefined;
+  readonly personId: string | undefined;
 
   @IsNotEmpty()
   @IsString()
   @IsMongoId()
-  funeralId: string | undefined;
+  readonly funeralId: string | undefined;
 
   @IsNotEmpty()
   @IsString()
-  description: string | undefined;
+  readonly description: string | undefined;
 
   @IsNotEmpty()
   @IsString()
   @IsBase64()
-  imageBase64: string | undefined;
+  readonly imageBase64: string | undefined;
 }
