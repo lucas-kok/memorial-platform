@@ -30,13 +30,13 @@ export class PersonsController {
     @Req() req: IGetUserAuthInfoReqeust,
     @Res() res: Response
   ) {
-    const userId = req.user._id;
+    const requestId = req.user._id;
     Logger.log(
-      '[PersonsController][POST]/persons called for userId: {' + userId + '}'
+      '[PersonsController][POST]/persons called for userId: {' + requestId + '}'
     );
     Logger.log(personDto);
 
-    const person = await this.personsService.addPerson(personDto, userId);
+    const person = await this.personsService.addPerson(personDto, requestId);
 
     return res.status(201).json({
       status: 200,
@@ -50,12 +50,12 @@ export class PersonsController {
     @Req() req: IGetUserAuthInfoReqeust,
     @Res() res: Response
   ) {
-    const userId = req.user._id;
+    const requestId = req.user._id;
     Logger.log(
-      '[PersonsController][GET]/persons called for userId: {' + userId + '}'
+      '[PersonsController][GET]/persons called for userId: {' + requestId + '}'
     );
 
-    const persons = await this.personsService.getAllPersonsFromUser(userId);
+    const persons = await this.personsService.getAllPersonsFromUser(requestId);
 
     return res.status(200).json({
       status: 200,
@@ -68,14 +68,14 @@ export class PersonsController {
   async getPersonById(@Param('id') id: string, @Res() res: Response) {
     Logger.log('[PersonsController][GET]/persons/' + id + ' called');
 
-    const person = await this.personsService.getPersonById(id);
-
     if (!IdValidator.validate(id)) {
       return res.status(400).json({
         status: 400,
         error: 'Id must be a string of 12 bytes',
       });
     }
+
+    const person = await this.personsService.getPersonById(id);
 
     if (!person) {
       return res.status(404).json({
