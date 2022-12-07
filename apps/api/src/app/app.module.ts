@@ -8,7 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { PersonModule } from './persons/person.module';
 import { FuneralModule } from './funeral/funeral.module';
 import { MemorialModule } from './memorials/memorial.module';
-import { MessageModule } from './messages/mesasge.module';
+import { MessageModule } from './messages/message.module';
 
 @Module({
   imports: [
