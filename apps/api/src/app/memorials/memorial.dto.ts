@@ -1,4 +1,4 @@
-import { IsMongoId, IsNotEmpty, IsString } from 'class-validator';
+import { IsBase64, IsMongoId, IsNotEmpty, IsString } from 'class-validator';
 
 export class MemorialDto {
   @IsNotEmpty()
@@ -17,5 +17,6 @@ export class MemorialDto {
 
   @IsNotEmpty()
   @IsString()
+  @IsBase64()
   imageBase64: string | undefined;
 }
