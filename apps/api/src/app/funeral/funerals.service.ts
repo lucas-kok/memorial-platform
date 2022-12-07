@@ -25,8 +25,10 @@ export class FuneralsService {
     return await this.funeralModel.create(funeral);
   }
 
-  getAllFunerals() {
+  async getAllFunerals() {
     Logger.log('[FuneralsService] getAllFunerals called');
+
+    return await this.funeralModel.find({});
   }
 
   getFuneralById() {
