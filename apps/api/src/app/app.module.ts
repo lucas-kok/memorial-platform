@@ -7,6 +7,7 @@ import { UsersModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { PersonModule } from './persons/person.module';
 import { FuneralModule } from './funeral/funeral.module';
+import { MemorialModule } from './memorials/memorial.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { FuneralModule } from './funeral/funeral.module';
     AuthModule,
     PersonModule,
     FuneralModule,
+    MemorialModule,
   ],
   controllers: [AppController],
   providers: [AppService],
