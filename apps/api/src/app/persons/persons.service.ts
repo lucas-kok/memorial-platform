@@ -36,7 +36,11 @@ export class PersonsService {
     return await this.personModel.findById({ _id: new Types.ObjectId(_id) });
   }
 
-  async updatePerson(_id: string, userId: string, personDto: PersonDto) {
+  async updatePerson(
+    _id: string,
+    userId: string,
+    personDto: PersonDto
+  ): Promise<Person | null> {
     Logger.log(
       '[PersonsService] updatePerson(' +
         _id +
