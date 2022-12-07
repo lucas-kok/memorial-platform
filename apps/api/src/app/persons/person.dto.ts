@@ -20,5 +20,6 @@ export class PersonDto {
 
   @IsNotEmpty()
   @IsString()
+  @IsBase64()
   readonly imageBase64: string | undefined;
 }
