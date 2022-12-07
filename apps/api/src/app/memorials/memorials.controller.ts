@@ -43,7 +43,16 @@ export class MemorialsController {
   }
 
   @Get()
-  getAllMemorials() {}
+  async getAllMemorials(@Res() res: Response) {
+    Logger.log('[MemorialsController][GET]/memorials called');
+
+    const memorials = await this.memorialsService.getAllMemorials();
+
+    return res.status(200).json({
+      status: 200,
+      result: memorials,
+    });
+  }
 
   @Get(':id')
   getMemorialById() {}
