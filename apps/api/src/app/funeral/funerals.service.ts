@@ -18,7 +18,7 @@ export class FuneralsService {
     Logger.log(funeralDto);
 
     const funeral = {
-      userId: userId,
+      userId,
       ...funeralDto,
     };
 
@@ -32,7 +32,7 @@ export class FuneralsService {
   }
 
   async getFuneralById(_id: string): Promise<Funeral | null> {
-    Logger.log('[FuneralsService] getFuneralById called');
+    Logger.log('[FuneralsService] getFuneralById(' + _id + ') called');
 
     return await this.funeralModel.findById({ _id: new Types.ObjectId(_id) });
   }
