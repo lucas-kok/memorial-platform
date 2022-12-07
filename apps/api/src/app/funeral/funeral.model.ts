@@ -1,4 +1,6 @@
-import { Prop, Schema } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+
+export type FuneralDocument = Funeral & Document;
 
 @Schema()
 export class Funeral {
@@ -25,3 +27,5 @@ export class Funeral {
   @Prop({ type: 'boolean' })
   isPrivate: boolean | undefined;
 }
+
+export const FuneralSchema = SchemaFactory.createForClass(Funeral);
