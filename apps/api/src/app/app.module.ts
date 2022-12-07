@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { PersonModule } from './persons/person.module';
 import { FuneralModule } from './funeral/funeral.module';
 import { MemorialModule } from './memorials/memorial.module';
+import { MessageModule } from './messages/mesasge.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { MemorialModule } from './memorials/memorial.module';
     PersonModule,
     FuneralModule,
     MemorialModule,
+    MessageModule,
   ],
   controllers: [AppController],
   providers: [AppService],
