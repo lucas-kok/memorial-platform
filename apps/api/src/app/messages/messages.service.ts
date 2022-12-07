@@ -10,26 +10,19 @@ import { Message, MessageDocument } from './message.model';
 export class MessagesService {
   constructor(
     @InjectModel('message')
-    private readonly messageModel: Model<MessageDocument>,
-    private memorialsService: MemorialsService
+    private readonly messageModel: Model<MessageDocument>
   ) {}
 
-  async addMessage(
+  async addMessageToMemorial(
     messageDto: MessageDto,
-    userId: string,
-    memorialId: string
+    userId: string
   ): Promise<Message> {
     Logger.log(
-      '[MessagesService] addMessage(' +
-        memorialId +
-        ') called with userId: {' +
-        userId +
-        '}'
+      '[MessagesService] addMessage called with userId: {' + userId + '}'
     );
 
     const message = {
       userId,
-      memorialId,
       ...messageDto,
     };
 
