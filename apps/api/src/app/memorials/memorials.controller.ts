@@ -12,6 +12,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { Response } from 'express';
+import { request } from 'http';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { IGetUserAuthInfoReqeust } from '../shared/auth.inforequest.interface';
 import { IdValidator } from '../shared/id.validator';
@@ -106,8 +107,50 @@ export class MemorialsController {
     });
   }
 
+  @UseGuards(JwtAuthGuard)
   @Put(':id')
-  updateMemorial() {}
+  async updateMemorial(
+    @Param('id') id: string,
+    @Body() memorialDto: MemorialDto,
+    @Req() req: IGetUserAuthInfoReqeust,
+    @Res() res: Response
+  ) {
+    Logger.log('[MemorialsController][PUT]/memorials/' + id + ' called');
+    Logger.log(memorialDto);
+
+    if (!IdValidator.validate(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Id is not in a valid string format',
+      });
+    }
+
+    const findMemorial = await this.memorialsService.getMemorialById(id);
+    if (!findMemorial) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Memorial with id: {' + id + '} not found',
+      });
+    }
+
+    const requestId = req.user._id;
+    if (requestId != findMemorial.userId) {
+      return res.status(403).json({
+        status: 403,
+        error: "You don't have permission to update this memorial",
+      });
+    }
+
+    const memorial = await this.memorialsService.updateMemorial(
+      id,
+      requestId,
+      memorialDto
+    );
+    return res.status(201).json({
+      status: 201,
+      result: memorial,
+    });
+  }
 
   @Delete(':id')
   removeMemorialById() {}
