@@ -28,7 +28,11 @@ export class MemorialsService {
     return await this.memorialModel.create(memorial);
   }
 
-  getAllMemorials() {}
+  async getAllMemorials(): Promise<Memorial[]> {
+    Logger.log('[MemorialsService] getAllMemorials called');
+
+    return await this.memorialModel.find({});
+  }
 
   getMemorialById() {}
 
