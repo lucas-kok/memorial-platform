@@ -82,8 +82,46 @@ export class FuneralsController {
 
   @UseGuards(JwtAuthGuard)
   @Put(':id')
-  updateFuneral(@Param('id') id: string) {
+  async updateFuneral(
+    @Param('id') id: string,
+    @Body() funeralDto: FuneralDto,
+    @Req() req: IGetUserAuthInfoReqeust,
+    @Res() res: Response
+  ) {
     Logger.log('[FuneralsController][PUT]/funerals/' + id + ' called');
+
+    if (!IdValidator.validate(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Id is not in a valid string format',
+      });
+    }
+
+    const findFuneral = await this.funeralsService.getFuneralById(id);
+    if (!findFuneral) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Funeral with id: {' + id + '} not found',
+      });
+    }
+
+    const requestId = req.user._id;
+    if (requestId != findFuneral.userId) {
+      return res.status(403).json({
+        status: 403,
+        error: "You don't have permission to update this funeral",
+      });
+    }
+
+    const funeral = await this.funeralsService.updateFuneral(
+      id,
+      requestId,
+      funeralDto
+    );
+    return res.status(201).json({
+      status: 201,
+      result: funeral,
+    });
   }
 
   @UseGuards(JwtAuthGuard)
