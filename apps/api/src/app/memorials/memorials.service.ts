@@ -40,7 +40,13 @@ export class MemorialsService {
     return await this.memorialModel.findById({ _id: new Types.ObjectId(_id) });
   }
 
-  getMemorialFromFuneral() {}
+  async getMemorialFromFuneralId(funeralId: string): Promise<Memorial | null> {
+    Logger.log(
+      '[MemorialsService] getMemorialFromFuneralId(' + funeralId + ') called'
+    );
+
+    return await this.memorialModel.findOne({ funeralId: funeralId });
+  }
 
   updateMemorial() {}
 
