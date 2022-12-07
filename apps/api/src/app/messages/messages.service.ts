@@ -52,7 +52,34 @@ export class MessagesService {
     return await this.messageModel.findById({ _id: new Types.ObjectId(_id) });
   }
 
-  updateMessage() {}
+  async updateMessage(
+    _id: string,
+    userId: string,
+    memorialId: string,
+    messageDto: MessageDto
+  ) {
+    Logger.log(
+      '[MessagesService] updateMessage(' +
+        _id +
+        ') called with userId: {' +
+        userId +
+        '} and memorialId: {' +
+        memorialId +
+        '}'
+    );
+    Logger.log(messageDto);
+
+    const message = {
+      _id,
+      userId,
+      memorialId,
+      messageDto,
+    };
+
+    return await this.messageModel.findOneAndUpdate({ _id: _id }, message, {
+      new: true,
+    });
+  }
 
   removeMessageById() {}
 }
