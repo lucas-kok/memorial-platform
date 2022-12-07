@@ -36,6 +36,16 @@ export class MessagesService {
     return await this.messageModel.create(message);
   }
 
+  async getAllMessagesFromMemorialId(memorialId: string): Promise<Message[]> {
+    Logger.log(
+      '[MessagesService] getAllMessagesFromMemorialId(' +
+        memorialId +
+        ') called'
+    );
+
+    return await this.messageModel.find({ memorialid: memorialId });
+  }
+
   updateMessage() {}
 
   removeMessageById() {}

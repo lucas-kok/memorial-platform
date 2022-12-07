@@ -9,6 +9,9 @@ export class Message {
   @Prop({ type: 'string' })
   userId: string | undefined;
 
+  @Prop({ type: 'string' })
+  memorialid: string | undefined;
+
   @Prop({ type: 'Date' })
   dateTime: Date | undefined;
 
