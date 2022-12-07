@@ -37,7 +37,11 @@ export class FuneralsService {
     return await this.funeralModel.findById({ _id: new Types.ObjectId(_id) });
   }
 
-  async updateFuneral(_id: string, userId: string, funeralDto: FuneralDto) {
+  async updateFuneral(
+    _id: string,
+    userId: string,
+    funeralDto: FuneralDto
+  ): Promise<Funeral | null> {
     Logger.log(
       '[FuneralsService] updateFuneral(' +
         _id +
