@@ -152,6 +152,42 @@ export class MemorialsController {
     });
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
-  removeMemorialById() {}
+  async removeMemorialById(
+    @Param('id') id: string,
+    @Req() req: IGetUserAuthInfoReqeust,
+    @Res() res: Response
+  ) {
+    Logger.log('[MemorialsSerivce][DELETE]/memorials/' + id + ' called');
+
+    if (!IdValidator.validate(id)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Id is not in a valid string format',
+      });
+    }
+
+    const funeral = await this.memorialsService.getMemorialById(id);
+    if (!funeral) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Memorial with id: {' + id + '} not found',
+      });
+    }
+
+    const requestId = req.user._id;
+    if (requestId != funeral.userId) {
+      return res.status(403).json({
+        status: 403,
+        error: "You don't have permission to delete this memorial",
+      });
+    }
+
+    await this.memorialsService.removeMemorialById(id);
+    return res.status(200).json({
+      status: 200,
+      message: 'Memorial with id: {' + id + '} deleted',
+    });
+  }
 }
