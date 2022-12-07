@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { FuneralDto } from './funeral.dto';
 import { Funeral, FuneralDocument } from './funeral.model';
 
@@ -25,14 +25,16 @@ export class FuneralsService {
     return await this.funeralModel.create(funeral);
   }
 
-  async getAllFunerals() {
+  async getAllFunerals(): Promise<Funeral[]> {
     Logger.log('[FuneralsService] getAllFunerals called');
 
     return await this.funeralModel.find({});
   }
 
-  getFuneralById() {
+  async getFuneralById(_id: string): Promise<Funeral | null> {
     Logger.log('[FuneralsService] getFuneralById called');
+
+    return await this.funeralModel.findById({ _id: new Types.ObjectId(_id) });
   }
 
   updateFuneral() {
