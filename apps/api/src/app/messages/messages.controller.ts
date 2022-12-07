@@ -56,11 +56,40 @@ export class MessagesController {
     });
   }
 
-  @Get()
-  getMessageFromMemorialId() {}
+  @Get('/memorial/:id')
+  async getMessageFromMemorialId(
+    @Param('id') id: string,
+    @Res() res: Response
+  ) {
+    Logger.log('[MessagesController][GET]/messages/memorial/' + id + ' called');
+
+    const messages = await this.messagesService.getAllMessagesFromMemorialId(
+      id
+    );
+
+    return res.status(200).json({
+      status: 200,
+      result: messages,
+    });
+  }
 
   @Get(':id')
-  getMessageById() {}
+  async getMessageById(@Param(':id') id: string, @Res() res: Response) {
+    Logger.log('[MessagesService][GET]/messages/' + id + ' called');
+
+    const message = await this.messagesService.getMessageById(id);
+    if (!message) {
+      return res.status(404).json({
+        status: 404,
+        message: 'Message with id: {' + id + '} not found',
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      result: message,
+    });
+  }
 
   @UseGuards(JwtAuthGuard)
   @Put(':id')
