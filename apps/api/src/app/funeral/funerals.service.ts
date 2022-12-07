@@ -64,7 +64,11 @@ export class FuneralsService {
     );
   }
 
-  removeFuneralById() {
-    Logger.log('[FuneralsService] removeFuneralById called');
+  async removeFuneralById(_id: string): Promise<Funeral | null> {
+    Logger.log('[FuneralsService] removeFuneralById(' + _id + ') called');
+
+    return await this.funeralModel.findOneAndDelete({
+      _id: _id,
+    });
   }
 }
