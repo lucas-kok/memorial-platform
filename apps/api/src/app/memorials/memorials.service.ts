@@ -1,7 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { MemorialDocument } from './memorial.model';
+import { MemorialDto } from './memorial.dto';
+import { Memorial, MemorialDocument } from './memorial.model';
 
 @Injectable()
 export class MemorialsService {
@@ -10,7 +11,22 @@ export class MemorialsService {
     private readonly memorialModel: Model<MemorialDocument>
   ) {}
 
-  addMemorial() {}
+  async addMemorial(
+    MemorialDto: MemorialDto,
+    userId: string
+  ): Promise<Memorial> {
+    Logger.log(
+      '[MemorialsService] addMemorial called with userId: {' + userId + '}'
+    );
+    Logger.log(MemorialDto);
+
+    const memorial = {
+      userId,
+      ...MemorialDto,
+    };
+
+    return await this.memorialModel.create(memorial);
+  }
 
   getAllMemorials() {}
 
