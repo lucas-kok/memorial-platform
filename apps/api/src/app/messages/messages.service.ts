@@ -45,19 +45,12 @@ export class MessagesService {
     return await this.messageModel.findById({ _id: new Types.ObjectId(_id) });
   }
 
-  async updateMessage(
-    _id: string,
-    userId: string,
-    memorialId: string,
-    messageDto: MessageDto
-  ) {
+  async updateMessage(_id: string, userId: string, messageDto: MessageDto) {
     Logger.log(
       '[MessagesService] updateMessage(' +
         _id +
         ') called with userId: {' +
         userId +
-        '} and memorialId: {' +
-        memorialId +
         '}'
     );
     Logger.log(messageDto);
@@ -65,7 +58,6 @@ export class MessagesService {
     const message = {
       _id,
       userId,
-      memorialId,
       messageDto,
     };
 
