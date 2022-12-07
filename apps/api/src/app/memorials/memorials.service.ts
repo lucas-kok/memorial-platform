@@ -72,5 +72,9 @@ export class MemorialsService {
     });
   }
 
-  removeMemorialById() {}
+  async removeMemorialById(_id: string): Promise<Memorial | null> {
+    Logger.log('[MemorialsService] removeMemorialById(' + _id + ') called');
+
+    return await this.memorialModel.findOneAndDelete({ _id: _id });
+  }
 }
