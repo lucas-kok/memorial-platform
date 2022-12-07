@@ -74,7 +74,7 @@ export class MessagesController {
   }
 
   @Get(':id')
-  async getMessageById(@Param(':id') id: string, @Res() res: Response) {
+  async getMessageById(@Param('id') id: string, @Res() res: Response) {
     Logger.log('[MessagesService][GET]/messages/' + id + ' called');
 
     const message = await this.messagesService.getMessageById(id);
