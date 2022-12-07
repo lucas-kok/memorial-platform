@@ -1,4 +1,10 @@
-import { IsDateString, IsIn, IsNotEmpty, IsString } from 'class-validator';
+import {
+  IsBase64,
+  IsDateString,
+  IsIn,
+  IsNotEmpty,
+  IsString,
+} from 'class-validator';
 import { Gender } from '../shared/gender.model';
 
 export class PersonDto {
