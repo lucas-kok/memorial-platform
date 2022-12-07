@@ -37,8 +37,27 @@ export class FuneralsService {
     return await this.funeralModel.findById({ _id: new Types.ObjectId(_id) });
   }
 
-  updateFuneral() {
-    Logger.log('[FuneralsService] updateFuneral called');
+  async updateFuneral(_id: string, userId: string, funeralDto: FuneralDto) {
+    Logger.log(
+      '[FuneralsService] updateFuneral(' +
+        _id +
+        ') called with userId: {' +
+        userId +
+        '}'
+    );
+    Logger.log(funeralDto);
+
+    const funeral = {
+      _id,
+      userId,
+      ...funeralDto,
+    };
+
+    return await this.funeralModel.findOneAndUpdate(
+      { _id: new Types.ObjectId(_id) },
+      funeral,
+      { new: true }
+    );
   }
 
   removeFuneralById() {
