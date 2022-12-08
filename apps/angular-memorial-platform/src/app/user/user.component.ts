@@ -32,8 +32,7 @@ export class UserComponent {
   }
 
   onLogOut() {
-    localStorage.removeItem('jwtToken');
-    localStorage.removeItem('userId');
+    this.userService.logout();
     this.loggedIn = false;
   }
 

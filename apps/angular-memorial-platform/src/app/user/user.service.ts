@@ -2,7 +2,7 @@ import { Injectable, isDevMode } from '@angular/core';
 import { Gender } from '../shared/gender.model';
 import { User, UserLoginDto } from './user.model';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, tap } from 'rxjs';
+import { catchError, map, Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { prodEnvironment } from '../../environments/environment.prod';
 
@@ -45,25 +45,18 @@ export class UserService {
     });
   }
 
-  removeUserById(id: string) {
-    let user: User | null;
-    const request = this.getUserById(id)
-      .pipe(
-        map((res: any) => res),
-        tap((res) => {
-          user = res.result;
-
-          if (user == null) return;
-
-          let index = this.users.indexOf(user, 0);
-
-          this.users.splice(index, 1);
-        })
-      )
-      .subscribe();
+  removeUserById(id: string, jwtToken: string): Observable<User> {
+    return this.http.delete<User>(this.apiUri + '/users/' + id, {
+      headers: { Authorization: `Bearer ${jwtToken}` },
+    });
   }
 
   login(loginDto: UserLoginDto): Observable<string> {
     return this.http.post<string>(this.apiUri + '/auth/login', loginDto);
+  }
+
+  logout() {
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('userId');
   }
 }

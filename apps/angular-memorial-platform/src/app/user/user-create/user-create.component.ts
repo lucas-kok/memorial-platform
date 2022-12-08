@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { catchError, map, Subscription, tap } from 'rxjs';
 import { Gender } from '../../shared/gender.model';
 import { User } from '../user.model';
@@ -15,7 +16,7 @@ export class UserCreateComponent {
   subscription: Subscription | undefined;
   message: String | undefined;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.newUser = new User();
     this.genders = Object.keys(Gender);
   }
@@ -29,7 +30,9 @@ export class UserCreateComponent {
         map((res: any) => res),
         tap((res) => {
           console.log('[UserCreateComponent] User created');
+
           this.message = 'User created succesfully!';
+          this.router.navigate(['/users']);
         }),
         catchError(async () => {
           this.message = 'Er is iets fout gegaan';

@@ -63,8 +63,9 @@ export class UserEditComponent {
       .updateUser(this.user, jwtToken!)
       .pipe(
         map((res: any) => res),
-        tap((res) => {
+        tap(() => {
           console.log('User updated');
+
           this.router.navigate(['/users/' + this.componentId]);
         }),
         catchError(async () => {
@@ -77,7 +78,21 @@ export class UserEditComponent {
   onDelete() {
     // User must exist before removing
     if (this.user != null && this.componentId != null) {
-      this.userService.removeUserById(this.componentId);
+      const jwtToken = localStorage.getItem('jwtToken');
+
+      this.subscription = this.userService
+        .removeUserById(this.componentId, jwtToken!)
+        .pipe(
+          map((res: any) => res),
+          tap(() => {
+            this.userService.logout();
+            this.router.navigate(['/users']);
+          }),
+          catchError(async () => {
+            this.message = 'Er is iets fout gegaan';
+          })
+        )
+        .subscribe();
     }
   }
 }
