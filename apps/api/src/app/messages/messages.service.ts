@@ -22,15 +22,16 @@ export class MessagesService {
       '[MessagesService] addMessage called with userId: {' + userId + '}'
     );
 
-    const message = {
-      userId,
-      ...messageDto,
-    };
-
     const memorial = await this.memorialModel.findById({
       _id: new Types.ObjectId(messageDto.memorialId),
     });
     if (!memorial) throw new NotFoundException();
+
+    const message = {
+      _id: memorial!.messages!.length,
+      userId,
+      ...messageDto,
+    };
 
     memorial!.messages!.push(message);
     await memorial.save();
@@ -53,10 +54,40 @@ export class MessagesService {
     return memorial!.messages!;
   }
 
-  async getMessageById(_id: string): Promise<Message | null> {
-    Logger.log('[MessagesService] getMessageById(' + _id + ') called');
+  async getMessageById(
+    memorialId: string,
+    _id: number
+  ): Promise<Message | null> {
+    Logger.log(
+      '[MessagesService] getMessageById(' +
+        _id +
+        ') called with memorialId: {' +
+        memorialId +
+        '}'
+    );
 
-    return await this.messageModel.findById({ _id: new Types.ObjectId(_id) });
+    const memorial = await this.memorialModel.findById({
+      _id: new Types.ObjectId(memorialId),
+    });
+    if (!memorial)
+      throw new NotFoundException(
+        'Memorial with id: {' + memorialId + '} not found'
+      );
+
+    if (
+      memorial!.messages![_id] != null &&
+      memorial!.messages![_id]._id == _id
+    ) {
+      return memorial!.messages![_id];
+    }
+
+    const findMessage = memorial!.messages!.find(
+      (message) => message._id == _id
+    );
+    if (!findMessage)
+      throw new NotFoundException('Message with id: {' + _id + '} not found');
+
+    return findMessage;
   }
 
   async updateMessage(_id: string, userId: string, messageDto: MessageDto) {
