@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, map, Subscription, tap } from 'rxjs';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
 
@@ -10,8 +11,9 @@ import { UserService } from '../user.service';
 })
 export class UserDetailsComponent {
   componentId: string | null | undefined;
-  userExists: boolean = false;
+  userExists: boolean = true;
   user: User | undefined;
+  subscription: Subscription | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,13 +23,25 @@ export class UserDetailsComponent {
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       this.componentId = params.get('id');
+      console.log(this.componentId);
 
       if (this.componentId == null) return;
 
-      this.user = this.userService.getUserById(this.componentId);
-
-      if (this.user != null) this.userExists = true;
+      this.subscription = this.userService
+        .getUserById(this.componentId)
+        .pipe(
+          map((res: any) => res),
+          tap((res) => {
+            this.user = res.result;
+          }),
+          catchError(async () => (this.userExists = false))
+        )
+        .subscribe();
     });
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) this.subscription.unsubscribe();
   }
 
   dateToString(date: Date): string {

@@ -15,14 +15,14 @@
     </thead>
     <tbody>
         <tr *ngFor="let user of users" scope="row">
-            <td>{{ user.id }}</td>
+            <td>{{ user._id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.password }}</td>
             <td>{{ user.phoneNumber }}</td>
             <td>{{ dateToString(user.birthday!) }}</td>
             <td>{{ user.gender }}</td>
-            <td><a routerLink="{{ user.id }}" class="btn btn-secondary">Details</a></td>
+            <td><a routerLink="{{ user._id }}" class="btn btn-secondary">Details</a></td>
         </tr>
     </tbody>
 </table>

@@ -17,7 +17,7 @@ export class UserService {
 
   users: User[] = [
     {
-      id: '1',
+      _id: '1',
       name: 'Lucas Kok',
       email: 'lucas.kok@hotmail.nl',
       password: 'Secret!123',
@@ -35,23 +35,32 @@ export class UserService {
     return this.http.get<User[]>(this.apiUri! + '/users');
   }
 
-  getUserById(id: string): User {
-    return this.users.filter((user: User) => user.id == id)[0];
+  getUserById(id: string): Observable<User> {
+    return this.http.get<User>(this.apiUri + '/users/' + id);
   }
 
   updateUser(user: User) {
     if (user == null) return;
 
-    this.removeUserById(user.id!);
+    this.removeUserById(user._id!);
     this.addUser(user);
   }
 
   removeUserById(id: string) {
-    let user: User | null = this.getUserById(id);
-    if (user == null) return;
+    let user: User | null;
+    const request = this.getUserById(id)
+      .pipe(
+        map((res: any) => res),
+        tap((res) => {
+          user = res.result;
 
-    let index = this.users.indexOf(user, 0);
+          if (user == null) return;
 
-    this.users.splice(index, 1);
+          let index = this.users.indexOf(user, 0);
+
+          this.users.splice(index, 1);
+        })
+      )
+      .subscribe();
   }
 }
