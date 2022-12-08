@@ -4,6 +4,7 @@ import {
   IsDateString,
   IsMongoId,
   IsNotEmpty,
+  IsNumber,
   IsString,
 } from 'class-validator';
 
@@ -31,4 +32,15 @@ export class MessageDto {
   @IsNotEmpty()
   @IsBoolean()
   readonly showName: boolean | undefined;
+}
+
+export class MessageRequestDto {
+  @IsNotEmpty()
+  @IsNumber()
+  readonly _id: number | undefined;
+
+  @IsNotEmpty()
+  @IsString()
+  @IsMongoId()
+  readonly memorialId: string | undefined;
 }
