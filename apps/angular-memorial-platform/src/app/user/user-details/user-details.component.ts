@@ -11,14 +11,15 @@ import { UserService } from '../user.service';
 })
 export class UserDetailsComponent {
   componentId: string | null | undefined;
+  userId: string | null;
   userExists: boolean = true;
+  isUserProperty: boolean = false;
   user: User | undefined;
   subscription: Subscription | undefined;
 
-  constructor(
-    private route: ActivatedRoute,
-    private userService: UserService
-  ) {}
+  constructor(private route: ActivatedRoute, private userService: UserService) {
+    this.userId = localStorage.getItem('userId');
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
@@ -33,6 +34,9 @@ export class UserDetailsComponent {
           map((res: any) => res),
           tap((res) => {
             this.user = res.result;
+            console.log(this.userId);
+            console.log(res.result._id);
+            if (this.user!._id == this.userId) this.isUserProperty = true;
           }),
           catchError(async () => (this.userExists = false))
         )
