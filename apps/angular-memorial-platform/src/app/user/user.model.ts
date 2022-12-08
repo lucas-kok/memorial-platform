@@ -9,3 +9,8 @@ export class User {
   birthday: Date | undefined;
   gender: Gender | undefined;
 }
+
+export class UserLoginDto {
+  email: string | undefined;
+  password: string | undefined;
+}

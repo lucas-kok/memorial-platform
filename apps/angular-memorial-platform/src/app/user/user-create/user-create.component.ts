@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { error } from 'console';
-import { map, Subscription, tap } from 'rxjs';
+import { catchError, map, Subscription, tap } from 'rxjs';
 import { Gender } from '../../shared/gender.model';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
@@ -31,6 +30,9 @@ export class UserCreateComponent {
         tap((res) => {
           console.log('[UserCreateComponent] User created');
           this.message = 'User created succesfully!';
+        }),
+        catchError(async () => {
+          this.message = 'Er is iets fout gegaan';
         })
       )
       .subscribe();

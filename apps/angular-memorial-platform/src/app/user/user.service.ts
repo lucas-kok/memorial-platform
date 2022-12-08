@@ -1,6 +1,6 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { Gender } from '../shared/gender.model';
-import { User } from './user.model';
+import { User, UserLoginDto } from './user.model';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -62,5 +62,9 @@ export class UserService {
         })
       )
       .subscribe();
+  }
+
+  login(loginDto: UserLoginDto): Observable<String> {
+    return this.http.post<String>(this.apiUri + '/auth/login', loginDto);
   }
 }
