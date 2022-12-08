@@ -39,11 +39,10 @@ export class UserService {
     return this.http.get<User>(this.apiUri + '/users/' + id);
   }
 
-  updateUser(user: User) {
-    if (user == null) return;
-
-    this.removeUserById(user._id!);
-    this.addUser(user);
+  updateUser(user: User, jwtToken: string): Observable<User> {
+    return this.http.put<User>(this.apiUri! + '/users/' + user._id, user, {
+      headers: { Authorization: `Bearer ${jwtToken}` },
+    });
   }
 
   removeUserById(id: string) {
@@ -64,7 +63,7 @@ export class UserService {
       .subscribe();
   }
 
-  login(loginDto: UserLoginDto): Observable<String> {
-    return this.http.post<String>(this.apiUri + '/auth/login', loginDto);
+  login(loginDto: UserLoginDto): Observable<string> {
+    return this.http.post<string>(this.apiUri + '/auth/login', loginDto);
   }
 }

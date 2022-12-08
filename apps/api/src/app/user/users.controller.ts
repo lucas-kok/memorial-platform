@@ -102,6 +102,7 @@ export class UsersController {
     }
 
     const requestId = req.user._id;
+    Logger.log(requestId);
     if (requestId != id) {
       return res.status(403).json({
         status: 403,

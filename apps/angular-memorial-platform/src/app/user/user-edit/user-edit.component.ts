@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map, Subscription, tap } from 'rxjs';
+import { catchError } from 'rxjs/internal/operators/catchError';
 import { Gender } from '../../shared/gender.model';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
@@ -13,12 +14,18 @@ import { UserService } from '../user.service';
 export class UserEditComponent {
   componentId: string | null | undefined;
   userExists: boolean = false;
+  isUserProperty: boolean = false;
   user: User | undefined;
   genders: string[] | undefined;
   subscription: Subscription | undefined;
+  message: string | undefined;
 
-  constructor(private route: ActivatedRoute, private userService: UserService) {
-    this.genders = Object.values(Gender);
+  constructor(
+    private route: ActivatedRoute,
+    private userService: UserService,
+    private router: Router
+  ) {
+    this.genders = Object.keys(Gender);
   }
 
   ngOnInit() {
@@ -33,7 +40,11 @@ export class UserEditComponent {
           map((res: any) => res),
           tap((res) => {
             this.user = res.result;
+            this.user!.password = '';
             if (this.user != null) this.userExists = true;
+
+            const userId = localStorage.getItem('userId');
+            if (this.componentId == userId) this.isUserProperty = true;
           })
         )
         .subscribe();
@@ -47,7 +58,20 @@ export class UserEditComponent {
   onEdit() {
     if (this.user == null) return;
 
-    this.userService.updateUser(this.user);
+    const jwtToken = localStorage.getItem('jwtToken');
+    this.subscription = this.userService
+      .updateUser(this.user, jwtToken!)
+      .pipe(
+        map((res: any) => res),
+        tap((res) => {
+          console.log('User updated');
+          this.router.navigate(['/users/' + this.componentId]);
+        }),
+        catchError(async () => {
+          this.message = 'Er is iets fout gegaan';
+        })
+      )
+      .subscribe();
   }
 
   onDelete() {
