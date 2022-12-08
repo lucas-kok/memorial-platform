@@ -4,8 +4,6 @@ export type MessageDocument = Message & Document;
 
 @Schema()
 export class Message {
-  _id: string | undefined;
-
   @Prop({ type: 'string' })
   userId: string | undefined;
 

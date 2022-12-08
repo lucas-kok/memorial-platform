@@ -1,7 +1,7 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
-import { MemorialDocument } from '../memorials/memorial.model';
+import { Memorial, MemorialDocument } from '../memorials/memorial.model';
 import { MessageDto } from './message.dto';
 import { Message, MessageDocument } from './message.model';
 
@@ -17,7 +17,7 @@ export class MessagesService {
   async addMessageToMemorial(
     messageDto: MessageDto,
     userId: string
-  ): Promise<Message> {
+  ): Promise<any> {
     Logger.log(
       '[MessagesService] addMessage called with userId: {' + userId + '}'
     );
@@ -27,7 +27,15 @@ export class MessagesService {
       ...messageDto,
     };
 
-    return await this.messageModel.create(message);
+    const memorial = await this.memorialModel.findById({
+      _id: new Types.ObjectId(messageDto.memorialId),
+    });
+    if (!memorial) throw new NotFoundException();
+
+    memorial!.messages!.push(message);
+    await memorial.save();
+
+    return memorial;
   }
 
   async getAllMessagesFromMemorialId(memorialId: string): Promise<Message[]> {

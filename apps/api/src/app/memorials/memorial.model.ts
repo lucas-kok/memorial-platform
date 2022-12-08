@@ -23,7 +23,7 @@ export class Memorial {
   @Prop({ type: 'string' })
   imageBase64: string | undefined;
 
-  @Prop({ default: [], type: [Types.ObjectId] })
+  @Prop({ default: [], type: [] })
   messages: Message[] | undefined;
 }
 
