@@ -36,7 +36,7 @@ export class MessagesService {
     memorial!.messages!.push(message);
     await memorial.save();
 
-    return memorial;
+    return message;
   }
 
   async getAllMessagesFromMemorialId(memorialId: string): Promise<Message[]> {
@@ -126,7 +126,7 @@ export class MessagesService {
 
     await memorial.save();
 
-    return memorial;
+    return message;
   }
 
   async removeMessageById(_id: string): Promise<Message | null> {
