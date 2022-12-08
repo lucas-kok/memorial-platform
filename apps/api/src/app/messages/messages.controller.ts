@@ -16,7 +16,7 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { MemorialsService } from '../memorials/memorials.service';
 import { IGetUserAuthInfoReqeust } from '../shared/auth.inforequest.interface';
 import { IdValidator } from '../shared/id.validator';
-import { MessageDto } from './message.dto';
+import { MessageDto, MessageRequestDto } from './message.dto';
 import { MessagesService } from './messages.service';
 
 @Controller('messages')
@@ -72,15 +72,23 @@ export class MessagesController {
     });
   }
 
-  @Get(':id')
-  async getMessageById(@Param('id') id: string, @Res() res: Response) {
-    Logger.log('[MessagesService][GET]/messages/' + id + ' called');
+  @Get()
+  async getMessage(
+    @Body() messageRequestDto: MessageRequestDto,
+    @Res() res: Response
+  ) {
+    const { _id, memorialId } = messageRequestDto!;
 
-    const message = await this.messagesService.getMessageById(id);
+    Logger.log('[MessagesService][GET]/messages/' + _id + ' called');
+
+    const message = await this.messagesService.getMessageById(
+      memorialId!,
+      _id!
+    );
     if (!message) {
       return res.status(404).json({
         status: 404,
-        message: 'Message with id: {' + id + '} not found',
+        message: 'Message with id: {' + _id + '} not found',
       });
     }
 
