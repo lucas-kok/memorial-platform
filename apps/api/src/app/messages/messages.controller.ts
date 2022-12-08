@@ -101,26 +101,28 @@ export class MessagesController {
   @UseGuards(JwtAuthGuard)
   @Put(':id')
   async updateMessage(
-    @Param('id') id: string,
+    @Param('id') id: number,
     @Body() messageDto: MessageDto,
     @Req() req: IGetUserAuthInfoReqeust,
     @Res() res: Response
   ) {
+    const memorialId = messageDto.memorialId;
     Logger.log('[MessagesController][PUT]/messages/' + id + ' called');
     Logger.log(messageDto);
 
-    if (!IdValidator.validate(id)) {
-      return res.status(400).json({
-        status: 400,
-        error: 'Id is not in a valid string format',
-      });
-    }
-
-    const findMesssage = await this.messagesService.getMessageById(id);
+    const findMesssage = await this.messagesService.getMessageById(
+      memorialId!,
+      id
+    );
     if (!findMesssage) {
       return res.status(404).json({
         statut: 404,
-        error: 'Message with id: {' + id + '} not found',
+        error:
+          'Message with id: {' +
+          id +
+          '} not found at memorialId: {' +
+          memorialId +
+          '}',
       });
     }
 
@@ -133,6 +135,7 @@ export class MessagesController {
     }
 
     const message = await this.messagesService.updateMessage(
+      memorialId!,
       id,
       requestId,
       messageDto

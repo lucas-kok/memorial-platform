@@ -90,7 +90,12 @@ export class MessagesService {
     return findMessage;
   }
 
-  async updateMessage(_id: string, userId: string, messageDto: MessageDto) {
+  async updateMessage(
+    memorialId: string,
+    _id: number,
+    userId: string,
+    messageDto: MessageDto
+  ) {
     Logger.log(
       '[MessagesService] updateMessage(' +
         _id +
@@ -103,12 +108,25 @@ export class MessagesService {
     const message = {
       _id,
       userId,
-      messageDto,
+      ...messageDto,
     };
 
-    return await this.messageModel.findOneAndUpdate({ _id: _id }, message, {
-      new: true,
+    const memorial = await this.memorialModel.findById({
+      _id: new Types.ObjectId(memorialId),
     });
+    if (!memorial)
+      throw new NotFoundException(
+        'Memorial with id: {' + memorialId + '} not found'
+      );
+
+    const index = memorial!.messages!.findIndex(
+      (message) => message._id == _id
+    );
+    memorial!.messages![index] = message;
+
+    await memorial.save();
+
+    return memorial;
   }
 
   async removeMessageById(_id: string): Promise<Message | null> {
