@@ -1,8 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
-import { MemorialDto } from '../memorials/memorial.dto';
-import { MemorialsService } from '../memorials/memorials.service';
+import { MemorialDocument } from '../memorials/memorial.model';
 import { MessageDto } from './message.dto';
 import { Message, MessageDocument } from './message.model';
 
@@ -10,7 +9,9 @@ import { Message, MessageDocument } from './message.model';
 export class MessagesService {
   constructor(
     @InjectModel('message')
-    private readonly messageModel: Model<MessageDocument>
+    private readonly messageModel: Model<MessageDocument>,
+    @InjectModel('memorial')
+    private readonly memorialModel: Model<MemorialDocument>
   ) {}
 
   async addMessageToMemorial(

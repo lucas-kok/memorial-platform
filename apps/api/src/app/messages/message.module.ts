@@ -8,8 +8,10 @@ import { MessagesService } from './messages.service';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'message', schema: MessageSchema }]),
-    MongooseModule.forFeature([{ name: 'memorial', schema: MemorialSchema }]),
+    MongooseModule.forFeature([
+      { name: 'message', schema: MessageSchema },
+      { name: 'memorial', schema: MemorialSchema },
+    ]),
   ],
   providers: [MessagesService, MemorialsService],
   controllers: [MessagesController],
