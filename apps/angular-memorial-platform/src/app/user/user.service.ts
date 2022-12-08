@@ -27,16 +27,16 @@ export class UserService {
     },
   ];
 
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(this.apiUri! + '/users', user);
+  }
+
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiUri! + '/users');
   }
 
   getUserById(id: string): User {
     return this.users.filter((user: User) => user.id == id)[0];
-  }
-
-  addUser(user: User) {
-    this.users.push(user);
   }
 
   updateUser(user: User) {
