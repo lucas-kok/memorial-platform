@@ -28,7 +28,10 @@ export class AuthController {
     const result = await this.authService.login(user);
     return res.status(200).json({
       status: 200,
-      result: result,
+      result: {
+        jwtToken: result,
+        userId: user._id,
+      },
     });
   }
 }

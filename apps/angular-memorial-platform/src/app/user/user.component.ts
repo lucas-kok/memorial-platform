@@ -11,6 +11,7 @@ import { UserService } from './user.service';
 export class UserComponent {
   users: User[] | undefined;
   subscription: Subscription | undefined;
+  loggedIn: boolean | undefined = localStorage.getItem('jwtToken') != null;
 
   constructor(private userService: UserService) {}
 
@@ -28,6 +29,12 @@ export class UserComponent {
 
   ngOnDestroy() {
     if (this.subscription) this.subscription.unsubscribe();
+  }
+
+  onLogOut() {
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('userId');
+    this.loggedIn = false;
   }
 
   dateToString(date: Date): string {
