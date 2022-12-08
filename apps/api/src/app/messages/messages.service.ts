@@ -122,6 +122,10 @@ export class MessagesService {
     const index = memorial!.messages!.findIndex(
       (message) => message._id == _id
     );
+
+    if (index == -1)
+      throw new NotFoundException('Message with id: {' + _id + '} not found');
+
     memorial!.messages![index] = message;
 
     await memorial.save();
@@ -129,9 +133,31 @@ export class MessagesService {
     return message;
   }
 
-  async removeMessageById(_id: string): Promise<Message | null> {
+  async removeMessageById(
+    memorialId: string,
+    _id: number
+  ): Promise<Message | null> {
     Logger.log('[MessagesService] removeMessageById(' + _id + ') called');
 
-    return await this.messageModel.findOneAndDelete({ _id: _id });
+    const memorial = await this.memorialModel.findById({
+      _id: new Types.ObjectId(memorialId),
+    });
+    if (!memorial)
+      throw new NotFoundException(
+        'Memorial with id: {' + memorialId + '} not found'
+      );
+
+    const index = memorial!.messages!.findIndex(
+      (message) => message._id == _id
+    );
+
+    if (index == -1)
+      throw new NotFoundException('Message with id: {' + _id + '} not found');
+
+    memorial!.messages!.splice(index, 1);
+
+    await memorial.save();
+
+    return null;
   }
 }

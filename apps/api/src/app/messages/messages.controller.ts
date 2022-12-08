@@ -147,26 +147,23 @@ export class MessagesController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Delete(':id')
+  @Delete()
   async removeMessageById(
-    @Param('id') id: string,
+    @Body() messageRequestDto: MessageRequestDto,
     @Req() req: IGetUserAuthInfoReqeust,
     @Res() res: Response
   ) {
-    Logger.log('[MessagesService][DELETE]/messages/' + id + ' called');
+    const { _id, memorialId } = messageRequestDto;
+    Logger.log('[MessagesService][DELETE]/messages/' + _id + ' called');
 
-    if (!IdValidator.validate(id)) {
-      return res.status(400).json({
-        status: 400,
-        error: 'Id is not in a valid string format',
-      });
-    }
-
-    const message = await this.messagesService.getMessageById(id);
+    const message = await this.messagesService.getMessageById(
+      memorialId!,
+      _id!
+    );
     if (!message) {
       return res.status(404).json({
         status: 404,
-        error: 'Message with id: {' + id + '} not found',
+        error: 'Message with id: {' + _id + '} not found',
       });
     }
 
@@ -178,10 +175,10 @@ export class MessagesController {
       });
     }
 
-    await this.messagesService.removeMessageById(id);
+    await this.messagesService.removeMessageById(memorialId!, _id!);
     return res.status(200).json({
       status: 200,
-      message: 'Message with id: {' + id + '} deleted',
+      message: 'Message with id: {' + _id + '} deleted',
     });
   }
 }
