@@ -45,7 +45,12 @@ export class MessagesService {
         ') called'
     );
 
-    return await this.messageModel.find({ memorialid: memorialId });
+    const memorial = await this.memorialModel.findById({
+      _id: new Types.ObjectId(memorialId),
+    });
+    if (!memorial) throw new NotFoundException();
+
+    return memorial!.messages!;
   }
 
   async getMessageById(_id: string): Promise<Message | null> {
