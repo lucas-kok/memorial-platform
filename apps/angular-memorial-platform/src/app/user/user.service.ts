@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Gender } from '../shared/gender.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from './user.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  constructor(private http: HttpClient) {}
   users: User[] = [
     {
       id: '1',
@@ -18,8 +21,8 @@ export class UserService {
     },
   ];
 
-  getAllUsers(): User[] {
-    return this.users;
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>('http://localhost:3333/api/users');
   }
 
   getUserById(id: string): User {
