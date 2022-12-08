@@ -1,11 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { Gender } from '../shared/gender.model';
 import { User } from './user.model';
+import { HttpClient } from '@angular/common/http';
+import { map, Observable, tap } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { prodEnvironment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  apiUri: string | undefined;
+  constructor(private http: HttpClient) {
+    this.apiUri = isDevMode() ? environment.API_URL : prodEnvironment.API_URL;
+  }
+
   users: User[] = [
     {
       id: '1',
@@ -18,8 +27,8 @@ export class UserService {
     },
   ];
 
-  getAllUsers(): User[] {
-    return this.users;
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUri! + '/users');
   }
 
   getUserById(id: string): User {

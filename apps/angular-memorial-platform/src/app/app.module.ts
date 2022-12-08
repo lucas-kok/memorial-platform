@@ -15,6 +15,7 @@ import { UserComponent } from './user/user.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserDetailsComponent } from './user/user-details/user-details.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
     UserDetailsComponent,
     UserEditComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

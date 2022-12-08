@@ -46,7 +46,6 @@ export class UsersController {
     });
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get()
   async getAllUsers(@Res() res: Response) {
     Logger.log('[UsersController][GET]/users called');
