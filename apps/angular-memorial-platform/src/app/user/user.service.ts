@@ -2,7 +2,7 @@ import { Injectable, isDevMode } from '@angular/core';
 import { Gender } from '../shared/gender.model';
 import { User, UserLoginDto } from './user.model';
 import { HttpClient } from '@angular/common/http';
-import { catchError, map, Observable, tap } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { prodEnvironment } from '../../environments/environment.prod';
 

@@ -28,10 +28,12 @@ export class PersonService {
     },
   ];
 
-  getAllPersons(): Observable<Person[]> {
+  getAllPersonsFromUser(jwtToken: string): Observable<Person[]> {
     console.log('Retrieving all persons');
 
-    return this.http.get<Person[]>(this.apiUri + '/persons');
+    return this.http.get<Person[]>(this.apiUri + '/persons', {
+      headers: { Authorization: `Bearer ${jwtToken}` },
+    });
   }
 
   getPersonById(id: string): Person {
