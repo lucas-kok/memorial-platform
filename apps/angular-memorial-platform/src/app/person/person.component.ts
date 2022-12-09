@@ -14,10 +14,8 @@ export class PersonComponent {
   subscription: Subscription | undefined;
   loggedIn: boolean | undefined = localStorage.getItem('jwtToken') != null;
 
-  constructor(private personService: PersonService, private router: Router) {
-    if (!this.loggedIn) {
-      router.navigate(['/users/auth/login']);
-    }
+  constructor(private personService: PersonService, router: Router) {
+    if (this.loggedIn == false) router.navigate(['/users/login']);
   }
 
   ngOnInit(): void {

@@ -6,5 +6,5 @@ export class Person {
   birthday: Date | undefined;
   deathday: Date | undefined;
   gender: Gender | undefined;
-  image: string | undefined;
+  imageBase64: string | undefined;
 }

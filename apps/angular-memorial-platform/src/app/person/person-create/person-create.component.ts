@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Gender } from '../../shared/gender.model';
 import { Person } from '../person.model';
 import { PersonService } from '../person.service';
@@ -12,10 +13,13 @@ export class PersonCreateComponent {
   newPerson: Person | undefined;
   name: string | undefined;
   genders: string[] | undefined;
+  loggedIn: boolean | undefined = localStorage.getItem('jwtToken') != null;
 
-  constructor(private personService: PersonService) {
+  constructor(private personService: PersonService, router: Router) {
+    if (!this.loggedIn) router.navigate(['/users/login']);
+
     this.newPerson = new Person();
-    this.genders = Object.values(Gender);
+    this.genders = Object.keys(Gender);
   }
 
   onCreate() {
@@ -38,6 +42,6 @@ export class PersonCreateComponent {
 
   _handleReaderLoaded(readerEvt: any) {
     var binaryString = readerEvt.target.result;
-    this.newPerson!.image = btoa(binaryString);
+    this.newPerson!.imageBase64 = btoa(binaryString);
   }
 }

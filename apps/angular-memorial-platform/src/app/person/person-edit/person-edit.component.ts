@@ -62,6 +62,6 @@ export class PersonEditComponent {
 
   _handleReaderLoaded(readerEvt: any) {
     var binaryString = readerEvt.target.result;
-    this.person!.image = 'data:image/png;base64,' + btoa(binaryString);
+    this.person!.imageBase64 = 'data:image/png;base64,' + btoa(binaryString);
   }
 }
