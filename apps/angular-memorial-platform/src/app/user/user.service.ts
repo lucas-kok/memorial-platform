@@ -46,5 +46,6 @@ export class UserService {
   logout() {
     localStorage.removeItem('jwtToken');
     localStorage.removeItem('userId');
+    localStorage.removeItem('email');
   }
 }

@@ -12,8 +12,11 @@ export class UserComponent {
   users: User[] | undefined;
   subscription: Subscription | undefined;
   loggedIn: boolean | undefined = localStorage.getItem('jwtToken') != null;
+  email: string | null;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) {
+    this.email = localStorage.getItem('email');
+  }
 
   ngOnInit() {
     this.subscription = this.userService

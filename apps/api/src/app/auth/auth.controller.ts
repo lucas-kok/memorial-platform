@@ -31,6 +31,7 @@ export class AuthController {
       result: {
         jwtToken: result,
         userId: user._id,
+        email: user.email,
       },
     });
   }

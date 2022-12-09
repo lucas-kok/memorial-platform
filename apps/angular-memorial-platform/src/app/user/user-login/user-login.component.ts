@@ -31,6 +31,7 @@ export class UserLoginComponent {
 
           localStorage.setItem('jwtToken', res.result.jwtToken);
           localStorage.setItem('userId', res.result.userId);
+          localStorage.setItem('email', res.result.email);
           this.message = 'Succesvol ingelogd';
 
           this.router.navigate(['/users']);
