@@ -52,12 +52,16 @@ export class PersonService {
     });
   }
 
-  updatePerson(person: Person) {
+  updatePerson(person: Person, jwtToken: string): Observable<Person> {
     console.log('Updating person: {' + person + '}');
 
-    /* Don't do this with a Db */
-    // this.removePersonById(person.id!);
-    // this.addPerson(person);
+    return this.http.put<Person>(
+      this.apiUri + '/persons/' + person._id,
+      person,
+      {
+        headers: { Authorization: `Bearer ${jwtToken}` },
+      }
+    );
   }
 
   removePersonById(id: string): void {

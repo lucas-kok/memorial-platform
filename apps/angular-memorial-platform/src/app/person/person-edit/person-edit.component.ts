@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, map, Subscription, tap } from 'rxjs';
 import { Gender } from '../../shared/gender.model';
 import { Person } from '../person.model';
 import { PersonService } from '../person.service';
@@ -12,15 +13,19 @@ import { PersonService } from '../person.service';
 export class PersonEditComponent {
   componentId: string | null | undefined;
   personExists: boolean = false;
+  isUserProperty: boolean = false;
   person: Person | undefined;
   genders: string[] | undefined;
+
+  subscription: Subscription | undefined;
+  message: string | undefined;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private personService: PersonService
   ) {
-    this.genders = Object.values(Gender);
+    this.genders = Object.keys(Gender);
   }
 
   ngOnInit(): void {
@@ -29,16 +34,46 @@ export class PersonEditComponent {
 
       if (this.componentId == null) return;
 
-      // this.person = this.personService.getPersonById(this.componentId);
+      const jwtToken = localStorage.getItem('jwtToken');
 
-      if (this.person != null) this.personExists = true;
+      this.subscription = this.personService
+        .getPersonById(this.componentId, jwtToken!)
+        .pipe(
+          map((res: any) => res),
+          tap((res) => {
+            this.person = res.result;
+            if (this.person) this.personExists = true;
+
+            const userId = localStorage.getItem('userId');
+            if (res.result.userId == userId) this.isUserProperty = true;
+          })
+        )
+        .subscribe();
     });
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) this.subscription.unsubscribe();
   }
 
   onEdit() {
     if (this.person == null) return;
 
-    this.personService.updatePerson(this.person);
+    const jwtToken = localStorage.getItem('jwtToken');
+    this.subscription = this.personService
+      .updatePerson(this.person, jwtToken!)
+      .pipe(
+        map((res: any) => res),
+        tap((res) => {
+          console.log('Person updated');
+
+          this.router.navigate(['/persons/' + this.componentId]);
+        }),
+        catchError(async () => {
+          this.message = 'Er is iets fout gegaan';
+        })
+      )
+      .subscribe();
   }
 
   onDelete() {
@@ -62,6 +97,6 @@ export class PersonEditComponent {
 
   _handleReaderLoaded(readerEvt: any) {
     var binaryString = readerEvt.target.result;
-    this.person!.imageBase64 = 'data:image/png;base64,' + btoa(binaryString);
+    this.person!.imageBase64 = btoa(binaryString);
   }
 }

@@ -1,6 +1,6 @@
-<div *ngIf="personExists">
+<h3 class="mt-3">Details:</h3>
+<div *ngIf="personExists && isUserProperty">
   <img src="data:image/png;base64,{{ person!.imageBase64 }}" class="profile-image" />
-  <h3 class="mt-3">Details:</h3>
   <p>
     <b>Id:</b> {{ person!._id }}<br />
     <b>Naam:</b> {{ person!.name }}<br />
