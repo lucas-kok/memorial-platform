@@ -28,6 +28,14 @@ export class PersonService {
     },
   ];
 
+  addPerson(person: Person, jwtToken: string): Observable<Person> {
+    console.log('Adding person: {' + person + '}');
+
+    return this.http.post<Person>(this.apiUri + '/persons', person, {
+      headers: { Authorization: `Bearer ${jwtToken}` },
+    });
+  }
+
   getAllPersonsFromUser(jwtToken: string): Observable<Person[]> {
     console.log('Retrieving all persons');
 
@@ -41,17 +49,12 @@ export class PersonService {
     return this.persons.filter((person: Person) => person.id == id)[0];
   }
 
-  addPerson(person: Person) {
-    console.log('Adding person: {' + person + '}');
-    this.persons.push(person);
-  }
-
   updatePerson(person: Person) {
     console.log('Updating person: {' + person + '}');
 
     /* Don't do this with a Db */
-    this.removePersonById(person.id!);
-    this.addPerson(person);
+    // this.removePersonById(person.id!);
+    // this.addPerson(person);
   }
 
   removePersonById(id: string): void {

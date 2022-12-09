@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { catchError, map, Subscription, tap } from 'rxjs';
 import { Gender } from '../../shared/gender.model';
 import { Person } from '../person.model';
 import { PersonService } from '../person.service';
@@ -15,7 +16,10 @@ export class PersonCreateComponent {
   genders: string[] | undefined;
   loggedIn: boolean | undefined = localStorage.getItem('jwtToken') != null;
 
-  constructor(private personService: PersonService, router: Router) {
+  subscription: Subscription | undefined;
+  message: string | undefined;
+
+  constructor(private personService: PersonService, private router: Router) {
     if (!this.loggedIn) router.navigate(['/users/login']);
 
     this.newPerson = new Person();
@@ -25,7 +29,24 @@ export class PersonCreateComponent {
   onCreate() {
     if (this.newPerson == null) return;
 
-    this.personService.addPerson(this.newPerson);
+    const jwtToken = localStorage.getItem('jwtToken');
+    this.subscription = this.personService
+      .addPerson(this.newPerson, jwtToken!)
+      .pipe(
+        map((res: any) => res),
+        tap((res) => {
+          console.log('[PersonCreateComponent] Person created');
+
+          this.message = 'Person created succesfully';
+          this.router.navigate(['/persons']);
+        }),
+        catchError(async () => (this.message = 'Er is iets fout gegaan'))
+      )
+      .subscribe();
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) this.subscription.unsubscribe();
   }
 
   handleFileSelect(evt: any) {
