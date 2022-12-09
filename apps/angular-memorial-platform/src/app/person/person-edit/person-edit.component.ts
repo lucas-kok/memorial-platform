@@ -29,7 +29,7 @@ export class PersonEditComponent {
 
       if (this.componentId == null) return;
 
-      this.person = this.personService.getPersonById(this.componentId);
+      // this.person = this.personService.getPersonById(this.componentId);
 
       if (this.person != null) this.personExists = true;
     });

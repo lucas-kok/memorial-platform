@@ -44,9 +44,12 @@ export class PersonService {
     });
   }
 
-  getPersonById(id: string): Person {
+  getPersonById(id: string, jwtToken: string): Observable<Person> {
     console.log('Retrieving person with id: {' + id + '}');
-    return this.persons.filter((person: Person) => person._id == id)[0];
+
+    return this.http.get<Person>(this.apiUri + '/persons/' + id, {
+      headers: { Authorization: `Bearer ${jwtToken}` },
+    });
   }
 
   updatePerson(person: Person) {
@@ -58,12 +61,10 @@ export class PersonService {
   }
 
   removePersonById(id: string): void {
-    console.log('Removing person with id: {' + id + '}');
-    let person: Person = this.getPersonById(id);
-
-    if (person == null) return;
-
-    let index = this.persons.indexOf(person, 0);
-    this.persons.splice(index, 1);
+    // console.log('Removing person with id: {' + id + '}');
+    // let person: Person = this.getPersonById(id);
+    // if (person == null) return;
+    // let index = this.persons.indexOf(person, 0);
+    // this.persons.splice(index, 1);
   }
 }

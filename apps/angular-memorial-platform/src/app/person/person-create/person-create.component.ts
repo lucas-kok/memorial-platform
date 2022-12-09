@@ -14,7 +14,7 @@ export class PersonCreateComponent {
   newPerson: Person | undefined;
   name: string | undefined;
   genders: string[] | undefined;
-  loggedIn: boolean | undefined = localStorage.getItem('jwtToken') != null;
+  loggedIn: boolean = localStorage.getItem('jwtToken') != null;
 
   subscription: Subscription | undefined;
   message: string | undefined;
