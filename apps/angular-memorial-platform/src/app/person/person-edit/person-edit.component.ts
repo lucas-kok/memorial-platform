@@ -79,7 +79,19 @@ export class PersonEditComponent {
   onDelete() {
     // Person must exist for removing
     if (this.person != null && this.componentId != null) {
-      this.personService.removePersonById(this.componentId);
+      const jwtToken = localStorage.getItem('jwtToken');
+
+      this.subscription = this.personService
+        .removePersonById(this.componentId, jwtToken!)
+        .pipe(
+          map((res: any) => res),
+          tap(() => {
+            this.message = 'Persoon succesvol verwijderd';
+            this.router.navigate(['/persons']);
+          }),
+          catchError(async () => (this.message = 'Er is iets fout gegaan'))
+        )
+        .subscribe();
     }
   }
 

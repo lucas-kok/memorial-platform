@@ -64,11 +64,9 @@ export class PersonService {
     );
   }
 
-  removePersonById(id: string): void {
-    // console.log('Removing person with id: {' + id + '}');
-    // let person: Person = this.getPersonById(id);
-    // if (person == null) return;
-    // let index = this.persons.indexOf(person, 0);
-    // this.persons.splice(index, 1);
+  removePersonById(id: string, jwtToken: string): Observable<string> {
+    return this.http.delete<string>(this.apiUri + '/persons/' + id, {
+      headers: { Authorization: `Bearer ${jwtToken}` },
+    });
   }
 }
