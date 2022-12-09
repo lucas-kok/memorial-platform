@@ -1,4 +1,7 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, isDevMode } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { prodEnvironment } from '../../environments/environment.prod';
 import { Gender } from '../shared/gender.model';
 import { Person } from './person.model';
 
@@ -6,6 +9,12 @@ import { Person } from './person.model';
   providedIn: 'root',
 })
 export class PersonService {
+  apiUri: string | undefined;
+
+  constructor(private http: HttpClient) {
+    this.apiUri = isDevMode() ? environment.API_URL : prodEnvironment.API_URL;
+  }
+
   persons: Person[] = [
     {
       id: '1',

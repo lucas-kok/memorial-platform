@@ -15,18 +15,6 @@ export class UserService {
     this.apiUri = isDevMode() ? environment.API_URL : prodEnvironment.API_URL;
   }
 
-  users: User[] = [
-    {
-      _id: '1',
-      name: 'Lucas Kok',
-      email: 'lucas.kok@hotmail.nl',
-      password: 'Secret!123',
-      phoneNumber: '0640052439',
-      birthday: new Date('09-01-2005'),
-      gender: Gender.male,
-    },
-  ];
-
   addUser(user: User): Observable<User> {
     return this.http.post<User>(this.apiUri! + '/users', user);
   }
