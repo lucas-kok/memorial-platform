@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, isDevMode } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { prodEnvironment } from '../../environments/environment.prod';
 import { Gender } from '../shared/gender.model';
@@ -27,9 +28,10 @@ export class PersonService {
     },
   ];
 
-  getAllPersons(): Person[] {
+  getAllPersons(): Observable<Person[]> {
     console.log('Retrieving all persons');
-    return this.persons;
+
+    return this.http.get<Person[]>(this.apiUri + '/persons');
   }
 
   getPersonById(id: string): Person {
