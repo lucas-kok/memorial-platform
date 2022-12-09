@@ -1,7 +1,7 @@
 import { Gender } from '../shared/gender.model';
 
 export class Person {
-  id: string | undefined;
+  _id: string | undefined;
   name: string | undefined;
   birthday: Date | undefined;
   deathday: Date | undefined;

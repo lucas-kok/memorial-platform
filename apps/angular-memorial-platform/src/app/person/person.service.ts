@@ -18,7 +18,7 @@ export class PersonService {
 
   persons: Person[] = [
     {
-      id: '1',
+      _id: '1',
       name: 'Lucas Kok',
       birthday: new Date('09-01-2005'),
       deathday: new Date(),
@@ -46,7 +46,7 @@ export class PersonService {
 
   getPersonById(id: string): Person {
     console.log('Retrieving person with id: {' + id + '}');
-    return this.persons.filter((person: Person) => person.id == id)[0];
+    return this.persons.filter((person: Person) => person._id == id)[0];
   }
 
   updatePerson(person: Person) {

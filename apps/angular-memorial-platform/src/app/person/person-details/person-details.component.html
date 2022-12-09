@@ -2,7 +2,7 @@
   <img src="{{ person!.imageBase64 }}" class="profile-image" />
   <h3 class="mt-3">Details:</h3>
   <p>
-    <b>Id:</b> {{ person!.id }}<br />
+    <b>Id:</b> {{ person!._id }}<br />
     <b>Naam:</b> {{ person!.name }}<br />
     <b>Geboren:</b> {{ dateToString(person!.birthday!) }}<br />
     <b>Overleden:</b> {{ dateToString(person!.deathday!) }} <br />
