@@ -13,6 +13,11 @@ import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: 'about', pathMatch: 'full', component: AboutComponent },
+  { path: 'users', pathMatch: 'full', component: UserComponent },
+  { path: 'users/create', pathMatch: 'full', component: UserCreateComponent },
+  { path: 'users/login', pathMatch: 'full', component: UserLoginComponent },
+  { path: 'users/:id', pathMatch: 'full', component: UserDetailsComponent },
+  { path: 'users/:id/edit', pathMatch: 'full', component: UserEditComponent },
   { path: 'persons', pathMatch: 'full', component: PersonComponent },
   {
     path: 'persons/create',
@@ -25,11 +30,22 @@ const routes: Routes = [
     pathMatch: 'full',
     component: PersonEditComponent,
   },
-  { path: 'users', pathMatch: 'full', component: UserComponent },
-  { path: 'users/create', pathMatch: 'full', component: UserCreateComponent },
-  { path: 'users/login', pathMatch: 'full', component: UserLoginComponent },
-  { path: 'users/:id', pathMatch: 'full', component: UserDetailsComponent },
-  { path: 'users/:id/edit', pathMatch: 'full', component: UserEditComponent },
+  { path: 'funerals', pathMatch: 'full', component: PersonComponent },
+  {
+    path: 'funerals/create',
+    pathMatch: 'full',
+    component: PersonCreateComponent,
+  },
+  {
+    path: 'funerals/:id',
+    pathMatch: 'full',
+    component: PersonDetailsComponent,
+  },
+  {
+    path: 'funerals/:id/edit',
+    pathMatch: 'full',
+    component: PersonEditComponent,
+  },
 ];
 
 @NgModule({
