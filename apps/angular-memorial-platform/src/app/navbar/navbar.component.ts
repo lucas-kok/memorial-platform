@@ -18,4 +18,8 @@ export class NavbarComponent {
       this.userId = id;
     });
   }
+
+  onLogOut() {
+    this.userService.logout();
+  }
 }

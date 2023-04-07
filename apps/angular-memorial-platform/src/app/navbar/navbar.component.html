@@ -25,7 +25,7 @@
       </ul>
 
       <div class="text-end">
-        <div *ngIf="loggedIn | async">
+        <div class="d-flex flex-row" *ngIf="loggedIn | async">
           <img
             src="https://github.com/mdo.png"
             alt="mdo"
@@ -39,6 +39,11 @@
             [routerLink]="['users/', userId]"
             >Profiel</a
           >
+          <form name="logOutForm" (ngSubmit)="onLogOut()">
+            <button type="submit" class="btn btn-secondary ms-2">
+              Uitloggen
+            </button>
+          </form>
         </div>
         <div *ngIf="!(loggedIn | async)">
           <a class="btn btn-primary" routerLink="users/login">Login</a>
