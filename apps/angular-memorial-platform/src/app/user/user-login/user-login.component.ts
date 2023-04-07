@@ -30,7 +30,7 @@ export class UserLoginComponent {
 
           this.message = 'Succesvol ingelogd';
 
-          this.router.navigate(['/users']);
+          this.router.navigate(['/']);
         }),
         catchError((error) => {
           if (error.status === 404) this.message = 'Invalide login poging';
