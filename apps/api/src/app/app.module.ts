@@ -12,9 +12,7 @@ import { MessageModule } from './messages/message.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://lucaskok:FDGIHsz7r7sffWIA@cluster0.sd9vdzv.mongodb.net/memorial-platform'
-    ),
+    MongooseModule.forRoot(process.env['MONGODB_CONNECTION_STRING']!),
     UsersModule,
     AuthModule,
     PersonModule,
@@ -25,4 +23,14 @@ import { MessageModule } from './messages/message.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    this.logMongoDBConnectionString();
+  }
+
+  private logMongoDBConnectionString() {
+    console.log(
+      `MONGODB_CONNECTION_STRING=${process.env['MONGODB_CONNECTION_STRING']}`
+    );
+  }
+}

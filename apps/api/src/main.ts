@@ -3,6 +3,9 @@
  * This is only a minimal backend to get started.
  */
 
+import { config } from 'dotenv';
+config({ path: '.env' });
+
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import * as session from 'express-session';

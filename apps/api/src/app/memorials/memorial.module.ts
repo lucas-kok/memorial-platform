@@ -14,9 +14,9 @@ import neo4j from 'neo4j-driver';
     {
       provide: 'NEO4J',
       useFactory: () => {
-        const neo4jUri = 'bolt://54.197.67.15:7687';
-        const neo4jUser = 'neo4j';
-        const neo4jPassword = 'chase-amount-nomenclatures';
+        const neo4jUri = process.env['NEO4J_URI']!;
+        const neo4jUser = process.env['NEO4J_USERNAME']!;
+        const neo4jPassword = process.env['NEO4J_PASSWORD']!;
         return neo4j.driver(
           neo4jUri,
           neo4j.auth.basic(neo4jUser, neo4jPassword)
