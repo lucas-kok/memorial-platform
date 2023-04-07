@@ -11,7 +11,7 @@ import { UserService } from './user.service';
 export class UserComponent {
   users: User[] | undefined;
   subscription: Subscription | undefined;
-  loggedIn: boolean | undefined = localStorage.getItem('jwtToken') != null;
+  loggedIn = this.userService.getIsLoggedIn();
   email: string | null;
 
   constructor(private userService: UserService) {
@@ -36,7 +36,6 @@ export class UserComponent {
 
   onLogOut() {
     this.userService.logout();
-    this.loggedIn = false;
   }
 
   dateToString(date: Date): string {

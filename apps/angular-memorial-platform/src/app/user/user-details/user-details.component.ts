@@ -11,14 +11,17 @@ import { UserService } from '../user.service';
 })
 export class UserDetailsComponent {
   componentId: string | null | undefined;
-  userId: string | null;
+  userId: string | null = '';
   userExists: boolean = true;
   isUserProperty: boolean = false;
   user: User | undefined;
   subscription: Subscription | undefined;
 
   constructor(private route: ActivatedRoute, private userService: UserService) {
-    this.userId = localStorage.getItem('userId');
+    this.userService.getUserId().subscribe((id) => {
+      this.userId = id;
+      this.isUserProperty = this.user!._id === id;
+    });
   }
 
   ngOnInit() {

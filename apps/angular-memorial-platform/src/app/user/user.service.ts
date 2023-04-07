@@ -63,9 +63,8 @@ export class UserService {
           localStorage.setItem('userId', res.result.userId);
           localStorage.setItem('email', res.result.email);
 
-          this.userId.next(res.result.userId);
-
           this.loggedIn.next(true);
+          this.userId.next(res.result.userId);
         }
       })
     );
@@ -77,5 +76,6 @@ export class UserService {
     localStorage.removeItem('email');
 
     this.loggedIn.next(false);
+    this.userId.next('');
   }
 }

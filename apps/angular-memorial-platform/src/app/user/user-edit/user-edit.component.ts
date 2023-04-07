@@ -43,8 +43,10 @@ export class UserEditComponent {
             this.user!.password = '';
             if (this.user != null) this.userExists = true;
 
-            const userId = localStorage.getItem('userId');
-            if (this.componentId == userId) this.isUserProperty = true;
+            // Checking if the visitor is the owner
+            this.userService.getUserId().subscribe((id) => {
+              if (this.componentId === id) this.isUserProperty = true;
+            });
           })
         )
         .subscribe();
