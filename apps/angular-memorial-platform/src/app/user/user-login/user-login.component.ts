@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { async, catchError, map, Subscription, tap } from 'rxjs';
+import { async, catchError, map, Subscription, tap, throwError } from 'rxjs';
 import { UserLoginDto } from '../user.model';
 import { UserService } from '../user.service';
 
@@ -25,19 +25,18 @@ export class UserLoginComponent {
       .login(this.loginDto)
       .pipe(
         map((res: any) => res),
-        tap((res) => {
+        tap(() => {
           console.log('Logged in');
-          console.log('JwtToken: ' + res.result);
 
-          localStorage.setItem('jwtToken', res.result.jwtToken);
-          localStorage.setItem('userId', res.result.userId);
-          localStorage.setItem('email', res.result.email);
           this.message = 'Succesvol ingelogd';
 
           this.router.navigate(['/users']);
         }),
-        catchError(async () => {
-          this.message = 'Er is iets fout gegaan';
+        catchError((error) => {
+          if (error.status === 404) this.message = 'Invalide login poging';
+          else this.message = 'Er is iets fout gegaan';
+
+          return throwError(error);
         })
       )
       .subscribe();
