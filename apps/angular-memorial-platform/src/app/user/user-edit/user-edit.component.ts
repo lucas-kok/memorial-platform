@@ -43,9 +43,9 @@ export class UserEditComponent {
             this.user!.password = '';
             if (this.user != null) this.userExists = true;
 
-            // Checking if the visitor is the owner
+            // Checking if the visitor is the owner (following any changes)
             this.userService.getUserId().subscribe((id) => {
-              if (this.componentId === id) this.isUserProperty = true;
+              this.isUserProperty = this.componentId === id;
             });
           })
         )
