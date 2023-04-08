@@ -30,11 +30,6 @@ export class PersonDetailsComponent {
     this.loggedIn.subscribe((isLoggedIn) => {
       if (!isLoggedIn) router.navigate(['/users/login']);
     });
-
-    this.userService.getUserId().subscribe((id) => {
-      this.userId = id;
-      this.isUserProperty = id == this.userId;
-    });
   }
 
   ngOnInit(): void {
@@ -54,6 +49,10 @@ export class PersonDetailsComponent {
 
             if (this.person != null) {
               this.personExists = true;
+
+              this.userService.getUserId().subscribe((id) => {
+                this.isUserProperty = res.result.userId == id;
+              });
             }
           })
         )

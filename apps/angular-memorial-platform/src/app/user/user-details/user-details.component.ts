@@ -27,7 +27,6 @@ export class UserDetailsComponent {
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       this.componentId = params.get('id');
-      console.log(this.componentId);
 
       if (this.componentId == null) return;
 
@@ -37,8 +36,7 @@ export class UserDetailsComponent {
           map((res: any) => res),
           tap((res) => {
             this.user = res.result;
-            console.log(this.userId);
-            console.log(res.result._id);
+
             if (this.user!._id == this.userId) this.isUserProperty = true;
           }),
           catchError(async () => (this.userExists = false))

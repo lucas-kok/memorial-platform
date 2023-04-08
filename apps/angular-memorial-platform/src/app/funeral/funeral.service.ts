@@ -18,4 +18,8 @@ export class FuneralService {
   getAllFunerals(): Observable<Funeral[]> {
     return this.http.get<Funeral[]>(this.apiUri! + '/funerals');
   }
+
+  getFuneralById(id: string): Observable<Funeral> {
+    return this.http.get<Funeral>(this.apiUri + '/funerals/' + id);
+  }
 }
