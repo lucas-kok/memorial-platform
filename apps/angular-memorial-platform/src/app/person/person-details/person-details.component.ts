@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, Subscription, tap } from 'rxjs';
+import { UserService } from '../../user/user.service';
 import { Person } from '../person.model';
 import { PersonService } from '../person.service';
 
@@ -11,23 +12,29 @@ import { PersonService } from '../person.service';
 })
 export class PersonDetailsComponent {
   componentId: string | null | undefined;
-  userId: string | null;
+  userId: string | undefined = '';
   personExists: boolean = false;
   person: Person | undefined;
 
-  loggedIn: boolean = localStorage.getItem('jwtToken') != null;
+  loggedIn = this.userService.getIsLoggedIn();
   isUserProperty: boolean = false;
 
   subscription: Subscription | undefined;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
-    private personService: PersonService
+    router: Router,
+    private personService: PersonService,
+    private userService: UserService
   ) {
-    if (!this.loggedIn) router.navigate(['/users/login']);
+    this.loggedIn.subscribe((isLoggedIn) => {
+      if (!isLoggedIn) router.navigate(['/users/login']);
+    });
 
-    this.userId = localStorage.getItem('userId');
+    this.userService.getUserId().subscribe((id) => {
+      this.userId = id;
+      this.isUserProperty = id == this.userId;
+    });
   }
 
   ngOnInit(): void {
@@ -47,7 +54,6 @@ export class PersonDetailsComponent {
 
             if (this.person != null) {
               this.personExists = true;
-              this.isUserProperty = res.result.userId == this.userId;
             }
           })
         )

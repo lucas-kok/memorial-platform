@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, map, Subscription, tap } from 'rxjs';
 import { Gender } from '../../shared/gender.model';
+import { UserService } from '../../user/user.service';
 import { Person } from '../person.model';
 import { PersonService } from '../person.service';
 
@@ -14,13 +15,19 @@ export class PersonCreateComponent {
   newPerson: Person | undefined;
   name: string | undefined;
   genders: string[] | undefined;
-  loggedIn: boolean = localStorage.getItem('jwtToken') != null;
+  loggedIn = this.userService.getIsLoggedIn();
 
   subscription: Subscription | undefined;
   message: string | undefined;
 
-  constructor(private personService: PersonService, private router: Router) {
-    if (!this.loggedIn) router.navigate(['/users/login']);
+  constructor(
+    private personService: PersonService,
+    private userService: UserService,
+    private router: Router
+  ) {
+    this.loggedIn.subscribe((isLoggedIn) => {
+      if (!isLoggedIn) router.navigate(['/users/login']);
+    });
 
     this.newPerson = new Person();
     this.genders = Object.keys(Gender);
@@ -34,7 +41,7 @@ export class PersonCreateComponent {
       .addPerson(this.newPerson, jwtToken!)
       .pipe(
         map((res: any) => res),
-        tap((res) => {
+        tap(() => {
           console.log('[PersonCreateComponent] Person created');
 
           this.message = 'Person created succesfully';

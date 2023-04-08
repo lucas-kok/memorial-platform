@@ -1,29 +1,34 @@
 <h2>Mijn personen:</h2>
-<a routerLink="create" class="btn btn-primary mt-3">Create</a>
+<a routerLink="create" class="btn btn-primary mt-3">Toevoegen</a>
 <table class="table mt-2">
-    <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Naam</th>
-            <th scope="col">Geboren</th>
-            <th scope="col">Overleden</th>
-            <th scope="col">Geslacht</th>
-            <th scope="col">Afbeelding</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Naam</th>
+      <th scope="col">Geboren</th>
+      <th scope="col">Overleden</th>
+      <th scope="col">Geslacht</th>
+      <th scope="col">Afbeelding</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
 
-    <tbody>
-        <tr *ngFor="let person of persons" scope="row">
-            <td>{{ person._id }}</td>
-            <td>{{ person.name }}</td>
-            <td>{{ dateToString(person.birthday!) }}</td>
-            <td>{{ dateToString(person.deathday!) }}</td>
-            <td>{{ person.gender }}</td>
-            <td><img src="data:image/png;base64,{{ person.imageBase64 }}" class="profile-image-avatar" /></td>
-            <td>
-                <a routerLink="{{ person._id }}" class="btn btn-secondary">Details</a>
-            </td>
-        </tr>
-    </tbody>
+  <tbody>
+    <tr *ngFor="let person of persons" scope="row">
+      <td>{{ person._id }}</td>
+      <td>{{ person.name }}</td>
+      <td>{{ dateToString(person.birthday!) }}</td>
+      <td>{{ dateToString(person.deathday!) }}</td>
+      <td>{{ person.gender }}</td>
+      <td>
+        <img
+          src="data:image/png;base64,{{ person.imageBase64 }}"
+          class="profile-image-avatar"
+        />
+      </td>
+      <td>
+        <a routerLink="{{ person._id }}" class="btn btn-secondary">Details</a>
+      </td>
+    </tr>
+  </tbody>
 </table>

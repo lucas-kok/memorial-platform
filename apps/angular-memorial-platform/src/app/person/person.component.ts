@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Subscription, tap } from 'rxjs';
+import { UserService } from '../user/user.service';
 import { Person } from './person.model';
 import { PersonService } from './person.service';
 
@@ -12,10 +13,16 @@ import { PersonService } from './person.service';
 export class PersonComponent {
   persons: Person[] | undefined;
   subscription: Subscription | undefined;
-  loggedIn: boolean | undefined = localStorage.getItem('jwtToken') != null;
+  loggedIn = this.userService.getIsLoggedIn();
 
-  constructor(private personService: PersonService, router: Router) {
-    if (this.loggedIn == false) router.navigate(['/users/login']);
+  constructor(
+    private personService: PersonService,
+    private userService: UserService,
+    router: Router
+  ) {
+    this.loggedIn.subscribe((isLoggedIn) => {
+      if (isLoggedIn == false) router.navigate(['/users/login']);
+    });
   }
 
   ngOnInit(): void {

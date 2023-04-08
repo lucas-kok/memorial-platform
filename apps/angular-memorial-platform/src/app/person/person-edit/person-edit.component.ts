@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, map, Subscription, tap } from 'rxjs';
 import { Gender } from '../../shared/gender.model';
+import { UserService } from '../../user/user.service';
 import { Person } from '../person.model';
 import { PersonService } from '../person.service';
 
@@ -23,7 +24,8 @@ export class PersonEditComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private personService: PersonService
+    private personService: PersonService,
+    private userService: UserService
   ) {
     this.genders = Object.keys(Gender);
   }
@@ -44,8 +46,9 @@ export class PersonEditComponent {
             this.person = res.result;
             if (this.person) this.personExists = true;
 
-            const userId = localStorage.getItem('userId');
-            if (res.result.userId == userId) this.isUserProperty = true;
+            this.userService.getUserId().subscribe((id) => {
+              this.isUserProperty = res.result.userId == id;
+            });
           })
         )
         .subscribe();

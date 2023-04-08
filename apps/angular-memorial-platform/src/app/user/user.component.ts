@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { catchError, map, Subscription, tap } from 'rxjs';
+import { map, Subscription, tap } from 'rxjs';
 import { User } from './user.model';
 import { UserService } from './user.service';
 
