@@ -1,1 +1,26 @@
-<p>funeral works!</p>
+<h2>Funerals</h2>
+
+<table class="table mt-2">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Naam</th>
+      <th scope="col">Datum</th>
+      <th scope="col">Adress</th>
+      <th scope="col">Privé</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let funeral of funerals" scope="row">
+      <td>{{ funeral._id }}</td>
+      <td>{{ funeral.person!.name }}</td>
+      <td>{{ dateToString(funeral.dateTime!) }}</td>
+      <td>{{ funeral.adress }}</td>
+      <td>{{ funeral.isPrivate == true ? 'Ja' : 'Nee' }}</td>
+      <td>
+        <a routerLink="{{ funeral._id }}" class="btn btn-secondary">Details</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

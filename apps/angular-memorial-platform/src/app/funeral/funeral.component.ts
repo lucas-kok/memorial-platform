@@ -29,4 +29,8 @@ export class FuneralComponent {
   ngOnDestroy() {
     if (this.subscription) this.subscription.unsubscribe();
   }
+
+  dateToString(date: Date): string {
+    return new Date(date).toLocaleDateString();
+  }
 }

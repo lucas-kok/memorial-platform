@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { FuneralComponent } from './funeral/funeral.component';
 import { PersonCreateComponent } from './person/person-create/person-create.component';
 import { PersonDetailsComponent } from './person/person-details/person-details.component';
 import { PersonEditComponent } from './person/person-edit/person-edit.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'users/login', pathMatch: 'full', component: UserLoginComponent },
   { path: 'users/:id', pathMatch: 'full', component: UserDetailsComponent },
   { path: 'users/:id/edit', pathMatch: 'full', component: UserEditComponent },
+  { path: 'funerals', pathMatch: 'full', component: FuneralComponent },
 ];
 
 @NgModule({

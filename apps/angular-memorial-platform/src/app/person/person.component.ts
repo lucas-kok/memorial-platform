@@ -22,6 +22,7 @@ export class PersonComponent {
   ) {
     this.loggedIn.subscribe((isLoggedIn) => {
       if (isLoggedIn == false) router.navigate(['/users/login']);
+      23;
     });
   }
 

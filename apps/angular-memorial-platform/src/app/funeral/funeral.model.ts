@@ -1,6 +1,9 @@
+import { Person } from '../person/person.model';
+
 export class Funeral {
   _id: string | undefined;
   userId: string | undefined;
+  person: Person | undefined;
   dateTime: Date | undefined;
   adress: string | undefined;
   postalCode: string | undefined;
