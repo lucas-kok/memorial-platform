@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { FuneralComponent } from './funeral/funeral.component';
 import { FuneralDetailsComponent } from './funeral/funeral-details/funeral-details.component';
+import { FuneralCreateComponent } from './funeral/funeral-create/funeral-create.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { FuneralDetailsComponent } from './funeral/funeral-details/funeral-detai
     UserLoginComponent,
     FuneralComponent,
     FuneralDetailsComponent,
+    FuneralCreateComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

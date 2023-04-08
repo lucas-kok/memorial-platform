@@ -15,6 +15,10 @@ export class FuneralService {
     this.apiUri = isDevMode() ? environment.API_URL : prodEnvironment.API_URL;
   }
 
+  addFuneral(funeral: Funeral): Observable<Funeral> {
+    return this.http.post<Funeral>(this.apiUri + '/funerals', funeral);
+  }
+
   getAllFunerals(): Observable<Funeral[]> {
     return this.http.get<Funeral[]>(this.apiUri! + '/funerals');
   }
