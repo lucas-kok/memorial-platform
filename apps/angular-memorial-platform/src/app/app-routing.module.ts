@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { FuneralCreateComponent } from './funeral/funeral-create/funeral-create.component';
 import { FuneralDetailsComponent } from './funeral/funeral-details/funeral-details.component';
 import { FuneralComponent } from './funeral/funeral.component';
 import { PersonCreateComponent } from './person/person-create/person-create.component';
@@ -33,6 +34,11 @@ const routes: Routes = [
   { path: 'users/:id', pathMatch: 'full', component: UserDetailsComponent },
   { path: 'users/:id/edit', pathMatch: 'full', component: UserEditComponent },
   { path: 'funerals', pathMatch: 'full', component: FuneralComponent },
+  {
+    path: 'persons/:id/funerals/create',
+    pathMatch: 'full',
+    component: FuneralCreateComponent,
+  },
   {
     path: 'funerals/:id',
     pathMatch: 'full',

@@ -14,12 +14,24 @@
   <a *ngIf="isUserProperty" routerLink="edit" class="btn btn-primary me-2"
     >Wijzig</a
   >
+  <a
+    *ngIf="funeral == null"
+    routerLink="./funerals/create"
+    class="btn btn-secondary me-2"
+    >Uitvaart toevoegen</a
+  >
+  <a
+    *ngIf="funeral != null"
+    [routerLink]="['/funerals/', funeral!._id]"
+    class="btn btn-secondary me-2"
+    >Uitvaart bekijken</a
+  >
   <a routerLink=".." class="btn btn-secondary">Terug</a>
 </div>
 
 <div *ngIf="!personExists">
   <span class="danger text-danger"
-    >Person with id: {{ componentId }} does not exists</span
+    >Person with id: {{ personId }} does not exists</span
   ><br />
   <a routerLink=".." class="btn btn-primary mt-2">Terug</a>
 </div>

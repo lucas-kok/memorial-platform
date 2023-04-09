@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, Subscription, tap } from 'rxjs';
+import { Funeral } from '../../funeral/funeral.model';
+import { FuneralService } from '../../funeral/funeral.service';
 import { UserService } from '../../user/user.service';
 import { Person } from '../person.model';
 import { PersonService } from '../person.service';
@@ -11,10 +13,12 @@ import { PersonService } from '../person.service';
   styleUrls: ['./person-details.component.css'],
 })
 export class PersonDetailsComponent {
-  componentId: string | null | undefined;
+  personId: string | null | undefined;
   userId: string | undefined = '';
   personExists: boolean = false;
   person: Person | undefined;
+
+  funeral: Funeral | undefined;
 
   loggedIn = this.userService.getIsLoggedIn();
   isUserProperty: boolean = false;
@@ -25,7 +29,8 @@ export class PersonDetailsComponent {
     private route: ActivatedRoute,
     router: Router,
     private personService: PersonService,
-    private userService: UserService
+    private userService: UserService,
+    private funeralService: FuneralService
   ) {
     this.loggedIn.subscribe((isLoggedIn) => {
       if (!isLoggedIn) router.navigate(['/users/login']);
@@ -34,21 +39,31 @@ export class PersonDetailsComponent {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      this.componentId = params.get('id');
-
-      if (this.componentId == null) return;
+      this.personId = params.get('id');
+      if (this.personId == null) return;
 
       const jwtToken = localStorage.getItem('jwtToken');
       this.subscription = this.personService
-        .getPersonById(this.componentId, jwtToken!)
+        .getPersonById(this.personId, jwtToken!)
         .pipe(
           map((res: any) => res),
           tap((res) => {
             console.log(res);
             this.person = res.result;
 
-            if (this.person != null) {
+            if (this.person) {
               this.personExists = true;
+
+              this.funeralService
+                .getFuneralByPersonId(this.personId!)
+                .pipe(
+                  map((response: any) => response),
+                  tap((response) => {
+                    console.log(response);
+                    this.funeral = response.resut; // Typo in the API
+                  })
+                )
+                .subscribe();
 
               this.userService.getUserId().subscribe((id) => {
                 this.isUserProperty = res.result.userId == id;

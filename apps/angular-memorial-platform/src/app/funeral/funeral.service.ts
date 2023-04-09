@@ -3,7 +3,7 @@ import { Injectable, isDevMode } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { prodEnvironment } from '../../environments/environment.prod';
-import { Funeral } from './funeral.model';
+import { Funeral, FuneralDto } from './funeral.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,8 +15,10 @@ export class FuneralService {
     this.apiUri = isDevMode() ? environment.API_URL : prodEnvironment.API_URL;
   }
 
-  addFuneral(funeral: Funeral): Observable<Funeral> {
-    return this.http.post<Funeral>(this.apiUri + '/funerals', funeral);
+  addFuneral(funeral: FuneralDto, jwtToken: string): Observable<FuneralDto> {
+    return this.http.post<FuneralDto>(this.apiUri + '/funerals', funeral, {
+      headers: { Authorization: `Bearer ${jwtToken}` },
+    });
   }
 
   getAllFunerals(): Observable<Funeral[]> {
@@ -25,5 +27,9 @@ export class FuneralService {
 
   getFuneralById(id: string): Observable<Funeral> {
     return this.http.get<Funeral>(this.apiUri + '/funerals/' + id);
+  }
+
+  getFuneralByPersonId(personId: string): Observable<Funeral> {
+    return this.http.get<Funeral>(this.apiUri + '/funerals/person/' + personId);
   }
 }
