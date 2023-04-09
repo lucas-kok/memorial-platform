@@ -66,8 +66,6 @@ export class UserEditComponent {
       .pipe(
         map((res: any) => res),
         tap(() => {
-          console.log('User updated');
-
           this.router.navigate(['/users/' + this.componentId]);
         }),
         catchError(async () => {

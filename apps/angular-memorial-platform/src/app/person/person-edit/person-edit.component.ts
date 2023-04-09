@@ -68,8 +68,6 @@ export class PersonEditComponent {
       .pipe(
         map((res: any) => res),
         tap((res) => {
-          console.log('Person updated');
-
           this.router.navigate(['/persons/' + this.componentId]);
         }),
         catchError(async () => {

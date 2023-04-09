@@ -42,8 +42,6 @@ export class PersonCreateComponent {
       .pipe(
         map((res: any) => res),
         tap(() => {
-          console.log('[PersonCreateComponent] Person created');
-
           this.message = 'Person created succesfully';
           this.router.navigate(['/persons']);
         }),

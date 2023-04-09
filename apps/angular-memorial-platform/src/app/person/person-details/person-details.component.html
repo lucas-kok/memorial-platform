@@ -15,13 +15,13 @@
     >Wijzig</a
   >
   <a
-    *ngIf="funeral == null"
+    *ngIf="!funeral && isUserProperty"
     routerLink="./funerals/create"
     class="btn btn-secondary me-2"
     >Uitvaart toevoegen</a
   >
   <a
-    *ngIf="funeral != null"
+    *ngIf="funeral"
     [routerLink]="['/funerals/', funeral!._id]"
     class="btn btn-secondary me-2"
     >Uitvaart bekijken</a

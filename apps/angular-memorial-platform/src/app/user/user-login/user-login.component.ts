@@ -26,8 +26,6 @@ export class UserLoginComponent {
       .pipe(
         map((res: any) => res),
         tap(() => {
-          console.log('Logged in');
-
           this.message = 'Succesvol ingelogd';
 
           this.router.navigate(['/']);
