@@ -1,0 +1,1131 @@
+{
+  "version": "6.0",
+  "nxVersion": "17.1.3",
+  "deps": {
+    "@angular/animations": "^15.0.0",
+    "@angular/common": "^15.0.0",
+    "@angular/compiler": "^15.0.0",
+    "@angular/core": "^15.0.0",
+    "@angular/forms": "^15.0.0",
+    "@angular/platform-browser": "^15.0.0",
+    "@angular/platform-browser-dynamic": "^15.0.0",
+    "@angular/router": "^15.0.0",
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "^2.3.1",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/mongoose": "^9.2.1",
+    "@nestjs/passport": "^9.0.0",
+    "@nestjs/platform-express": "^9.0.0",
+    "@nrwl/angular": "17.1.3",
+    "@nrwl/cli": "^15.3.0",
+    "@nrwl/js": "17.1.3",
+    "@types/bcrypt": "^5.0.0",
+    "bcrypt": "^5.1.0",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.10.2",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express-session": "^1.17.3",
+    "mongodb-memory-server": "^8.10.1",
+    "mongoose": "^6.7.5",
+    "neo4j-driver": "^5.6.0",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.12.0",
+    "@angular-devkit/build-angular": "^15.0.0",
+    "@angular/cli": "^15.2.10",
+    "@angular/compiler-cli": "^15.0.0",
+    "@nestjs/schematics": "^9.0.0",
+    "@nestjs/testing": "^9.2.1",
+    "@nrwl/eslint-plugin-nx": "17.1.3",
+    "@nrwl/jest": "17.1.3",
+    "@nrwl/linter": "17.1.3",
+    "@nrwl/nest": "17.1.3",
+    "@nrwl/node": "17.1.3",
+    "@nrwl/workspace": "17.1.3",
+    "@types/express-session": "^1.17.5",
+    "@types/jasmine": "~4.3.0",
+    "@types/jest": "29.4.4",
+    "@types/node": "16.11.7",
+    "@types/passport-jwt": "^3.0.7",
+    "@types/passport-local": "^1.0.34",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "eslint": "~8.15.0",
+    "eslint-config-prettier": "8.1.0",
+    "jasmine-core": "~4.5.0",
+    "jest": "29.4.3",
+    "jest-environment-jsdom": "29.4.3",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "nx": "17.1.3",
+    "prettier": "^2.6.2",
+    "ts-jest": "29.1.1",
+    "ts-node": "10.9.1",
+    "typescript": "~4.8.2"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "17241496168097493888"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "9483251403686547478"
+      },
+      {
+        "file": ".github/workflows/main.yml",
+        "hash": "14226735284951218964"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "7895777272349507273"
+      },
+      {
+        "file": ".nx/cache/d/daemon.log",
+        "hash": "1197435275449090893"
+      },
+      {
+        "file": ".nx/cache/d/server-process.json",
+        "hash": "17423967578704378244"
+      },
+      {
+        "file": ".nx/cache/file-map.json",
+        "hash": "2213665460856011948"
+      },
+      {
+        "file": ".nx/cache/lockfile.hash",
+        "hash": "17835491922692176527"
+      },
+      {
+        "file": ".nx/cache/parsed-lock-file.json",
+        "hash": "15181875286498180869"
+      },
+      {
+        "file": ".nx/cache/project-graph.json",
+        "hash": "4808807820570178328"
+      },
+      {
+        "file": ".nx/cache/run.json",
+        "hash": "7959987199688716255"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/4188478699975610653",
+        "hash": "8170102658916119938"
+      },
+      {
+        "file": ".nx/cache/terminalOutputs/9187314476494498912",
+        "hash": "10835685013392991859"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "1324685984948235314"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "3542258824808828667"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "6678024648911621172"
+      },
+      {
+        "file": ".vscode/tasks.json",
+        "hash": "10093397977228577162"
+      },
+      {
+        "file": "decorate-angular-cli.js",
+        "hash": "11823390707371404862"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "3069074216761126282"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "17666962557300311861"
+      },
+      {
+        "file": "karma.conf.js",
+        "hash": "2404127352602669761"
+      },
+      {
+        "file": "migrations.json",
+        "hash": "18069295803027813695"
+      },
+      {
+        "file": "nx.json",
+        "hash": "17408199568345962654"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "18170086455840918099"
+      },
+      {
+        "file": "package.json",
+        "hash": "9476969653015709996"
+      },
+      {
+        "file": "tsconfig.app.json",
+        "hash": "13119632651406065538"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "2893854146232899970"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "1426335498558518182"
+      },
+      {
+        "file": "tsconfig.spec.json",
+        "hash": "5122839733245053999"
+      },
+      {
+        "file": "webpack.config.js",
+        "hash": "7079816432692720114"
+      }
+    ],
+    "projectFileMap": {
+      "api": [
+        {
+          "file": "apps/api/.eslintrc.json",
+          "hash": "14921153827776288937"
+        },
+        {
+          "file": "apps/api/jest.config.ts",
+          "hash": "6784410737831625890"
+        },
+        {
+          "file": "apps/api/project.json",
+          "hash": "8004536460925924445"
+        },
+        {
+          "file": "apps/api/src/app/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/api/src/app/app.controller.spec.ts",
+          "hash": "15087892559053376728",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/app.controller.ts",
+          "hash": "8176100497971864025",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/app.module.ts",
+          "hash": "2489711264947223349",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/app.service.spec.ts",
+          "hash": "7808164099239402685",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/app.service.ts",
+          "hash": "6289163304221557995",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/auth.controller.ts",
+          "hash": "11734310341262489039",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/auth.module.ts",
+          "hash": "8302086520539222446",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "npm:@nestjs/jwt",
+            "npm:@nestjs/mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/auth.service.spec.ts",
+          "hash": "16298052396377749225",
+          "deps": [
+            "npm:mongodb-memory-server",
+            "npm:mongodb",
+            "npm:@nestjs/testing",
+            "npm:@nestjs/mongoose",
+            "npm:jsonwebtoken",
+            "npm:process",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/auth.service.ts",
+          "hash": "12132068160774985766",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:bcrypt",
+            "npm:@nestjs/jwt"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/authenticated.guard.spec.ts",
+          "hash": "16500085777593163697",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/authenticated.guard.ts",
+          "hash": "5570617498093147450",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/jwt-auth.guard.ts",
+          "hash": "12907724048518590633",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/jwt.strategy.ts",
+          "hash": "14265854865345741807",
+          "deps": [
+            "npm:@nestjs/passport",
+            "npm:passport-jwt"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/auth/sessions.serializer.ts",
+          "hash": "6261441853896340585",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/funeral/funeral.dto.ts",
+          "hash": "9191367362197968737",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/funeral/funeral.model.ts",
+          "hash": "6855075528381018325",
+          "deps": [
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/funeral/funeral.module.ts",
+          "hash": "7420914122829304938",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/funeral/funerals.controller.ts",
+          "hash": "883776956448182702",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/funeral/funerals.service.ts",
+          "hash": "10120091624270100816",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/memorials/memorial.dto.ts",
+          "hash": "12621828048105989696",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/memorials/memorial.model.ts",
+          "hash": "15948632038874675734",
+          "deps": [
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/memorials/memorial.module.ts",
+          "hash": "6551416501920874868",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose",
+            "npm:neo4j-driver"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/memorials/memorials.controller.ts",
+          "hash": "5693639208550284722",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:express",
+            "npm:http"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/memorials/memorials.service.ts",
+          "hash": "12650386901325325960",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose",
+            "npm:neo4j-driver"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/messages/message.dto.ts",
+          "hash": "3727282686099097894",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/messages/message.model.ts",
+          "hash": "11915025043314061248",
+          "deps": [
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/messages/message.module.ts",
+          "hash": "7588095167061920785",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose",
+            "npm:neo4j-driver"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/messages/messages.controller.ts",
+          "hash": "3877453543136760365",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/messages/messages.service.ts",
+          "hash": "15798550832939219887",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose",
+            "npm:neo4j-driver"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/persons/person.dto.ts",
+          "hash": "14064588667546671183",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/persons/person.model.ts",
+          "hash": "13231253396564908460",
+          "deps": [
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/persons/person.module.ts",
+          "hash": "12920047183588787330",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/persons/persons.controller.ts",
+          "hash": "13733542850041214256",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/persons/persons.service.ts",
+          "hash": "5333587753799824118",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/persons/persons.services.spec.ts",
+          "hash": "13157949381815769906",
+          "deps": [
+            "npm:@nestjs/testing",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/shared/auth.inforequest.interface.ts",
+          "hash": "18294763635071724941",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/shared/gender.model.ts",
+          "hash": "6335741887984088590"
+        },
+        {
+          "file": "apps/api/src/app/shared/id.validator.ts",
+          "hash": "2504305833759843251",
+          "deps": [
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/user/user.dto.ts",
+          "hash": "14701286498086704912",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/user/user.model.ts",
+          "hash": "13242240010607988940",
+          "deps": [
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/user/user.module.ts",
+          "hash": "8184934887359889889",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/user/users.controller.ts",
+          "hash": "13872991190384250746",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:express",
+            "npm:bcrypt"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/user/users.service.spec.ts",
+          "hash": "14625024671997417363",
+          "deps": [
+            "npm:@nestjs/mongoose",
+            "npm:@nestjs/testing",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/app/user/users.service.ts",
+          "hash": "11375978442583333703",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/api/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/api/src/environments/environment.prod.ts",
+          "hash": "4099014584452405287"
+        },
+        {
+          "file": "apps/api/src/environments/environment.ts",
+          "hash": "15487705001507578664"
+        },
+        {
+          "file": "apps/api/src/main.ts",
+          "hash": "1094533384367649311",
+          "deps": [
+            "npm:dotenv",
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:express-session"
+          ]
+        },
+        {
+          "file": "apps/api/tsconfig.app.json",
+          "hash": "15626038663789729877"
+        },
+        {
+          "file": "apps/api/tsconfig.json",
+          "hash": "4061735651454756750"
+        },
+        {
+          "file": "apps/api/tsconfig.spec.json",
+          "hash": "17669705757049736923"
+        }
+      ],
+      "angular-memorial-platform": [
+        {
+          "file": "apps/angular-memorial-platform/project.json",
+          "hash": "1507517920287228785"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/about/about.component.css",
+          "hash": "10154719460445874119"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/about/about.component.html",
+          "hash": "4960312686699981923"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/about/about.component.spec.ts",
+          "hash": "4407050933881780725",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/about/about.component.ts",
+          "hash": "18131807991454914836",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/app-routing.module.ts",
+          "hash": "7691131378320307113",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/app.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/app.component.html",
+          "hash": "7599518352992595257"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/app.component.spec.ts",
+          "hash": "13455677514601318475",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/app.component.ts",
+          "hash": "12158385874123241490",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/app.module.ts",
+          "hash": "4429401383725131172",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/platform-browser",
+            "npm:@angular/forms",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/footer/footer.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/footer/footer.component.html",
+          "hash": "13670405027903602867"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/footer/footer.component.spec.ts",
+          "hash": "3687340575489815927",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/footer/footer.component.ts",
+          "hash": "13083958771676406291",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral-create/funeral-create.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral-create/funeral-create.component.html",
+          "hash": "15716013179554982430"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral-create/funeral-create.component.spec.ts",
+          "hash": "1799950391780260065",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral-create/funeral-create.component.ts",
+          "hash": "6385396045148907819",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral-details/funeral-details.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral-details/funeral-details.component.html",
+          "hash": "8679230428740427253"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral-details/funeral-details.component.spec.ts",
+          "hash": "7496109300982644234",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral-details/funeral-details.component.ts",
+          "hash": "4729385072688745452",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral.component.html",
+          "hash": "12527705751595408061"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral.component.spec.ts",
+          "hash": "18022629563702035960",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral.component.ts",
+          "hash": "325438458707719133",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral.model.ts",
+          "hash": "5414380336166964824"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/funeral/funeral.service.ts",
+          "hash": "16752063513032012429",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/navbar/navbar.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/navbar/navbar.component.html",
+          "hash": "5446429685588404666"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/navbar/navbar.component.spec.ts",
+          "hash": "14323084892983889208",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/navbar/navbar.component.ts",
+          "hash": "16849676202259231513",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person-create/person-create.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person-create/person-create.component.html",
+          "hash": "3485695100452129239"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person-create/person-create.component.spec.ts",
+          "hash": "13789867473110769447",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person-create/person-create.component.ts",
+          "hash": "1217194917626039715",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person-details/person-details.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person-details/person-details.component.html",
+          "hash": "9106265122227032307"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person-details/person-details.component.spec.ts",
+          "hash": "12845959789037761716",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person-details/person-details.component.ts",
+          "hash": "12299556794967193845",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person-edit/person-edit.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person-edit/person-edit.component.html",
+          "hash": "11979068097126084330"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person-edit/person-edit.component.spec.ts",
+          "hash": "4888854421935215144",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person-edit/person-edit.component.ts",
+          "hash": "14014836060686348766",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person.component.html",
+          "hash": "10265378663940393529"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person.component.spec.ts",
+          "hash": "4709048364299475432",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person.component.ts",
+          "hash": "16918777655966976045",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person.model.ts",
+          "hash": "15799500280875157632"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person.service.spec-MONSTERPC.ts",
+          "hash": "17206220475037608969",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person.service.spec.ts",
+          "hash": "17206220475037608969",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/person/person.service.ts",
+          "hash": "7930938988024142015",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/shared/gender.model.ts",
+          "hash": "6335741887984088590"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-create/user-create.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-create/user-create.component.html",
+          "hash": "10117353513099457374"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-create/user-create.component.spec.ts",
+          "hash": "3254471815383982143",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-create/user-create.component.ts",
+          "hash": "3805102455070588084",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-details/user-details.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-details/user-details.component.html",
+          "hash": "6570200300508228411"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-details/user-details.component.spec.ts",
+          "hash": "329023917242508826",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-details/user-details.component.ts",
+          "hash": "7529769616166070048",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-edit/user-edit.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-edit/user-edit.component.html",
+          "hash": "3644954128279713298"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-edit/user-edit.component.spec.ts",
+          "hash": "14747059324492699633",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-edit/user-edit.component.ts",
+          "hash": "583823380206989952",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-login/user-login.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-login/user-login.component.html",
+          "hash": "15299821658334370205"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user-login/user-login.component.ts",
+          "hash": "6619418248929240935",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user.component.css",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user.component.html",
+          "hash": "10958779229525555769"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user.component.spec.ts",
+          "hash": "1117802697989483167",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user.component.ts",
+          "hash": "16785737621473037379",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user.model.ts",
+          "hash": "10777932721212738916"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/app/user/user.service.ts",
+          "hash": "16018354648347230494",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/assets/images/ERDNoSQLCasusv2.png",
+          "hash": "7458516326733415994"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/assets/images/ERDNoSQLCasusv3.png",
+          "hash": "15210755174342729429"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/environments/environment.prod.ts",
+          "hash": "12528538959026946695"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/environments/environment.ts",
+          "hash": "15928002909470662274"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/favicon.ico",
+          "hash": "3464744996580215640"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/index.html",
+          "hash": "11453343258915841392"
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/main.ts",
+          "hash": "9374417435436826166",
+          "deps": [
+            "npm:@angular/platform-browser-dynamic"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/polyfill.ts",
+          "hash": "12613370331125370858",
+          "deps": [
+            "npm:zone.js"
+          ]
+        },
+        {
+          "file": "apps/angular-memorial-platform/src/styles.css",
+          "hash": "542836902947742539"
+        },
+        {
+          "file": "apps/angular-memorial-platform/tsconfig.app.json",
+          "hash": "17342491558762306413"
+        },
+        {
+          "file": "apps/angular-memorial-platform/tsconfig.spec.json",
+          "hash": "10025538789811221068"
+        },
+        {
+          "file": "apps/angular-memorial-platform/webpack.config.js",
+          "hash": "3041080586178317982",
+          "deps": [
+            "npm:util",
+            [
+              "npm:stream-browserify",
+              "dynamic"
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}

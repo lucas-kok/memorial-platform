@@ -1,7 +1,0 @@
-{
-  "version": 1,
-  "projects": {
-    "angular-memorial-platform": "apps/angular-memorial-platform",
-    "api": "apps/api"
-  }
-}
