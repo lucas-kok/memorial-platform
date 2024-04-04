@@ -303,7 +303,7 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/footer/footer.component.html",
-            "hash": "13670405027903602867"
+            "hash": "4039002827597613288"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/footer/footer.component.spec.ts",
@@ -1138,7 +1138,7 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/styles.css",
-            "hash": "13479905192513089389"
+            "hash": "5527393837037228293"
           },
           {
             "file": "apps/angular-memorial-platform/tsconfig.app.json",
@@ -1251,10 +1251,6 @@
           {
             "file": "apps/api/jest.config.ts",
             "hash": "6784410737831625890"
-          },
-          {
-            "file": "apps/api/project-MONSTERPC.json",
-            "hash": "8004536460925924445"
           },
           {
             "file": "apps/api/src/app/.gitkeep",

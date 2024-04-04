@@ -19,6 +19,8 @@
 
 #homeContainer {
   min-height: 60vh;
+  padding-left: 150px;
+  padding-right: 150px;
 }
 
 .col {
