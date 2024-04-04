@@ -23,6 +23,16 @@
   padding-right: 150px;
 }
 
+header {
+  background-color: #996300 !important;
+  margin: 0;
+}
+
+.font-weight-bold {
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+}
+
 .col {
   padding: 0 30px;
 }

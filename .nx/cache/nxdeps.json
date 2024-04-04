@@ -242,7 +242,7 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/app.component.html",
-            "hash": "2993851965864123010"
+            "hash": "10996902727299143117"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/app.component.spec.ts",
@@ -643,7 +643,7 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/navbar/navbar.component.html",
-            "hash": "6634555294647891694"
+            "hash": "3822983084940783833"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/navbar/navbar.component.spec.ts",
@@ -1138,7 +1138,7 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/styles.css",
-            "hash": "5527393837037228293"
+            "hash": "14561260976641302047"
           },
           {
             "file": "apps/angular-memorial-platform/tsconfig.app.json",

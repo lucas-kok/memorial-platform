@@ -1,11 +1,11 @@
-<header class="p-3 mb-3 border-bottom">
+<header class="p-4 mb-3 border-bottom">
   <div class="container">
     <div
       class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
     >
       <a
         href="/"
-        class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none"
+        class="d-flex align-items-center mb-2 mb-lg-0 text-light text-decoration-none"
       >
         <i class="bi bi-bootstrap"></i>
       </a>
@@ -13,22 +13,46 @@
       <ul
         class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
       >
-        <li><a routerLink="" class="nav-link px-2 link-dark">Home</a></li>
         <li>
-          <a routerLink="persons" class="nav-link px-2 link-dark"
+          <a
+            routerLink=""
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="font-weight-bold"
+            class="nav-link px-2 link-light"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/persons"
+            routerLinkActive="font-weight-bold"
+            class="nav-link px-2 link-light"
             >Mijn Personen</a
           >
         </li>
         <li>
-          <a routerLink="funerals" class="nav-link px-2 link-dark"
+          <a
+            routerLink="funerals"
+            routerLinkActive="font-weight-bold"
+            class="nav-link px-2 link-light"
             >Uitvaarten</a
           >
         </li>
         <li>
-          <a routerLink="users" class="nav-link px-2 link-dark">Gebruikers</a>
+          <a
+            routerLink="users"
+            routerLinkActive="font-weight-bold"
+            class="nav-link px-2 link-light"
+            >Gebruikers</a
+          >
         </li>
         <li>
-          <a routerLink="about" class="nav-link px-2 link-dark">Over</a>
+          <a
+            routerLink="about"
+            routerLinkActive="font-weight-bold"
+            class="nav-link px-2 link-light"
+            >Over</a
+          >
         </li>
       </ul>
 
