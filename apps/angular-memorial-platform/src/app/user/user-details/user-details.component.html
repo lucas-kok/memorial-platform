@@ -1,4 +1,4 @@
-<h3>Details</h3>
+<h3>Gebruiker details</h3>
 <div *ngIf="userExists">
   <p>
     <b>Id:</b> {{ user?._id }}<br />
@@ -9,10 +9,10 @@
     <b>Geslacht:</b> {{ user?.gender }}<br />
   </p>
 
-  <a *ngIf="isUserProperty" routerLink="edit" class="btn btn-primary me-2"
+  <a routerLink=".." class="btn btn-primary">Terug</a>
+  <a *ngIf="isUserProperty" routerLink="edit" class="btn btn-warning ms-3"
     >Wijzig</a
   >
-  <a routerLink=".." class="btn btn-secondary">Terug</a>
 </div>
 
 <div *ngIf="!userExists">

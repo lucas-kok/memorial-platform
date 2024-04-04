@@ -112,15 +112,15 @@
     <div class="mt-5 d-flex flex-row">
       <button
         type="submit"
-        class="btn btn-primary"
+        class="btn btn-success"
         [disabled]="!editForm.valid"
       >
-        Wijzigen
+        Opslaan
       </button>
-      <form name="deleteForm" (ngSubmit)="onDelete()">
-        <button type="submit" class="btn btn-danger ms-2">Verwijderen</button>
-      </form>
-      <a routerLink=".." class="btn btn-secondary ms-2">Terug</a>
+      <a routerLink=".." class="btn btn-secondary ms-3">Terug</a>
+      <button type="submit" class="btn btn-danger ms-3" (click)="onDelete()">
+        Verwijderen
+      </button>
     </div>
   </form>
 

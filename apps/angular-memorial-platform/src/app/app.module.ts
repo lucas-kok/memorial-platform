@@ -17,6 +17,11 @@ import { UserDetailsComponent } from './user/user-details/user-details.component
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { FuneralComponent } from './funeral/funeral.component';
+import { FuneralDetailsComponent } from './funeral/funeral-details/funeral-details.component';
+import { FuneralEditComponent } from './funeral/funeral-edit/funeral-edit.component';
+import { FuneralCreateComponent } from './funeral/funeral-create/funeral-create.component';
+import { MemorialComponent } from './memorial/memorial.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,11 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
     UserDetailsComponent,
     UserEditComponent,
     UserLoginComponent,
+    FuneralComponent,
+    FuneralDetailsComponent,
+    FuneralEditComponent,
+    FuneralCreateComponent,
+    MemorialComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

@@ -3,7 +3,6 @@ import { Injectable, isDevMode } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { prodEnvironment } from '../../environments/environment.prod';
-import { Gender } from '../shared/gender.model';
 import { Person } from './person.model';
 
 @Injectable({

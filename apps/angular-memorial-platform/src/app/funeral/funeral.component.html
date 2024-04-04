@@ -1,0 +1,33 @@
+<h2>Uitvaarten:</h2>
+<a routerLink="create" class="btn btn-primary mt-3">Toevoegen</a>
+<table class="table mt-2">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Naam</th>
+      <th scope="col">Datum</th>
+      <th scope="col">Adres</th>
+      <th scope="col">Besloten</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let funeral of funerals; let i = index" scope="row">
+      <td>{{ i + 1 }}</td>
+      <td>{{ funeral.person?.name }}</td>
+      <td>{{ dateToString(funeral.dateTime!) }}</td>
+      <td>{{ funeral.dateTime }}</td>
+      <td>{{ funeral.isPrivate ? 'Ja' : 'Nee' }}</td>
+      <td>
+        <a routerLink="{{ funeral._id }}" class="btn btn-secondary">Details</a>
+        <a
+          *ngIf="funeral.userId == userId"
+          routerLink="{{ funeral._id }}/edit"
+          class="ms-3 btn btn-warning"
+          >Wijzig</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>

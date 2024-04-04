@@ -1,0 +1,30 @@
+<h3 class="mt-3">Uitvaart details:</h3>
+<div *ngIf="funeralExists" class="d-flex">
+  <div class="col-5">
+    <p>
+      <b>Naam:</b> {{ funeral!.person?.name }}<br />
+      <b>Geboren:</b> {{ dateToString(funeral!.dateTime!) }}<br />
+      <b>Adres:</b> {{ funeral!.adress }} <br />
+      <b>Postcode:</b> {{ funeral!.postalCode }} <br />
+      <b>Stad:</b> {{ funeral!.city }} <br />
+      <b>Omschrijving:</b> {{ funeral!.description }} <br />
+      <b>Privé:</b> {{ funeral!.isPrivate ? 'Ja' : 'Nee' }} <br />
+      <a routerLink="/users/{{ funeral?.userId }}">Autheur</a>
+    </p>
+    <a routerLink=".." class="btn btn-primary">Terug</a>
+    <a *ngIf="isUserProperty" routerLink="edit" class="btn btn-warning ms-3"
+      >Wijzig</a
+    >
+  </div>
+
+  <div class="col-5 d-flex justify-content-center align-items-start">
+    <app-memorial [isUserProperty]="isUserProperty"></app-memorial>
+  </div>
+</div>
+
+<div *ngIf="!funeralExists">
+  <span class="danger text-danger"
+    >Funeral with id: {{ componentId }} does not exists</span
+  ><br />
+  <a routerLink=".." class="btn btn-primary mt-2">Terug</a>
+</div>

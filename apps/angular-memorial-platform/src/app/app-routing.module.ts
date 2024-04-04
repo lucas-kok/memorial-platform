@@ -10,6 +10,10 @@ import { UserDetailsComponent } from './user/user-details/user-details.component
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserComponent } from './user/user.component';
+import { FuneralComponent } from './funeral/funeral.component';
+import { FuneralEditComponent } from './funeral/funeral-edit/funeral-edit.component';
+import { FuneralDetailsComponent } from './funeral/funeral-details/funeral-details.component';
+import { FuneralCreateComponent } from './funeral/funeral-create/funeral-create.component';
 
 const routes: Routes = [
   { path: 'about', pathMatch: 'full', component: AboutComponent },
@@ -24,6 +28,22 @@ const routes: Routes = [
     path: 'persons/:id/edit',
     pathMatch: 'full',
     component: PersonEditComponent,
+  },
+  { path: 'funerals', pathMatch: 'full', component: FuneralComponent },
+  {
+    path: 'funerals/create',
+    pathMatch: 'full',
+    component: FuneralCreateComponent,
+  },
+  {
+    path: 'funerals/:id',
+    pathMatch: 'full',
+    component: FuneralDetailsComponent,
+  },
+  {
+    path: 'funerals/:id/edit',
+    pathMatch: 'full',
+    component: FuneralEditComponent,
   },
   { path: 'users', pathMatch: 'full', component: UserComponent },
   { path: 'users/create', pathMatch: 'full', component: UserCreateComponent },

@@ -1,0 +1,14 @@
+<div *ngIf="!memorialExists && isUserProperty">
+  <button class="btn btn-success" (click)="onCreate()">
+    Maak herdenkingsplaats aan
+  </button>
+</div>
+<div *ngIf="memorialExists">
+  <ng-container *ngFor="let message; in: memorial.messages">
+    <p>
+      <i>{{ message.qoute }}</i>
+      <b>Bericht</b> {{ message.text }}
+      {{ message.createdAt | date : 'dd-MM-yyyy' }}
+    </p>
+  </ng-container>
+</div>

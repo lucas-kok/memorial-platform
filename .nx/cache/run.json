@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx serve api --verbose",
+    "startTime": "2023-11-28T21:26:56.133Z",
+    "endTime": "2023-11-28T21:27:27.505Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "api:serve",
+      "target": "serve",
+      "projectName": "api",
+      "hash": "4188478699975610653",
+      "startTime": "2023-11-28T21:26:56.140Z",
+      "endTime": "2023-11-28T21:27:27.505Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 1
+    }
+  ]
+}
