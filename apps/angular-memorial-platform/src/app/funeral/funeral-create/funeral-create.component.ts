@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, map, Subscription, tap } from 'rxjs';
-import { UserService } from '../../user/user.service';
-import { Funeral, FuneralDto } from '../funeral.model';
+import { Subscription, catchError, map, tap } from 'rxjs';
 import { FuneralService } from '../funeral.service';
+import { Router } from '@angular/router';
+import { Person } from '../../person/person.model';
+import { Funeral } from '../funeral.model';
+import { PersonService } from '../../person/person.service';
 
 @Component({
   selector: 'app-funeral-create',
@@ -11,62 +12,57 @@ import { FuneralService } from '../funeral.service';
   styleUrls: ['./funeral-create.component.css'],
 })
 export class FuneralCreateComponent {
-  newFuneral: FuneralDto | undefined;
-  subscription: Subscription | undefined;
-  personId: string | undefined;
-  funeralExists: boolean | undefined = false;
+  newFuneral: Funeral | undefined;
+  isPrivate: string | undefined;
+  persons: Person[] | undefined;
+  loggedIn: boolean = localStorage.getItem('jwtToken') != null;
 
+  subscription: Subscription | undefined;
   message: string | undefined;
 
   constructor(
     private funeralService: FuneralService,
-    private userService: UserService,
-    private route: ActivatedRoute,
+    private personService: PersonService,
     private router: Router
   ) {
-    this.newFuneral = new FuneralDto();
-    this.newFuneral.isPrivate = true;
+    if (!this.loggedIn) router.navigate(['/users/login']);
 
-    this.userService.getIsLoggedIn().subscribe((isLoggedIn) => {
-      if (!isLoggedIn) router.navigate(['/users/login']);
-    });
+    this.newFuneral = new Funeral();
+    this.newFuneral.person = new Person();
+    this.newFuneral.isPrivate = true;
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      const personId = params.get('id');
-      if (!personId) return;
-
-      const funeral = this.funeralService.getFuneralByPersonId(personId);
-      if (funeral) this.funeralExists = true;
-    });
+    const jwtToken = localStorage.getItem('jwtToken');
+    this.personService
+      .getAllPersonsFromUser(jwtToken!)
+      .subscribe((persons: any) => {
+        this.persons = persons.result;
+      });
   }
 
   onCreate() {
-    this.userService.getUserId().subscribe((id) => {
-      // Getting userId from UserService
-      if (this.newFuneral == null) return;
+    if (this.newFuneral == null) return;
 
-      this.newFuneral.userId = id;
-      this.newFuneral.personId = this.personId;
+    this.newFuneral.person = this.persons?.find(
+      (p) => p._id == this.newFuneral?.person
+    );
+    this.newFuneral.isPrivate = this.isPrivate == 'true';
 
-      const jwtToken = localStorage.getItem('jwtToken');
+    const jwtToken = localStorage.getItem('jwtToken');
+    this.subscription = this.funeralService
+      .addFuneral(this.newFuneral, jwtToken!)
+      .pipe(
+        map((res: any) => res),
+        tap((res) => {
+          console.log('[PersonCreateComponent] Person created');
 
-      this.subscription = this.funeralService // Adding funeral to FuneralService
-        .addFuneral(this.newFuneral, jwtToken!)
-        .pipe(
-          map((res: any) => res),
-          tap((res) => {
-            this.message = 'Uitvaart succesvol toegevoegd';
-
-            this.router.navigate(['/funerals']);
-          }),
-          catchError(async () => {
-            this.message = 'Er is iets fout gegaan';
-          })
-        )
-        .subscribe();
-    });
+          this.message = 'Person created succesfully';
+          this.router.navigate(['/funerals']);
+        }),
+        catchError(async () => (this.message = 'Er is iets fout gegaan'))
+      )
+      .subscribe();
   }
 
   ngOnDestroy() {
