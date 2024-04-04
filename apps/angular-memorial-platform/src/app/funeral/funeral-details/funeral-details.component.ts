@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FuneralService } from '../funeral.service';
 import { Subscription, map, tap } from 'rxjs';
 import { Funeral } from '../funeral.model';
+import { MessageDTO } from '../../message/message.dto';
 
 @Component({
   selector: 'app-funeral-details',

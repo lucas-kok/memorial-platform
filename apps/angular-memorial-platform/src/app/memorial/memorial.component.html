@@ -1,14 +1,59 @@
+<h3>Herdenkingsplaats:</h3>
+
 <div *ngIf="!memorialExists && isUserProperty">
   <button class="btn btn-success" (click)="onCreate()">
     Maak herdenkingsplaats aan
   </button>
 </div>
+
 <div *ngIf="memorialExists">
-  <ng-container *ngFor="let message; in: memorial.messages">
-    <p>
-      <i>{{ message.qoute }}</i>
-      <b>Bericht</b> {{ message.text }}
-      {{ message.createdAt | date : 'dd-MM-yyyy' }}
-    </p>
-  </ng-container>
+  <hr />
+  <div style="max-height: 500px; overflow: auto">
+    <ng-container *ngFor="let message of memorial?.messages">
+      <div class="d-flex flex-row justify-content-between">
+        <p>
+          <i>{{ message.qoute }}</i> <br />
+          <b>Bericht:</b> {{ message.message }} <br />
+          {{ message.dateTime | date : 'dd-MM-yyyy' }}
+        </p>
+        <button
+          *ngIf="message.userId === userId"
+          class="btn btn-danger"
+          (click)="onDeleteMessage(message._id!)"
+        >
+          Verwijder
+        </button>
+      </div>
+      <hr />
+    </ng-container>
+  </div>
+
+  <form>
+    <div class="mb-3">
+      <label for="qoute" class="form-label">Citaat</label>
+      <input
+        type="text"
+        class="form-control"
+        id="qoute"
+        [(ngModel)]="newMessage.qoute"
+        name="qoute"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Bericht</label>
+      <textarea
+        class="form-control"
+        id="message"
+        [(ngModel)]="newMessage.message"
+        name="message"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onAddMessage()">
+      Toevoegen
+    </button>
+  </form>
+</div>
+
+<div *ngIf="!isUserProperty">
+  <p>Deze gebruiker heeft geen herdenkingsplaats.</p>
 </div>

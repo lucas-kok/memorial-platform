@@ -373,7 +373,7 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral-details/funeral-details.component.html",
-            "hash": "17352185711552871239"
+            "hash": "16329650261763724340"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral-details/funeral-details.component.spec.ts",
@@ -388,21 +388,21 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral-details/funeral-details.component.ts",
-            "hash": "12976571554039440692",
+            "hash": "2852755857160896866",
             "dependencies": [
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/router",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
-                "target": "npm:rxjs",
                 "source": "angular-memorial-platform",
+                "target": "npm:rxjs",
                 "type": "static"
               }
             ]
@@ -528,7 +528,7 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/memorial/memorial.component.html",
-            "hash": "9074848735436958661"
+            "hash": "15838688099788643492"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/memorial/memorial.component.spec.ts",
@@ -543,16 +543,16 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/memorial/memorial.component.ts",
-            "hash": "18108980566982881690",
+            "hash": "15208153495783937096",
             "dependencies": [
               {
-                "target": "npm:@angular/core",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/core",
                 "type": "static"
               },
               {
-                "target": "npm:@angular/router",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/router",
                 "type": "static"
               }
             ]
@@ -599,11 +599,11 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/message/message.dto.ts",
-            "hash": "11841246338378632971"
+            "hash": "12815204162501873865"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/message/message.model.ts",
-            "hash": "12967244952111841890"
+            "hash": "15762720104562634227"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/message/message.service.spec.ts",
@@ -618,11 +618,21 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/message/message.service.ts",
-            "hash": "8572698273514909852",
+            "hash": "10166604143729633126",
             "dependencies": [
               {
-                "target": "npm:@angular/core",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/common",
+                "type": "static"
+              },
+              {
+                "source": "angular-memorial-platform",
+                "target": "npm:@angular/core",
+                "type": "static"
+              },
+              {
+                "source": "angular-memorial-platform",
+                "target": "npm:rxjs",
                 "type": "static"
               }
             ]
@@ -1187,7 +1197,7 @@
             }
           },
           "serve": {
-            "executor": "@nrwl/js:node",
+            "executor": "@nrwl/node:node",
             "options": {
               "buildTarget": "api:build"
             },
@@ -1243,7 +1253,7 @@
             "hash": "6784410737831625890"
           },
           {
-            "file": "apps/api/project.json",
+            "file": "apps/api/project-MONSTERPC.json",
             "hash": "8004536460925924445"
           },
           {
@@ -1978,6 +1988,10 @@
           {
             "file": "apps/api/tsconfig.spec.json",
             "hash": "17669705757049736923"
+          },
+          {
+            "file": "apps/api/project.json",
+            "hash": "14423256278886546462"
           }
         ]
       }

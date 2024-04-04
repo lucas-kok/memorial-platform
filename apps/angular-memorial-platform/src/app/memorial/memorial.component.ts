@@ -4,6 +4,8 @@ import { MemorialService } from './memorial.service';
 import { MessageService } from '../message/message.service';
 import { ActivatedRoute } from '@angular/router';
 import { Input } from '@angular/core';
+import { MessageDTO } from '../message/message.dto';
+import { Message } from '../message/message.model';
 
 @Component({
   selector: 'app-memorial',
@@ -16,8 +18,12 @@ export class MemorialComponent {
   @Input()
   isUserProperty: boolean = false;
 
+  userId: string | null = localStorage.getItem('userId');
+
   memorialExists: boolean = false;
   memorial: Memorial | undefined;
+
+  newMessage: Message = new Message();
 
   constructor(
     private memorialService: MemorialService,
@@ -57,6 +63,30 @@ export class MemorialComponent {
       .subscribe((memorial: any) => {
         this.memorial = memorial.result;
         this.memorialExists = true;
+      });
+  }
+
+  onAddMessage() {
+    const jwtToken = localStorage.getItem('jwtToken');
+    this.newMessage.memorialId = this.memorial!._id;
+
+    this.messageService
+      .addMessage(this.newMessage, this.componentId!, jwtToken!)
+      .subscribe((message: any) => {
+        this.memorial!.messages!.push(message.result);
+        this.newMessage = new Message();
+      });
+  }
+
+  onDeleteMessage(messageId: string) {
+    const jwtToken = localStorage.getItem('jwtToken');
+
+    this.messageService
+      .deleteMessage(messageId, this.memorial?._id!, jwtToken!)
+      .subscribe((message: any) => {
+        this.memorial!.messages = this.memorial!.messages!.filter(
+          (m) => m._id !== messageId
+        );
       });
   }
 }
