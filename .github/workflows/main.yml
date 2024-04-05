@@ -39,6 +39,9 @@ jobs:
           source: 'dist/'
           target: '/var/www/memorial-platform'
 
+      - name: Install PM2
+        run: npm install pm2@latest -g
+
       - name: Restart Server
         uses: appleboy/ssh-action@master
         with:
