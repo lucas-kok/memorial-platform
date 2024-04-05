@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, map, Subscription, tap } from 'rxjs';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
+import { NotificationService } from '../../notification/notification.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-user-details',
@@ -15,9 +17,12 @@ export class UserDetailsComponent {
   userExists: boolean = true;
   isUserProperty: boolean = false;
   user: User | undefined;
-  subscription: Subscription | undefined;
 
-  constructor(private route: ActivatedRoute, private userService: UserService) {
+  constructor(
+    private route: ActivatedRoute,
+    private userService: UserService,
+    private notificationService: NotificationService
+  ) {
     this.userService.getUserId().subscribe((id) => {
       this.userId = id;
       this.isUserProperty = this.user!._id === id;
@@ -27,28 +32,23 @@ export class UserDetailsComponent {
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       this.componentId = params.get('id');
-      console.log(this.componentId);
-
       if (this.componentId == null) return;
 
-      this.subscription = this.userService
+      this.userService
         .getUserById(this.componentId)
         .pipe(
-          map((res: any) => res),
-          tap((res) => {
-            this.user = res.result;
-            console.log(this.userId);
-            console.log(res.result._id);
-            if (this.user!._id == this.userId) this.isUserProperty = true;
-          }),
-          catchError(async () => (this.userExists = false))
+          catchError((error) => {
+            this.notificationService.showError(
+              error.error.message?.join('\n\n') || 'Er is een fout opgetreden'
+            );
+            return error;
+          })
         )
-        .subscribe();
+        .subscribe((res: any) => {
+          this.user = res.result;
+          if (this.user!._id == this.userId) this.isUserProperty = true;
+        });
     });
-  }
-
-  ngOnDestroy() {
-    if (this.subscription) this.subscription.unsubscribe();
   }
 
   dateToString(date: Date): string {

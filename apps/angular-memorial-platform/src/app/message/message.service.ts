@@ -16,17 +16,13 @@ export class MessageService {
     this.apiUri = isDevMode() ? environment.API_URL : prodEnvironment.API_URL;
   }
 
-  addMessage(
-    message: Message,
-    memorialId: string,
-    jwtToken: string
-  ): Observable<Message> {
+  addMessage(message: Message, jwtToken: string): Observable<Message> {
     const messageDTO: MessageDTO = {
       memorialId: message.memorialId,
       message: message.message,
       qoute: message.qoute,
       dateTime: new Date(),
-      imageBase64: btoa('base64'),
+      imageBase64: message.imageBase64,
       showName: true,
     };
 

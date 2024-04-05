@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FuneralService } from '../funeral.service';
-import { Subscription, map, tap } from 'rxjs';
+import { Subscription, catchError, map, tap } from 'rxjs';
 import { Funeral } from '../funeral.model';
 import { MessageDTO } from '../../message/message.dto';
+import { NotificationService } from '../../notification/notification.service';
+import { withJsonpSupport } from '@angular/common/http';
 
 @Component({
   selector: 'app-funeral-details',
@@ -19,12 +21,11 @@ export class FuneralDetailsComponent {
   loggedIn: boolean = localStorage.getItem('jwtToken') != null;
   isUserProperty: boolean = false;
 
-  subscription: Subscription | undefined;
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private funeralService: FuneralService
+    private funeralService: FuneralService,
+    private notificationService: NotificationService
   ) {
     if (!this.loggedIn) router.navigate(['/users/login']);
 
@@ -38,28 +39,23 @@ export class FuneralDetailsComponent {
       if (this.componentId == null) return;
 
       const jwtToken = localStorage.getItem('jwtToken');
-      this.subscription = this.funeralService
+      this.funeralService
         .getFuneralById(this.componentId, jwtToken!)
         .pipe(
-          map((res: any) => res),
-          tap((res) => {
-            console.log(res);
-            this.funeral = res.result;
-
-            if (this.funeral != null) {
-              this.funeralExists = true;
-              this.isUserProperty = res.result.userId == this.userId;
-            }
+          catchError((error) => {
+            this.notificationService.showError(
+              error.error.message?.join('\n\n') || 'Er is een fout opgetreden'
+            );
+            return error;
           })
         )
-        .subscribe();
-
-      if (this.funeral != null) this.funeralExists = true;
+        .subscribe((res: any) => {
+          this.funeral = res.result;
+          this.funeralExists = this.funeral != null;
+          this.isUserProperty =
+            this.funeral?.userId === localStorage.getItem('userId');
+        });
     });
-  }
-
-  ngOnDestroy() {
-    if (this.subscription) this.subscription.unsubscribe();
   }
 
   dateToString(date: Date): string {

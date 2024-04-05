@@ -22,7 +22,8 @@ import { FuneralDetailsComponent } from './funeral/funeral-details/funeral-detai
 import { FuneralEditComponent } from './funeral/funeral-edit/funeral-edit.component';
 import { FuneralCreateComponent } from './funeral/funeral-create/funeral-create.component';
 import { MemorialComponent } from './memorial/memorial.component';
-
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,8 +45,15 @@ import { MemorialComponent } from './memorial/memorial.component';
     FuneralCreateComponent,
     MemorialComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+  ],
+  providers: [MatSnackBar],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

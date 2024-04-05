@@ -11,24 +11,33 @@
   <div style="max-height: 500px; overflow: auto">
     <ng-container *ngFor="let message of memorial?.messages">
       <div class="d-flex flex-row justify-content-between">
-        <p>
-          <i>{{ message.qoute }}</i> <br />
+        <p class="d-flex flex-column">
+          <i
+            >"{{ message.qoute }}" <br />{{
+              message.dateTime | date : 'dd-MM-yyyy'
+            }}</i
+          >
+          <br />
           <b>Bericht:</b> {{ message.message }} <br />
-          {{ message.dateTime | date : 'dd-MM-yyyy' }}
+          <button
+            *ngIf="message.userId === userId"
+            class="btn btn-danger mt-3"
+            (click)="onDeleteMessage(message._id!)"
+          >
+            Verwijder
+          </button>
         </p>
-        <button
-          *ngIf="message.userId === userId"
-          class="btn btn-danger"
-          (click)="onDeleteMessage(message._id!)"
-        >
-          Verwijder
-        </button>
+        <img
+          src="data:image/png;base64,{{ message.imageBase64 }}"
+          class="memorial-image"
+        />
       </div>
       <hr />
     </ng-container>
   </div>
 
   <form>
+    <h4>Nieuwe herdenking</h4>
     <div class="mb-3">
       <label for="qoute" class="form-label">Citaat</label>
       <input
@@ -48,10 +57,34 @@
         name="message"
       ></textarea>
     </div>
+    <div class="mb-3">
+      <label class="image-upload-container">
+        <label for="imageInput">Kies afbeelding</label>
+        <input
+          id="imageInput"
+          name="imageInput"
+          #imageInput
+          type="file"
+          accept="image/*"
+          (change)="handleFileSelect(imageInput)"
+          class="form-control"
+        />
+      </label>
+    </div>
     <button type="submit" class="btn btn-primary" (click)="onAddMessage()">
       Toevoegen
     </button>
   </form>
+  <div class="mt-5">
+    <h4>Gerelateerd</h4>
+    <ng-container *ngFor="let relatedMemorial of relatedMemorials">
+      <a class="col-4" [routerLink]="['/funerals', relatedMemorial.funeralId]">
+        <img
+          src="data:image/png;base64,{{ relatedMemorial.imageBase64 }}"
+          class="profile-image-avatar mb-3"
+      /></a>
+    </ng-container>
+  </div>
 </div>
 
 <div *ngIf="!isUserProperty">

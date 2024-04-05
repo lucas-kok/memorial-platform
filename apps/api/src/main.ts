@@ -11,6 +11,7 @@ import { NestFactory } from '@nestjs/core';
 import * as session from 'express-session';
 
 import { AppModule } from './app/app.module';
+import * as bodyParser from 'body-parser';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -26,6 +27,8 @@ async function bootstrap() {
       cookie: { maxAge: 3600000 },
     })
   );
+  app.use(bodyParser.json({ limit: '10mb' }));
+  app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
   const port = process.env['PORT'] || 3333;
   await app.listen(port);

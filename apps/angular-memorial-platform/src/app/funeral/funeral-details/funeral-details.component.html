@@ -1,5 +1,9 @@
 <div class="d-flex flex-row mt-3" *ngIf="funeralExists">
   <div class="col-5 pt-4">
+    <img
+      src="data:image/png;base64,{{ funeral!.person?.imageBase64 }}"
+      class="memorial-cover-image mb-3"
+    />
     <h3>Uitvaart details:</h3>
     <div>
       <p>
@@ -25,13 +29,14 @@
     <app-memorial
       style="width: 100%"
       [isUserProperty]="isUserProperty"
+      [funeral]="funeral"
     ></app-memorial>
   </div>
 </div>
 
 <div *ngIf="!funeralExists">
   <span class="danger text-danger"
-    >Funeral with id: {{ componentId }} does not exists</span
+    >Uitvaar met Id {{ componentId }} bestaat niet</span
   ><br />
   <a routerLink=".." class="btn btn-primary mt-2">Terug</a>
 </div>

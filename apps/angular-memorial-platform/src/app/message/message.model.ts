@@ -5,4 +5,5 @@ export class Message {
   message: string | undefined;
   qoute: string | undefined;
   dateTime: Date | undefined;
+  imageBase64: string | undefined;
 }

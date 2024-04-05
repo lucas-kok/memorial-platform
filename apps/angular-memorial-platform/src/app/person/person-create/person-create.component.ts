@@ -4,6 +4,7 @@ import { catchError, map, Subscription, tap } from 'rxjs';
 import { Gender } from '../../shared/gender.model';
 import { Person } from '../person.model';
 import { PersonService } from '../person.service';
+import { NotificationService } from '../../notification/notification.service';
 
 @Component({
   selector: 'app-person-create',
@@ -16,10 +17,11 @@ export class PersonCreateComponent {
   genders: string[] | undefined;
   loggedIn: boolean = localStorage.getItem('jwtToken') != null;
 
-  subscription: Subscription | undefined;
-  message: string | undefined;
-
-  constructor(private personService: PersonService, private router: Router) {
+  constructor(
+    private personService: PersonService,
+    private router: Router,
+    private notificationService: NotificationService
+  ) {
     if (!this.loggedIn) router.navigate(['/users/login']);
 
     this.newPerson = new Person();
@@ -30,23 +32,20 @@ export class PersonCreateComponent {
     if (this.newPerson == null) return;
 
     const jwtToken = localStorage.getItem('jwtToken');
-    this.subscription = this.personService
+    this.personService
       .addPerson(this.newPerson, jwtToken!)
       .pipe(
-        map((res: any) => res),
-        tap((res) => {
-          console.log('[PersonCreateComponent] Person created');
-
-          this.message = 'Person created succesfully';
-          this.router.navigate(['/persons']);
-        }),
-        catchError(async () => (this.message = 'Er is iets fout gegaan'))
+        catchError((error) => {
+          this.notificationService.showError(
+            error.error.message.join('\n\n') || 'Er is een fout opgetreden'
+          );
+          return error;
+        })
       )
-      .subscribe();
-  }
-
-  ngOnDestroy() {
-    if (this.subscription) this.subscription.unsubscribe();
+      .subscribe((res) => {
+        this.notificationService.showSuccess('Persoon succesvol aangemaakt');
+        this.router.navigate(['/persons']);
+      });
   }
 
   handleFileSelect(evt: any) {

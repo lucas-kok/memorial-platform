@@ -1,5 +1,5 @@
 import { Injectable, isDevMode } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin, map, switchMap } from 'rxjs';
 import { Memorial } from './memorial.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
@@ -30,6 +30,35 @@ export class MemorialService {
     };
 
     return this.http.post<Memorial>(`${this.apiUri}/memorials`, memorialDTO, {
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    });
+  }
+
+  getRelatedMemorials(
+    memorialId: string,
+    jwtToken: string
+  ): Observable<Memorial[]> {
+    return this.http
+      .get<string[]>(`${this.apiUri}/memorials/${memorialId}/recommendations`, {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`,
+        },
+      })
+      .pipe(
+        map((response: any) => response.result),
+        switchMap((memorialIds: string[]) => {
+          const memorialObservables = memorialIds.map((id) =>
+            this.getMemorialById(id, jwtToken)
+          );
+          return forkJoin(memorialObservables);
+        })
+      );
+  }
+
+  getMemorialById(memorialId: string, jwtToken: string): Observable<Memorial> {
+    return this.http.get<Memorial>(`${this.apiUri}/memorials/${memorialId}`, {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
       },

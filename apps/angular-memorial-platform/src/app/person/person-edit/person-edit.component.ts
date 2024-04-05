@@ -4,6 +4,7 @@ import { catchError, map, Subscription, tap } from 'rxjs';
 import { Gender } from '../../shared/gender.model';
 import { Person } from '../person.model';
 import { PersonService } from '../person.service';
+import { NotificationService } from '../../notification/notification.service';
 
 @Component({
   selector: 'app-person-edit',
@@ -17,13 +18,11 @@ export class PersonEditComponent {
   person: Person | undefined;
   genders: string[] | undefined;
 
-  subscription: Subscription | undefined;
-  message: string | undefined;
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private personService: PersonService
+    private personService: PersonService,
+    private notificationService: NotificationService
   ) {
     this.genders = Object.keys(Gender);
   }
@@ -35,45 +34,43 @@ export class PersonEditComponent {
       if (this.componentId == null) return;
 
       const jwtToken = localStorage.getItem('jwtToken');
-
-      this.subscription = this.personService
+      this.personService
         .getPersonById(this.componentId, jwtToken!)
         .pipe(
-          map((res: any) => res),
-          tap((res) => {
-            this.person = res.result;
-            if (this.person) this.personExists = true;
-
-            const userId = localStorage.getItem('userId');
-            if (res.result.userId == userId) this.isUserProperty = true;
+          catchError((error) => {
+            this.notificationService.showError(
+              error.error.message.join('\n\n') || 'Er is een fout opgetreden'
+            );
+            return error;
           })
         )
-        .subscribe();
+        .subscribe((res: any) => {
+          this.person = res.result;
+          this.personExists = this.person != null;
+          this.isUserProperty =
+            this.person?.userId === localStorage.getItem('userId');
+        });
     });
-  }
-
-  ngOnDestroy() {
-    if (this.subscription) this.subscription.unsubscribe();
   }
 
   onEdit() {
     if (this.person == null) return;
 
     const jwtToken = localStorage.getItem('jwtToken');
-    this.subscription = this.personService
+    this.personService
       .updatePerson(this.person, jwtToken!)
       .pipe(
-        map((res: any) => res),
-        tap((res) => {
-          console.log('Person updated');
-
-          this.router.navigate(['/persons/' + this.componentId]);
-        }),
-        catchError(async () => {
-          this.message = 'Er is iets fout gegaan';
+        catchError((error) => {
+          this.notificationService.showError(
+            error.error.message.join('\n\n') || 'Er is een fout opgetreden'
+          );
+          return error;
         })
       )
-      .subscribe();
+      .subscribe((res) => {
+        this.notificationService.showSuccess('Persoon succesvol gewijzigd');
+        this.router.navigate(['/persons/' + this.person!['_id']]);
+      });
   }
 
   onDelete() {
@@ -81,17 +78,20 @@ export class PersonEditComponent {
     if (this.person != null && this.componentId != null) {
       const jwtToken = localStorage.getItem('jwtToken');
 
-      this.subscription = this.personService
+      this.personService
         .removePersonById(this.componentId, jwtToken!)
         .pipe(
-          map((res: any) => res),
-          tap(() => {
-            this.message = 'Persoon succesvol verwijderd';
-            this.router.navigate(['/persons']);
-          }),
-          catchError(async () => (this.message = 'Er is iets fout gegaan'))
+          catchError((error) => {
+            this.notificationService.showError(
+              error.error.message.join('\n\n') || 'Er is een fout opgetreden'
+            );
+            return error;
+          })
         )
-        .subscribe();
+        .subscribe((res) => {
+          this.notificationService.showSuccess('Persoon succesvol verwijderd');
+          this.router.navigate(['/persons']);
+        });
     }
   }
 

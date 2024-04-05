@@ -5,6 +5,8 @@ import { Subscription, catchError, map, tap } from 'rxjs';
 import { FuneralService } from '../funeral.service';
 import { PersonService } from '../../person/person.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationService } from '../../notification/notification.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-funeral-edit',
@@ -22,14 +24,12 @@ export class FuneralEditComponent {
   persons: Person[] | undefined;
   loggedIn: boolean = localStorage.getItem('jwtToken') != null;
 
-  subscription: Subscription | undefined;
-  message: string | undefined;
-
   constructor(
     private funeralService: FuneralService,
     private personService: PersonService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private notificationService: NotificationService
   ) {
     if (!this.loggedIn) router.navigate(['/users/login']);
 
@@ -54,6 +54,9 @@ export class FuneralEditComponent {
         .getFuneralById(this.componentId, jwtToken!)
         .subscribe((funeral: any) => {
           this.funeral = funeral.result;
+          this.funeralExists = this.funeral != null;
+          this.isUserProperty =
+            this.funeral?.userId === localStorage.getItem('userId');
           this.isPrivate = this.funeral?.isPrivate ? 'true' : 'false';
           this.personId = this.funeral?.person?._id;
         });
@@ -67,35 +70,39 @@ export class FuneralEditComponent {
     this.funeral.isPrivate = this.isPrivate == 'true';
 
     const jwtToken = localStorage.getItem('jwtToken');
-    this.subscription = this.funeralService
+    this.funeralService
       .updateFuneral(this.funeral, jwtToken!)
       .pipe(
-        map((res: any) => res),
-        tap((res) => {
-          this.router.navigate(['/funerals/' + this.componentId]);
-        }),
-        catchError(async () => (this.message = 'Er is iets fout gegaan'))
+        catchError((error) => {
+          this.notificationService.showError(
+            error.error.message.join('\n\n') || 'Er is een fout opgetreden'
+          );
+          return error;
+        })
       )
-      .subscribe();
+      .subscribe((res) => {
+        this.notificationService.showSuccess('Uitvaart succesvol gewijzigd');
+        this.router.navigate(['/funerals/' + this.componentId]);
+      });
   }
 
   onDelete() {
     if (this.funeral == null) return;
 
     const jwtToken = localStorage.getItem('jwtToken');
-    this.subscription = this.funeralService
+    this.funeralService
       .deleteFuneral(this.funeral._id!, jwtToken!)
       .pipe(
-        map((res: any) => res),
-        tap((res) => {
-          this.router.navigate(['/funerals']);
-        }),
-        catchError(async () => (this.message = 'Er is iets fout gegaan'))
+        catchError((error) => {
+          this.notificationService.showError(
+            error.error.message.join('\n\n') || 'Er is een fout opgetreden'
+          );
+          return error;
+        })
       )
-      .subscribe();
-  }
-
-  ngOnDestroy() {
-    if (this.subscription) this.subscription.unsubscribe();
+      .subscribe((res) => {
+        this.notificationService.showSuccess('Uitvaart succesvol verwijderd');
+        this.router.navigate(['/funerals']);
+      });
   }
 }

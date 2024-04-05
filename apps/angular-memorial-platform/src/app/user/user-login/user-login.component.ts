@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { async, catchError, map, Subscription, tap, throwError } from 'rxjs';
 import { UserLoginDto } from '../user.model';
 import { UserService } from '../user.service';
+import { NotificationService } from '../../notification/notification.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-user-login',
@@ -11,38 +13,32 @@ import { UserService } from '../user.service';
 })
 export class UserLoginComponent {
   loginDto: UserLoginDto | undefined;
-  subscription: Subscription | undefined;
-  message: string | undefined;
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private notificationService: NotificationService
+  ) {
     this.loginDto = new UserLoginDto();
   }
 
   onLogin() {
     if (!this.loginDto) return;
 
-    this.subscription = this.userService
+    this.userService
       .login(this.loginDto)
       .pipe(
-        map((res: any) => res),
-        tap(() => {
-          console.log('Logged in');
-
-          this.message = 'Succesvol ingelogd';
-
-          this.router.navigate(['/users']);
-        }),
         catchError((error) => {
-          if (error.status === 404) this.message = 'Invalide login poging';
-          else this.message = 'Er is iets fout gegaan';
-
-          return throwError(error);
+          console.log(error);
+          this.notificationService.showError(
+            error.error.message?.join('\n\n') || 'Invalide login poging'
+          );
+          return error;
         })
       )
-      .subscribe();
-  }
-
-  ngOnDestory() {
-    if (this.subscription) this.subscription.unsubscribe();
+      .subscribe(() => {
+        this.notificationService.showSuccess('Succesvol ingelogd');
+        this.router.navigate(['/users']);
+      });
   }
 }

@@ -19,15 +19,9 @@ export class UserComponent {
   }
 
   ngOnInit() {
-    this.subscription = this.userService
-      .getAllUsers()
-      .pipe(
-        map((res: any) => res),
-        tap((res) => {
-          this.users = res.result;
-        })
-      )
-      .subscribe();
+    this.userService.getAllUsers().subscribe((res: any) => {
+      this.users = res.result;
+    });
   }
 
   ngOnDestroy() {

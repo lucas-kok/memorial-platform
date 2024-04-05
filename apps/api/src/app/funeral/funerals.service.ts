@@ -39,7 +39,7 @@ export class FuneralsService {
 
     return await this.funeralModel
       .findById({ _id: new Types.ObjectId(_id) })
-      .populate('person', '_id name');
+      .populate('person', '_id name imageBase64');
   }
 
   async getFuneralByPersonId(personId: string): Promise<Funeral | null> {

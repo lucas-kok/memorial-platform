@@ -16,7 +16,7 @@ import { FuneralDetailsComponent } from './funeral/funeral-details/funeral-detai
 import { FuneralCreateComponent } from './funeral/funeral-create/funeral-create.component';
 
 const routes: Routes = [
-  { path: 'about', pathMatch: 'full', component: AboutComponent },
+  { path: '', pathMatch: 'full', component: AboutComponent },
   { path: 'persons', pathMatch: 'full', component: PersonComponent },
   {
     path: 'persons/create',

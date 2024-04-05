@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Person } from '../../person/person.model';
 import { Funeral } from '../funeral.model';
 import { PersonService } from '../../person/person.service';
+import { NotificationService } from '../../notification/notification.service';
 
 @Component({
   selector: 'app-funeral-create',
@@ -17,13 +18,11 @@ export class FuneralCreateComponent {
   persons: Person[] | undefined;
   loggedIn: boolean = localStorage.getItem('jwtToken') != null;
 
-  subscription: Subscription | undefined;
-  message: string | undefined;
-
   constructor(
     private funeralService: FuneralService,
     private personService: PersonService,
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationService
   ) {
     if (!this.loggedIn) router.navigate(['/users/login']);
 
@@ -50,22 +49,19 @@ export class FuneralCreateComponent {
     this.newFuneral.isPrivate = this.isPrivate == 'true';
 
     const jwtToken = localStorage.getItem('jwtToken');
-    this.subscription = this.funeralService
+    this.funeralService
       .addFuneral(this.newFuneral, jwtToken!)
       .pipe(
-        map((res: any) => res),
-        tap((res) => {
-          console.log('[PersonCreateComponent] Person created');
-
-          this.message = 'Person created succesfully';
-          this.router.navigate(['/funerals']);
-        }),
-        catchError(async () => (this.message = 'Er is iets fout gegaan'))
+        catchError((error) => {
+          this.notificationService.showError(
+            error.error.message?.join('\n\n') || 'Er is een fout opgetreden'
+          );
+          return error;
+        })
       )
-      .subscribe();
-  }
-
-  ngOnDestroy() {
-    if (this.subscription) this.subscription.unsubscribe();
+      .subscribe((res) => {
+        this.notificationService.showSuccess('Uitvaart succesvol aangemaakt');
+        this.router.navigate(['/funerals']);
+      });
   }
 }
