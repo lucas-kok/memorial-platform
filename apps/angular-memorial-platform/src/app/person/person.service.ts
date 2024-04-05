@@ -16,32 +16,24 @@ export class PersonService {
   }
 
   addPerson(person: Person, jwtToken: string): Observable<Person> {
-    console.log('Adding person: {' + person + '}');
-
     return this.http.post<Person>(this.apiUri + '/persons', person, {
       headers: { Authorization: `Bearer ${jwtToken}` },
     });
   }
 
   getAllPersonsFromUser(jwtToken: string): Observable<Person[]> {
-    console.log('Retrieving all persons');
-
     return this.http.get<Person[]>(this.apiUri + '/persons', {
       headers: { Authorization: `Bearer ${jwtToken}` },
     });
   }
 
   getPersonById(id: string, jwtToken: string): Observable<Person> {
-    console.log('Retrieving person with id: {' + id + '}');
-
     return this.http.get<Person>(this.apiUri + '/persons/' + id, {
       headers: { Authorization: `Bearer ${jwtToken}` },
     });
   }
 
   updatePerson(person: Person, jwtToken: string): Observable<Person> {
-    console.log('Updating person: {' + person + '}');
-
     return this.http.put<Person>(
       this.apiUri + '/persons/' + person._id,
       person,

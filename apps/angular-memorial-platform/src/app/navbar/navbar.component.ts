@@ -11,8 +11,6 @@ export class NavbarComponent {
   userId: string | undefined;
 
   constructor(private userService: UserService) {
-    console.log(this.loggedIn);
-
     this.userService.getUserId().subscribe((id) => {
       console.log('UserId: {' + this.userId + '}');
       this.userId = id;

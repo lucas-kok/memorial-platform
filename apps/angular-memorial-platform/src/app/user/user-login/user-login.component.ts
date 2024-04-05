@@ -29,7 +29,6 @@ export class UserLoginComponent {
       .login(this.loginDto)
       .pipe(
         catchError((error) => {
-          console.log(error);
           this.notificationService.showError(
             error.error.message?.join('\n\n') || 'Invalide login poging'
           );

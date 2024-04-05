@@ -24,13 +24,5 @@ import { MessageModule } from './messages/message.module';
   providers: [AppService],
 })
 export class AppModule {
-  constructor() {
-    this.logMongoDBConnectionString();
-  }
-
-  private logMongoDBConnectionString() {
-    console.log(
-      `MONGODB_CONNECTION_STRING=${process.env['MONGODB_CONNECTION_STRING']}`
-    );
-  }
+  constructor() {}
 }

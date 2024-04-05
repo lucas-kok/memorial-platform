@@ -42,7 +42,6 @@ export class PersonDetailsComponent {
         .pipe(
           map((res: any) => res),
           tap((res) => {
-            console.log(res);
             this.person = res.result;
 
             if (this.person != null) {

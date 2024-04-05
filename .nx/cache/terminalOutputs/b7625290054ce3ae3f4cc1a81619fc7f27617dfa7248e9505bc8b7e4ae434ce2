@@ -2,3 +2,14 @@ chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 101 KiB [1m[33m[entry]
 webpack compiled [1m[32msuccessfully[39m[22m (2afae730f4bf02b0)
 [36mType-checking in progress...[39m
 [32mNo errors found.[39m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 101 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (6e5800db90012f8c)
+[36mType-checking in progress...[39m
+[32mNo errors found.[39m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 101 KiB [1m[33m[entry][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (6e5800db90012f8c)
+[32mNo errors found.[39m
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 101 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (5fc5cc22c3a7fec1)
+[36mType-checking in progress...[39m
+[32mNo errors found.[39m
