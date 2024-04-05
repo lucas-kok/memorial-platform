@@ -51,4 +51,4 @@ jobs:
           port: ${{ secrets.DO_PORT }}
           script: |
             cd /var/www/memorial-platform
-            pm2 restart your-nestjs-app
+            pm2 restart api
