@@ -7,6 +7,7 @@
     "@angular/compiler": "^15.0.0",
     "@angular/core": "^15.0.0",
     "@angular/forms": "^15.0.0",
+    "@angular/material": "^15.0.0",
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
@@ -199,39 +200,28 @@
             "hash": "4960312686699981923"
           },
           {
-            "file": "apps/angular-memorial-platform/src/app/about/about.component.spec.ts",
-            "hash": "4407050933881780725",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
-          },
-          {
             "file": "apps/angular-memorial-platform/src/app/about/about.component.ts",
-            "hash": "18131807991454914836",
+            "hash": "8349876857264723817",
             "dependencies": [
               {
-                "target": "npm:@angular/core",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/core",
                 "type": "static"
               }
             ]
           },
           {
             "file": "apps/angular-memorial-platform/src/app/app-routing.module.ts",
-            "hash": "9274149738434272336",
+            "hash": "11521856889049208196",
             "dependencies": [
               {
-                "target": "npm:@angular/core",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/core",
                 "type": "static"
               },
               {
-                "target": "npm:@angular/router",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/router",
                 "type": "static"
               }
             ]
@@ -243,22 +233,6 @@
           {
             "file": "apps/angular-memorial-platform/src/app/app.component.html",
             "hash": "10996902727299143117"
-          },
-          {
-            "file": "apps/angular-memorial-platform/src/app/app.component.spec.ts",
-            "hash": "13455677514601318475",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              },
-              {
-                "target": "npm:@angular/router",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
           },
           {
             "file": "apps/angular-memorial-platform/src/app/app.component.ts",
@@ -273,7 +247,7 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/app.module.ts",
-            "hash": "17837107565780006372",
+            "hash": "4982587559849172461",
             "dependencies": [
               {
                 "source": "angular-memorial-platform",
@@ -294,6 +268,11 @@
                 "source": "angular-memorial-platform",
                 "target": "npm:@angular/common",
                 "type": "static"
+              },
+              {
+                "source": "angular-memorial-platform",
+                "target": "npm:@angular/material",
+                "type": "static"
               }
             ]
           },
@@ -304,17 +283,6 @@
           {
             "file": "apps/angular-memorial-platform/src/app/footer/footer.component.html",
             "hash": "4039002827597613288"
-          },
-          {
-            "file": "apps/angular-memorial-platform/src/app/footer/footer.component.spec.ts",
-            "hash": "3687340575489815927",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
           },
           {
             "file": "apps/angular-memorial-platform/src/app/footer/footer.component.ts",
@@ -333,36 +301,25 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral-create/funeral-create.component.html",
-            "hash": "4201231430233606371"
-          },
-          {
-            "file": "apps/angular-memorial-platform/src/app/funeral/funeral-create/funeral-create.component.spec.ts",
-            "hash": "1799950391780260065",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
+            "hash": "16425175920566885970"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral-create/funeral-create.component.ts",
-            "hash": "16834391940541551886",
+            "hash": "2938320300758686783",
             "dependencies": [
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:rxjs",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
-                "target": "npm:@angular/router",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/router",
                 "type": "static"
               }
             ]
@@ -373,7 +330,7 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral-details/funeral-details.component.html",
-            "hash": "41207462611300641"
+            "hash": "17735484618671477323"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral-details/funeral-details.component.spec.ts",
@@ -388,21 +345,26 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral-details/funeral-details.component.ts",
-            "hash": "1004071354336325666",
+            "hash": "12741134838332859293",
             "dependencies": [
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/router",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
-                "target": "npm:rxjs",
                 "source": "angular-memorial-platform",
+                "target": "npm:rxjs",
+                "type": "static"
+              },
+              {
+                "source": "angular-memorial-platform",
+                "target": "npm:@angular/common",
                 "type": "static"
               }
             ]
@@ -413,7 +375,7 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral-edit/funeral-edit.component.html",
-            "hash": "5438378144558331092"
+            "hash": "8289973193220209901"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral-edit/funeral-edit.component.spec.ts",
@@ -428,21 +390,21 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral-edit/funeral-edit.component.ts",
-            "hash": "12923136903919801695",
+            "hash": "7941998180586213403",
             "dependencies": [
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:rxjs",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
-                "target": "npm:@angular/router",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/router",
                 "type": "static"
               }
             ]
@@ -454,17 +416,6 @@
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral.component.html",
             "hash": "4631376079584827155"
-          },
-          {
-            "file": "apps/angular-memorial-platform/src/app/funeral/funeral.component.spec.ts",
-            "hash": "18022629563702035960",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
           },
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral.component.ts",
@@ -489,17 +440,6 @@
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral.model.ts",
             "hash": "10372013240310884344"
-          },
-          {
-            "file": "apps/angular-memorial-platform/src/app/funeral/funeral.service.spec.ts",
-            "hash": "11748679313945501083",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
           },
           {
             "file": "apps/angular-memorial-platform/src/app/funeral/funeral.service.ts",
@@ -528,7 +468,7 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/memorial/memorial.component.html",
-            "hash": "8541845789217492711"
+            "hash": "15064697736498487436"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/memorial/memorial.component.spec.ts",
@@ -543,16 +483,21 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/memorial/memorial.component.ts",
-            "hash": "13974537563205158583",
+            "hash": "11911222542272000207",
             "dependencies": [
               {
-                "target": "npm:@angular/core",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/core",
                 "type": "static"
               },
               {
-                "target": "npm:@angular/router",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/router",
+                "type": "static"
+              },
+              {
+                "source": "angular-memorial-platform",
+                "target": "npm:rxjs",
                 "type": "static"
               }
             ]
@@ -578,21 +523,21 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/memorial/memorial.service.ts",
-            "hash": "3226097934644141804",
+            "hash": "2645106029563461315",
             "dependencies": [
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:rxjs",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
-                "target": "npm:@angular/common",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/common",
                 "type": "static"
               }
             ]
@@ -643,26 +588,31 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/navbar/navbar.component.html",
-            "hash": "3822983084940783833"
+            "hash": "4304061441850628752"
           },
           {
-            "file": "apps/angular-memorial-platform/src/app/navbar/navbar.component.spec.ts",
-            "hash": "14323084892983889208",
+            "file": "apps/angular-memorial-platform/src/app/navbar/navbar.component.ts",
+            "hash": "10846598673372516872",
             "dependencies": [
               {
-                "target": "npm:@angular/core",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/core",
                 "type": "static"
               }
             ]
           },
           {
-            "file": "apps/angular-memorial-platform/src/app/navbar/navbar.component.ts",
-            "hash": "15504620832587237103",
+            "file": "apps/angular-memorial-platform/src/app/notification/custom.snackbar.component.ts",
+            "hash": "13610148113213491376",
             "dependencies": [
               {
-                "target": "npm:@angular/core",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/core",
+                "type": "static"
+              },
+              {
+                "source": "angular-memorial-platform",
+                "target": "npm:@angular/material",
                 "type": "static"
               }
             ]
@@ -673,11 +623,16 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/notification/notification.service.ts",
-            "hash": "13933926759871351773",
+            "hash": "7300303589911078647",
             "dependencies": [
               {
-                "target": "npm:@angular/core",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/core",
+                "type": "static"
+              },
+              {
+                "source": "angular-memorial-platform",
+                "target": "npm:@angular/material",
                 "type": "static"
               }
             ]
@@ -688,36 +643,25 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/person/person-create/person-create.component.html",
-            "hash": "963662341910938529"
-          },
-          {
-            "file": "apps/angular-memorial-platform/src/app/person/person-create/person-create.component.spec.ts",
-            "hash": "13789867473110769447",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
+            "hash": "17768270191860146480"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/person/person-create/person-create.component.ts",
-            "hash": "511678013051878965",
+            "hash": "13955063934332338053",
             "dependencies": [
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/router",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
-                "target": "npm:rxjs",
                 "source": "angular-memorial-platform",
+                "target": "npm:rxjs",
                 "type": "static"
               }
             ]
@@ -728,36 +672,25 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/person/person-details/person-details.component.html",
-            "hash": "9169902301727063366"
-          },
-          {
-            "file": "apps/angular-memorial-platform/src/app/person/person-details/person-details.component.spec.ts",
-            "hash": "12845959789037761716",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
+            "hash": "15348451136948486200"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/person/person-details/person-details.component.ts",
-            "hash": "4872278509009117213",
+            "hash": "7427374195039159427",
             "dependencies": [
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/router",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
-                "target": "npm:rxjs",
                 "source": "angular-memorial-platform",
+                "target": "npm:rxjs",
                 "type": "static"
               }
             ]
@@ -768,36 +701,25 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/person/person-edit/person-edit.component.html",
-            "hash": "16768595925999282833"
-          },
-          {
-            "file": "apps/angular-memorial-platform/src/app/person/person-edit/person-edit.component.spec.ts",
-            "hash": "4888854421935215144",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
+            "hash": "12180290545174063813"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/person/person-edit/person-edit.component.ts",
-            "hash": "15955553080278597984",
+            "hash": "999366182347554550",
             "dependencies": [
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/router",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
-                "target": "npm:rxjs",
                 "source": "angular-memorial-platform",
+                "target": "npm:rxjs",
                 "type": "static"
               }
             ]
@@ -809,17 +731,6 @@
           {
             "file": "apps/angular-memorial-platform/src/app/person/person.component.html",
             "hash": "17859743062046251100"
-          },
-          {
-            "file": "apps/angular-memorial-platform/src/app/person/person.component.spec.ts",
-            "hash": "4709048364299475432",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
           },
           {
             "file": "apps/angular-memorial-platform/src/app/person/person.component.ts",
@@ -844,7 +755,7 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/person/person.model.ts",
-            "hash": "15799500280875157632"
+            "hash": "16261547740735300240"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/person/person.service.spec.ts",
@@ -869,21 +780,21 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/person/person.service.ts",
-            "hash": "9717092542533853526",
+            "hash": "1558084590951685270",
             "dependencies": [
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/common",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
-                "target": "npm:rxjs",
                 "source": "angular-memorial-platform",
+                "target": "npm:rxjs",
                 "type": "static"
               }
             ]
@@ -901,33 +812,22 @@
             "hash": "10117353513099457374"
           },
           {
-            "file": "apps/angular-memorial-platform/src/app/user/user-create/user-create.component.spec.ts",
-            "hash": "3254471815383982143",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
-          },
-          {
             "file": "apps/angular-memorial-platform/src/app/user/user-create/user-create.component.ts",
-            "hash": "13433822729050759734",
+            "hash": "1834586267711038194",
             "dependencies": [
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/router",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
-                "target": "npm:rxjs",
                 "source": "angular-memorial-platform",
+                "target": "npm:rxjs",
                 "type": "static"
               }
             ]
@@ -938,36 +838,25 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/user/user-details/user-details.component.html",
-            "hash": "8565615997543649389"
-          },
-          {
-            "file": "apps/angular-memorial-platform/src/app/user/user-details/user-details.component.spec.ts",
-            "hash": "329023917242508826",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
+            "hash": "6231127631312525554"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/user/user-details/user-details.component.ts",
-            "hash": "3020521788046656570",
+            "hash": "16445507766835128184",
             "dependencies": [
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/router",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
-                "target": "npm:rxjs",
                 "source": "angular-memorial-platform",
+                "target": "npm:rxjs",
                 "type": "static"
               }
             ]
@@ -978,36 +867,25 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/user/user-edit/user-edit.component.html",
-            "hash": "2007460160428615361"
-          },
-          {
-            "file": "apps/angular-memorial-platform/src/app/user/user-edit/user-edit.component.spec.ts",
-            "hash": "14747059324492699633",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
+            "hash": "1067787550145537416"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/user/user-edit/user-edit.component.ts",
-            "hash": "2682217415329160774",
+            "hash": "13419908308105012152",
             "dependencies": [
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/router",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
-                "target": "npm:rxjs",
                 "source": "angular-memorial-platform",
+                "target": "npm:rxjs",
                 "type": "static"
               }
             ]
@@ -1018,25 +896,25 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/app/user/user-login/user-login.component.html",
-            "hash": "15299821658334370205"
+            "hash": "1344701847657370013"
           },
           {
             "file": "apps/angular-memorial-platform/src/app/user/user-login/user-login.component.ts",
-            "hash": "7458137506702392080",
+            "hash": "14747252272060335536",
             "dependencies": [
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
+                "source": "angular-memorial-platform",
                 "target": "npm:@angular/router",
-                "source": "angular-memorial-platform",
                 "type": "static"
               },
               {
-                "target": "npm:rxjs",
                 "source": "angular-memorial-platform",
+                "target": "npm:rxjs",
                 "type": "static"
               }
             ]
@@ -1048,17 +926,6 @@
           {
             "file": "apps/angular-memorial-platform/src/app/user/user.component.html",
             "hash": "12946464952953285537"
-          },
-          {
-            "file": "apps/angular-memorial-platform/src/app/user/user.component.spec.ts",
-            "hash": "1117802697989483167",
-            "dependencies": [
-              {
-                "target": "npm:@angular/core",
-                "source": "angular-memorial-platform",
-                "type": "static"
-              }
-            ]
           },
           {
             "file": "apps/angular-memorial-platform/src/app/user/user.component.ts",
@@ -1153,7 +1020,7 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/styles.css",
-            "hash": "1938713283959106260"
+            "hash": "15131266097801680792"
           },
           {
             "file": "apps/angular-memorial-platform/tsconfig.app.json",
@@ -1299,16 +1166,16 @@
           },
           {
             "file": "apps/api/src/app/app.module.ts",
-            "hash": "1417428776195897362",
+            "hash": "9875612969882831330",
             "dependencies": [
               {
-                "target": "npm:@nestjs/common",
                 "source": "api",
+                "target": "npm:@nestjs/common",
                 "type": "static"
               },
               {
-                "target": "npm:@nestjs/mongoose",
                 "source": "api",
+                "target": "npm:@nestjs/mongoose",
                 "type": "static"
               }
             ]
@@ -1545,21 +1412,21 @@
           },
           {
             "file": "apps/api/src/app/funeral/funerals.service.ts",
-            "hash": "10120091624270100816",
+            "hash": "9154223739418050531",
             "dependencies": [
               {
+                "source": "api",
                 "target": "npm:@nestjs/common",
-                "source": "api",
                 "type": "static"
               },
               {
+                "source": "api",
                 "target": "npm:@nestjs/mongoose",
-                "source": "api",
                 "type": "static"
               },
               {
-                "target": "npm:mongoose",
                 "source": "api",
+                "target": "npm:mongoose",
                 "type": "static"
               }
             ]
@@ -2270,6 +2137,51 @@
         "hash": "sha512-yxfN8qQpMaukRU5LjFkJBmy85rqrOp86tYVCsf+hmPEFRiXBMUj6xYLeCMcpk3Mt1JtnWGBR34ivGx+7bNeAow=="
       }
     },
+    "npm:@angular/cdk": {
+      "type": "npm",
+      "name": "npm:@angular/cdk",
+      "data": {
+        "version": "15.0.0",
+        "packageName": "@angular/cdk",
+        "hash": "sha512-a4AUGfd1iNEGR5A9jmwzEfdRDpOh9KWypFqo85ivC3/KDW4+Z5AGxZpzwqAsRz2WQVdK+8biaz83VBQTMC5IOw=="
+      }
+    },
+    "npm:parse5@5.1.1": {
+      "type": "npm",
+      "name": "npm:parse5@5.1.1",
+      "data": {
+        "version": "5.1.1",
+        "packageName": "parse5",
+        "hash": "sha512-ugq4DFI0Ptb+WWjAdOK16+u/nHfiIrcE+sh8kZMaM0WllQKLI9rOUq6c2b7cwPkXdzfQESqvoqK6ug7U/Yyzug=="
+      }
+    },
+    "npm:parse5@6.0.1": {
+      "type": "npm",
+      "name": "npm:parse5@6.0.1",
+      "data": {
+        "version": "6.0.1",
+        "packageName": "parse5",
+        "hash": "sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw=="
+      }
+    },
+    "npm:parse5": {
+      "type": "npm",
+      "name": "npm:parse5",
+      "data": {
+        "version": "4.0.0",
+        "packageName": "parse5",
+        "hash": "sha512-VrZ7eOd3T1Fk4XWNXMgiGBK/z0MG48BWG2uQNU4I72fkQuKUTZpl+u9k+CxEG0twMVzSmXEEz12z5Fnw1jIQFA=="
+      }
+    },
+    "npm:parse5@7.1.2": {
+      "type": "npm",
+      "name": "npm:parse5@7.1.2",
+      "data": {
+        "version": "7.1.2",
+        "packageName": "parse5",
+        "hash": "sha512-Czj1WaSVpaoj0wbhMzLmWD69anp2WH7FXMB9n1Sy8/ZFF9jolSQVMu1Ij5WIyGmcBmhk7EOndpO4mIpihVqAXw=="
+      }
+    },
     "npm:@angular/cli": {
       "type": "npm",
       "name": "npm:@angular/cli",
@@ -2475,6 +2387,15 @@
         "version": "15.2.10",
         "packageName": "@angular/forms",
         "hash": "sha512-NIntGsNcN6o8L1txsbWXOf6f3K/CUBizdKsxsYVYGJIXEW5qU6UnWmfAZffNNXsT/XvbgUCjgDwT0cAwcqZPuQ=="
+      }
+    },
+    "npm:@angular/material": {
+      "type": "npm",
+      "name": "npm:@angular/material",
+      "data": {
+        "version": "15.0.0",
+        "packageName": "@angular/material",
+        "hash": "sha512-DONpBABa8r0YW8uwUOR1D14vlUnKNmUhKjPHnf0iDKOK3FS0oS/gzwc49iU/o8JtovatJYGa+mcm1i55Piz7Rg=="
       }
     },
     "npm:@angular/platform-browser": {
@@ -4844,6 +4765,456 @@
         "hash": "sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ=="
       }
     },
+    "npm:@material/animation": {
+      "type": "npm",
+      "name": "npm:@material/animation",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/animation",
+        "hash": "sha512-95aC/UYnCr/1g18VYPK/fX6eCNVGFBkd4JP6zT6wkh8PDL0gp52U+PCCp8bYq8i8oxrKTBa4MqFyzHB5brBFgg=="
+      }
+    },
+    "npm:@material/auto-init": {
+      "type": "npm",
+      "name": "npm:@material/auto-init",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/auto-init",
+        "hash": "sha512-WvmAlRrh4no3ewh3E6b+CLM6UC0w6xaFhzk7jkTFcSopDxf6cNieIM6oXlmVjN9bg33ngxEHBOfz7JYJZQOA+Q=="
+      }
+    },
+    "npm:@material/banner": {
+      "type": "npm",
+      "name": "npm:@material/banner",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/banner",
+        "hash": "sha512-aFHC/9hHiAOw2b/1jsndV+qDlNqpGrLGGTNvxow5WQ9XbG2nVinvz/L4ZPF7+gPvRrSWiXVHOTQoaudF4eZm+w=="
+      }
+    },
+    "npm:@material/base": {
+      "type": "npm",
+      "name": "npm:@material/base",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/base",
+        "hash": "sha512-Es6oTUxRzeHzu3HBz0qGTheMtDj6ovGfEOr9sQmt0YnAKwleUD2i+CbWBq8R9VG6p8nkQenUm8Q+Fifb0GxaYw=="
+      }
+    },
+    "npm:@material/button": {
+      "type": "npm",
+      "name": "npm:@material/button",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/button",
+        "hash": "sha512-Yvy5sneKGWNXF1iuwaQT+TYKdOqCEDwmT7OLB5SPtJRqBYKiqFpMg7e1X47rf/LfogQ1mc1JU9zibwDahFBbGw=="
+      }
+    },
+    "npm:@material/card": {
+      "type": "npm",
+      "name": "npm:@material/card",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/card",
+        "hash": "sha512-gYcV1qWjsg2w471vC/CnHXrKYK1VEVot/ONOJXd2ahh7AbRGZ/hZ8aV4WSizgq0RHI6CJj15BAKQyCSlJzE9iA=="
+      }
+    },
+    "npm:@material/checkbox": {
+      "type": "npm",
+      "name": "npm:@material/checkbox",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/checkbox",
+        "hash": "sha512-gU4mUwF8rUc5s64PuIOHNQN4VwRfsZ1l7jiMQzBJu1Kp3tf9jbqsMRtEQCd+mWN5w+DFESVEnvNr2fluY1Jsww=="
+      }
+    },
+    "npm:@material/chips": {
+      "type": "npm",
+      "name": "npm:@material/chips",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/chips",
+        "hash": "sha512-iVEAM7I5AD5nYGdD0JeSkT66b2vLWk2TaH+DElwTNoURE7A6llRcWPYG7muE6+4AbWOXAI491B+qzAQqpJJHnQ=="
+      }
+    },
+    "npm:@material/circular-progress": {
+      "type": "npm",
+      "name": "npm:@material/circular-progress",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/circular-progress",
+        "hash": "sha512-qZkOtKg7Aurr66O9AHPRfhI3lpPyZF+eH7C6S94NY1DZ+CkSWecNXPlgbuTQNl34WuwnpdY1o44+ypmnM7UnEg=="
+      }
+    },
+    "npm:@material/data-table": {
+      "type": "npm",
+      "name": "npm:@material/data-table",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/data-table",
+        "hash": "sha512-Ncu5VpQKuT5TiqqPg9OKo2HMHa7Q8CS66Rn8P6rNsQGQXvAynpQUFTp6cySUn3ktZqXBdDUfnwyJJEfyKO2iDw=="
+      }
+    },
+    "npm:@material/density": {
+      "type": "npm",
+      "name": "npm:@material/density",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/density",
+        "hash": "sha512-WhhAb1jt+1VCKMbHD3XDmgbEAAzVjOjJcmmA59rQA1lbXvKn7ZSDYPK5meRIFUjGBjWh11B05tdkMOHbizeI5Q=="
+      }
+    },
+    "npm:@material/dialog": {
+      "type": "npm",
+      "name": "npm:@material/dialog",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/dialog",
+        "hash": "sha512-rt72Z01XqIorzU9ZGEhuLAluVuu65m/4fhtCzX1+5AEZRfZdr9N27xb/RneoJ63VdjxbumixpGdZUycHNDg2WA=="
+      }
+    },
+    "npm:@material/dom": {
+      "type": "npm",
+      "name": "npm:@material/dom",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/dom",
+        "hash": "sha512-SyT9xi+dBur0Vj1Cyrp8b5tW4j3gtuTXwz8UiHFAkZKAG0m441XQjCClhPhpdywPXYE+ycHcd1cAMhLQvopH4g=="
+      }
+    },
+    "npm:@material/drawer": {
+      "type": "npm",
+      "name": "npm:@material/drawer",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/drawer",
+        "hash": "sha512-26dqb8sQuQCieaUbU4g/BKneCaqtnKnAbumTnEtr/7aOn7PaiYvO11viUja2FnW5C5ZpvWDW13v7dG6ymP6Ucw=="
+      }
+    },
+    "npm:@material/elevation": {
+      "type": "npm",
+      "name": "npm:@material/elevation",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/elevation",
+        "hash": "sha512-IETsNzrcmagBe3RkuT4TvZHm3wjRSxqdtkuxH5DKcc7jfx9vZ//8bw8/q7G+SVKQym17entvpQfgQOgpHAxm5A=="
+      }
+    },
+    "npm:@material/fab": {
+      "type": "npm",
+      "name": "npm:@material/fab",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/fab",
+        "hash": "sha512-EAQL64nL/mp9TY8c6WTRcqJQPnISZAO+0c2bvWyrG4Xj0r/QGx2NkMKy1MG+JGkcLR5K1RKneLbe92xCIujf0Q=="
+      }
+    },
+    "npm:@material/feature-targeting": {
+      "type": "npm",
+      "name": "npm:@material/feature-targeting",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/feature-targeting",
+        "hash": "sha512-f2cvfeW6OpG+1QQgilktUKsF1vkg3x6w8R0yg3OPMzIbGVxGsgp4AY6mSLjLw23jDdRIW+J7UnZztE6PDwrFTg=="
+      }
+    },
+    "npm:@material/floating-label": {
+      "type": "npm",
+      "name": "npm:@material/floating-label",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/floating-label",
+        "hash": "sha512-3FQMYxUE1EFZzBmml5mqdHCnEoGD9FP0PEeaD15etm/gyCdaf+d6r+rZADDWe7In7qMos2W9uW4v0+sS1H34SQ=="
+      }
+    },
+    "npm:@material/focus-ring": {
+      "type": "npm",
+      "name": "npm:@material/focus-ring",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/focus-ring",
+        "hash": "sha512-pZlMdg8f4izZuAi/v6paUcrSrQwDsNJgcYf+R+hcS57sjNcOT/4uRMTe4parTaKyjgkBKBZlXpLFJaW7yzWgYw=="
+      }
+    },
+    "npm:@material/form-field": {
+      "type": "npm",
+      "name": "npm:@material/form-field",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/form-field",
+        "hash": "sha512-+RV+iwUVxGocOdnR03YyPcyc6scAJIqfrDH3xU9XAl6rkMDWbJvRF4ujySbLfh9FzffrwUN7QqSee7ZxZQO+WQ=="
+      }
+    },
+    "npm:@material/icon-button": {
+      "type": "npm",
+      "name": "npm:@material/icon-button",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/icon-button",
+        "hash": "sha512-3RxjLPrDEFWPW2GinoaTx4Hc4jy842h8j8+2OsY1AqWm4Ejp+NblyBsRSBdZC4APs0GDXQcOskY2y1FYeA+fbQ=="
+      }
+    },
+    "npm:@material/image-list": {
+      "type": "npm",
+      "name": "npm:@material/image-list",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/image-list",
+        "hash": "sha512-O371n2xiU9HPlzRw3dNmtJJuSoTA9ZSTePWnZTWJT3O9pTEbctK2Z2Tmnk6MacDHjDRn770YdquA/dGhrWkx0A=="
+      }
+    },
+    "npm:@material/layout-grid": {
+      "type": "npm",
+      "name": "npm:@material/layout-grid",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/layout-grid",
+        "hash": "sha512-4ECt2uEL1OFhDnFYZsfzTbE8yabsGIwOwYdo5WtvK7Op31QKNMrgTLmu+3Zvap0H4TUsuARxsqnMQVMHLDGD5g=="
+      }
+    },
+    "npm:@material/line-ripple": {
+      "type": "npm",
+      "name": "npm:@material/line-ripple",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/line-ripple",
+        "hash": "sha512-ri+4VQDvlJr7nfP9DpCElqJqpXIAt5HQjzNPDpx0Wc7KOZuQ4yK6C2MGZTWV1wRZctV6WXX14bB9QUUr0r2yTg=="
+      }
+    },
+    "npm:@material/linear-progress": {
+      "type": "npm",
+      "name": "npm:@material/linear-progress",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/linear-progress",
+        "hash": "sha512-LE9capqTnH/9T2mmW3g9aZD/bdlv4bVrukehXB9EmfmC5EuM6aLpBZLoQmWtAYyt6OxMjZbYvEaZbzsQ4KBu7A=="
+      }
+    },
+    "npm:@material/list": {
+      "type": "npm",
+      "name": "npm:@material/list",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/list",
+        "hash": "sha512-/kZaFahvJCz4y/zkis9NQUEGUQIk8Ptq6LGm8JYj2PXpO2Avh/neKQwas1edi7CxUf7sBZbHDZLrJeeD1CF20A=="
+      }
+    },
+    "npm:@material/menu": {
+      "type": "npm",
+      "name": "npm:@material/menu",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/menu",
+        "hash": "sha512-AKoh4CkyA5DPXoR2ThEeVnMkKM+PYhipbviAFEmukHIOcqWOzC0/GX0XOZUHegstCEvfpsUWT/h2RN6vGamc3w=="
+      }
+    },
+    "npm:@material/menu-surface": {
+      "type": "npm",
+      "name": "npm:@material/menu-surface",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/menu-surface",
+        "hash": "sha512-Qxsh0/oQv4DPnz0NuWnZMbGfTH6LmXk41xLi6tE9y8HajzlVpec26fpIDgqWyz97WK7rqUHvsTKskruppHisEQ=="
+      }
+    },
+    "npm:@material/notched-outline": {
+      "type": "npm",
+      "name": "npm:@material/notched-outline",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/notched-outline",
+        "hash": "sha512-FsnzeLXRw91Yh4B0Fusu57p3rEj+5OYVkvkr7jML6/YS/4ptkIe/vjgHBxM2DThySOqjBVE7EY9gUMIedMQrNg=="
+      }
+    },
+    "npm:@material/progress-indicator": {
+      "type": "npm",
+      "name": "npm:@material/progress-indicator",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/progress-indicator",
+        "hash": "sha512-19RdSUbE+rEoYPoO6qtp2W24wkGVuK14+5XrqnYdoyBnjd0CSmn1DXp27G+Bx5q6Q6Mj/esavTpwFYNWW7OenQ=="
+      }
+    },
+    "npm:@material/radio": {
+      "type": "npm",
+      "name": "npm:@material/radio",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/radio",
+        "hash": "sha512-jUihnBlxPpfUCD9o/77qtJZ0t0MaUs8CbdRsYjkuywnY3bH3vZuarJGnYT86HJu/zYTSHfqrnpZKwnRm47MXQg=="
+      }
+    },
+    "npm:@material/ripple": {
+      "type": "npm",
+      "name": "npm:@material/ripple",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/ripple",
+        "hash": "sha512-midz7yzrccRXnguTpmX9tzGTOSHb2CyhAMnSvnOaSaO2LJyHD0UvFIOiBaWXwjHa5iMhbMkoUe9hosD4llQt/A=="
+      }
+    },
+    "npm:@material/rtl": {
+      "type": "npm",
+      "name": "npm:@material/rtl",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/rtl",
+        "hash": "sha512-0PHfRqm5mgaXDarQQXVvPpZVXkc7e1DXVPZR2DaPMNc+N2OWeZoA50546p691JIAEAPLQIxassGLMIngBIJl1g=="
+      }
+    },
+    "npm:@material/segmented-button": {
+      "type": "npm",
+      "name": "npm:@material/segmented-button",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/segmented-button",
+        "hash": "sha512-aCafnCnZel6ZOkA1y9T/OhySfqCjpmzrfNifYIuC1d1fFv7Gkfc6rMZr+ocGb2d1GdRwYCPhwvEq5/kn8Hnr9w=="
+      }
+    },
+    "npm:@material/select": {
+      "type": "npm",
+      "name": "npm:@material/select",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/select",
+        "hash": "sha512-ASaX3bl7cu0OLirhyDd4lOmDkwHBLuWjLKK8GwDosTXf+Lb+8OPH8sVsXfAfBv6ORplQZ8B1bVnEb+O8wrBjHA=="
+      }
+    },
+    "npm:@material/shape": {
+      "type": "npm",
+      "name": "npm:@material/shape",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/shape",
+        "hash": "sha512-eRMm29A85dFkGzcq/eIZSX2vss/YoWCh8o8ACKF0Dd2yVoSfbclWirrSL1cYAkMLnCzcJ+tLDGBLnJ+RISXU0Q=="
+      }
+    },
+    "npm:@material/slider": {
+      "type": "npm",
+      "name": "npm:@material/slider",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/slider",
+        "hash": "sha512-NwFZ8FSH5NCx4dlmNF+ReFzQcaXStRCRaTCuPNshgvAdHSYI5NuswUv1pRnECBKPK1QrT0LSuw/Pltoz2jP/lQ=="
+      }
+    },
+    "npm:@material/snackbar": {
+      "type": "npm",
+      "name": "npm:@material/snackbar",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/snackbar",
+        "hash": "sha512-AllQg4iAkoCryVW9NzTK5dgyftC6po/D3ZK08IqOXxCTjw/cGE7WpXoXRDleECer9DVqQ4IK7cGsTUQrT18trw=="
+      }
+    },
+    "npm:@material/switch": {
+      "type": "npm",
+      "name": "npm:@material/switch",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/switch",
+        "hash": "sha512-ddFG+4Un+AYkQVRP62zhxcc9wd1mZIxGe/vzOzAyZYpRuZQ60cqTQItOYpysYqc9LG4QG470DJemtNFGspiypA=="
+      }
+    },
+    "npm:@material/tab": {
+      "type": "npm",
+      "name": "npm:@material/tab",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/tab",
+        "hash": "sha512-XASQrQ6gVmz/XpzwtqlfJtYV3QFqxToWiCJsiVwZNE35bg8MvbWQOb9xllvVjIaTvaTgplwG5xOcYOxk4jzR0Q=="
+      }
+    },
+    "npm:@material/tab-bar": {
+      "type": "npm",
+      "name": "npm:@material/tab-bar",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/tab-bar",
+        "hash": "sha512-1SfhxOkoyeEPq/SlhIVP/Eiuhr46jqmvYSZOugTurL3TiK6Zilk+n5fAQCwElcvK/Dyf+n5mFR2RDFWdu+CZkA=="
+      }
+    },
+    "npm:@material/tab-indicator": {
+      "type": "npm",
+      "name": "npm:@material/tab-indicator",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/tab-indicator",
+        "hash": "sha512-yhfU8Jhbrk4tmdYLAGWfKTmJjE8SqWnZSCFNrcEB9jz/z8CDiH5X1I8FLPNfDgQRpbPnMyDCWwc7xeG4xHcnzA=="
+      }
+    },
+    "npm:@material/tab-scroller": {
+      "type": "npm",
+      "name": "npm:@material/tab-scroller",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/tab-scroller",
+        "hash": "sha512-ZpmqxgO3yAolCz1WvBnG9t002XvpPYWnVN5fbLtGNqE5B30AJwSxoAAkNjDQEZ3TzxcYGN8PhhdG3jY4KiQfbg=="
+      }
+    },
+    "npm:@material/textfield": {
+      "type": "npm",
+      "name": "npm:@material/textfield",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/textfield",
+        "hash": "sha512-npbX0f3C3v46L8/O3/90ExrKNBNCos+Qe/GCgXSO+AbSciPLHhoP+FVjlxfGI1IZtwjg9pd0O78Kymv6h6f9cQ=="
+      }
+    },
+    "npm:@material/theme": {
+      "type": "npm",
+      "name": "npm:@material/theme",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/theme",
+        "hash": "sha512-H8HDrJBZp6kIUYxdfMPYpin7G18/ZI2yp7kSSJfhyir4sYgr7irNWl9DunSI2s90StYmz3m8SiK7XmMhpm2w2A=="
+      }
+    },
+    "npm:@material/tokens": {
+      "type": "npm",
+      "name": "npm:@material/tokens",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/tokens",
+        "hash": "sha512-hHBGM/UsqsSkmujYTe8k0VEtB0tdhF0IOnpMeRCi0CHwbJBmo4nMEhEK7uhwGfR4HwJNlrNKr2XV7EvsZgOnig=="
+      }
+    },
+    "npm:@material/tooltip": {
+      "type": "npm",
+      "name": "npm:@material/tooltip",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/tooltip",
+        "hash": "sha512-AUp5R7RRCY6uryhNbgIx8ayBraWcXw66RHDz7SnFqqEZKT8nj3S9yAMJwGiePhw/CyCghB0yc4mYJreL+fP9qQ=="
+      }
+    },
+    "npm:@material/top-app-bar": {
+      "type": "npm",
+      "name": "npm:@material/top-app-bar",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/top-app-bar",
+        "hash": "sha512-JQiP4l9GhbQgVB3k+EsNbxXc1Uuitvi7wMRnPSwoTjw2wZsbRF5BZHdkAuMXdBHt1iWkneRq6JayMv7B56cD9Q=="
+      }
+    },
+    "npm:@material/touch-target": {
+      "type": "npm",
+      "name": "npm:@material/touch-target",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/touch-target",
+        "hash": "sha512-SfV5EIqbulciOtFoZtuiFkep8jcNcEoEe/nz2h26zZvC4ozbX6Sd4gd0gphLMrWMJajMDj/Zg+awEOfLESNnjA=="
+      }
+    },
+    "npm:@material/typography": {
+      "type": "npm",
+      "name": "npm:@material/typography",
+      "data": {
+        "version": "15.0.0-canary.ecfee946f.0",
+        "packageName": "@material/typography",
+        "hash": "sha512-hjX4M4Y1AuhchpkyhmMmG5ulGXqknKOQvsGq/w1fEK5xKmBEXoQK5bQ1xwcFE+NS2k3CMujCkoHe/biz/eHX4Q=="
+      }
+    },
     "npm:@mongodb-js/saslprep": {
       "type": "npm",
       "name": "npm:@mongodb-js/saslprep",
@@ -6165,33 +6536,6 @@
         "version": "7.0.0",
         "packageName": "parse5-html-rewriting-stream",
         "hash": "sha512-mazCyGWkmCRWDI15Zp+UiCqMp/0dgEmkZRvhlsqqKYr4SsVm/TvnSpD9fCvqCA2zoWJcfRym846ejWBBHRiYEg=="
-      }
-    },
-    "npm:parse5@6.0.1": {
-      "type": "npm",
-      "name": "npm:parse5@6.0.1",
-      "data": {
-        "version": "6.0.1",
-        "packageName": "parse5",
-        "hash": "sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw=="
-      }
-    },
-    "npm:parse5": {
-      "type": "npm",
-      "name": "npm:parse5",
-      "data": {
-        "version": "4.0.0",
-        "packageName": "parse5",
-        "hash": "sha512-VrZ7eOd3T1Fk4XWNXMgiGBK/z0MG48BWG2uQNU4I72fkQuKUTZpl+u9k+CxEG0twMVzSmXEEz12z5Fnw1jIQFA=="
-      }
-    },
-    "npm:parse5@7.1.2": {
-      "type": "npm",
-      "name": "npm:parse5@7.1.2",
-      "data": {
-        "version": "7.1.2",
-        "packageName": "parse5",
-        "hash": "sha512-Czj1WaSVpaoj0wbhMzLmWD69anp2WH7FXMB9n1Sy8/ZFF9jolSQVMu1Ij5WIyGmcBmhk7EOndpO4mIpihVqAXw=="
       }
     },
     "npm:parse5-sax-parser@6.0.1": {
@@ -13916,6 +14260,15 @@
         "hash": "sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg=="
       }
     },
+    "npm:safevalues": {
+      "type": "npm",
+      "name": "npm:safevalues",
+      "data": {
+        "version": "0.3.4",
+        "packageName": "safevalues",
+        "hash": "sha512-LRneZZRXNgjzwG4bDQdOTSbze3fHm1EAKN/8bePxnlEZiBmkYEDggaHbuvHI9/hoqHbGfsEA7tWS9GhYHZBBsw=="
+      }
+    },
     "npm:sass": {
       "type": "npm",
       "name": "npm:sass",
@@ -15215,6 +15568,11 @@
       },
       {
         "source": "angular-memorial-platform",
+        "target": "npm:@angular/material",
+        "type": "static"
+      },
+      {
+        "source": "angular-memorial-platform",
         "target": "npm:rxjs",
         "type": "static"
       },
@@ -15808,6 +16166,33 @@
         "type": "static"
       }
     ],
+    "npm:@angular/cdk": [
+      {
+        "source": "npm:@angular/cdk",
+        "target": "npm:@angular/common",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/cdk",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/cdk",
+        "target": "npm:rxjs",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/cdk",
+        "target": "npm:tslib",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/cdk",
+        "target": "npm:parse5@5.1.1",
+        "type": "static"
+      }
+    ],
     "npm:@angular/cli": [
       {
         "source": "npm:@angular/cli",
@@ -16158,6 +16543,283 @@
       },
       {
         "source": "npm:@angular/forms",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@angular/material": [
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@angular/animations",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@angular/cdk",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@angular/common",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@angular/forms",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@angular/platform-browser",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:rxjs",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/auto-init",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/banner",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/button",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/card",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/checkbox",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/chips",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/circular-progress",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/data-table",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/density",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/dialog",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/drawer",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/fab",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/floating-label",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/form-field",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/icon-button",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/image-list",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/layout-grid",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/line-ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/linear-progress",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/list",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/menu",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/menu-surface",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/notched-outline",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/radio",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/segmented-button",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/select",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/slider",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/snackbar",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/switch",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/tab",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/tab-bar",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/tab-indicator",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/tab-scroller",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/textfield",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/tooltip",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/top-app-bar",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/touch-target",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@angular/material",
         "target": "npm:tslib",
         "type": "static"
       }
@@ -21318,6 +21980,2086 @@
       {
         "source": "npm:@mapbox/node-pre-gyp",
         "target": "npm:tar",
+        "type": "static"
+      }
+    ],
+    "npm:@material/animation": [
+      {
+        "source": "npm:@material/animation",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/auto-init": [
+      {
+        "source": "npm:@material/auto-init",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/auto-init",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/banner": [
+      {
+        "source": "npm:@material/banner",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/banner",
+        "target": "npm:@material/button",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/banner",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/banner",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/banner",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/banner",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/banner",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/banner",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/banner",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/banner",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/banner",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/banner",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/base": [
+      {
+        "source": "npm:@material/base",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/button": [
+      {
+        "source": "npm:@material/button",
+        "target": "npm:@material/density",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/button",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/button",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/button",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/button",
+        "target": "npm:@material/focus-ring",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/button",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/button",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/button",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/button",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/button",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/button",
+        "target": "npm:@material/touch-target",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/button",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/button",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/card": [
+      {
+        "source": "npm:@material/card",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/card",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/card",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/card",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/card",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/card",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/card",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/card",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/card",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/checkbox": [
+      {
+        "source": "npm:@material/checkbox",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/checkbox",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/checkbox",
+        "target": "npm:@material/density",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/checkbox",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/checkbox",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/checkbox",
+        "target": "npm:@material/focus-ring",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/checkbox",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/checkbox",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/checkbox",
+        "target": "npm:@material/touch-target",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/checkbox",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/chips": [
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/checkbox",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/density",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/focus-ring",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/touch-target",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:safevalues",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/chips",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/circular-progress": [
+      {
+        "source": "npm:@material/circular-progress",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/circular-progress",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/circular-progress",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/circular-progress",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/circular-progress",
+        "target": "npm:@material/progress-indicator",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/circular-progress",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/circular-progress",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/circular-progress",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/data-table": [
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/checkbox",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/density",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/icon-button",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/linear-progress",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/list",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/menu",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/select",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/touch-target",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/data-table",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/density": [
+      {
+        "source": "npm:@material/density",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/dialog": [
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/button",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/icon-button",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/touch-target",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dialog",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/dom": [
+      {
+        "source": "npm:@material/dom",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dom",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/dom",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/drawer": [
+      {
+        "source": "npm:@material/drawer",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/drawer",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/drawer",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/drawer",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/drawer",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/drawer",
+        "target": "npm:@material/list",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/drawer",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/drawer",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/drawer",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/drawer",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/drawer",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/drawer",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/elevation": [
+      {
+        "source": "npm:@material/elevation",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/elevation",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/elevation",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/elevation",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/elevation",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/elevation",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/fab": [
+      {
+        "source": "npm:@material/fab",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/fab",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/fab",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/fab",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/fab",
+        "target": "npm:@material/focus-ring",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/fab",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/fab",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/fab",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/fab",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/fab",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/fab",
+        "target": "npm:@material/touch-target",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/fab",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/fab",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/feature-targeting": [
+      {
+        "source": "npm:@material/feature-targeting",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/floating-label": [
+      {
+        "source": "npm:@material/floating-label",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/floating-label",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/floating-label",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/floating-label",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/floating-label",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/floating-label",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/floating-label",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/floating-label",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/focus-ring": [
+      {
+        "source": "npm:@material/focus-ring",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/focus-ring",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/focus-ring",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      }
+    ],
+    "npm:@material/form-field": [
+      {
+        "source": "npm:@material/form-field",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/form-field",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/form-field",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/form-field",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/form-field",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/form-field",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/form-field",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/icon-button": [
+      {
+        "source": "npm:@material/icon-button",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/icon-button",
+        "target": "npm:@material/density",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/icon-button",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/icon-button",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/icon-button",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/icon-button",
+        "target": "npm:@material/focus-ring",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/icon-button",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/icon-button",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/icon-button",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/icon-button",
+        "target": "npm:@material/touch-target",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/icon-button",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/image-list": [
+      {
+        "source": "npm:@material/image-list",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/image-list",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/image-list",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/image-list",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/image-list",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/layout-grid": [
+      {
+        "source": "npm:@material/layout-grid",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/line-ripple": [
+      {
+        "source": "npm:@material/line-ripple",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/line-ripple",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/line-ripple",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/line-ripple",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/line-ripple",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/linear-progress": [
+      {
+        "source": "npm:@material/linear-progress",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/linear-progress",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/linear-progress",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/linear-progress",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/linear-progress",
+        "target": "npm:@material/progress-indicator",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/linear-progress",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/linear-progress",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/linear-progress",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/list": [
+      {
+        "source": "npm:@material/list",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/list",
+        "target": "npm:@material/density",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/list",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/list",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/list",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/list",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/list",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/list",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/list",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/list",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/list",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/menu": [
+      {
+        "source": "npm:@material/menu",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu",
+        "target": "npm:@material/list",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu",
+        "target": "npm:@material/menu-surface",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/menu-surface": [
+      {
+        "source": "npm:@material/menu-surface",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu-surface",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu-surface",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu-surface",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu-surface",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu-surface",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu-surface",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/menu-surface",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/notched-outline": [
+      {
+        "source": "npm:@material/notched-outline",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/notched-outline",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/notched-outline",
+        "target": "npm:@material/floating-label",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/notched-outline",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/notched-outline",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/notched-outline",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/notched-outline",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/progress-indicator": [
+      {
+        "source": "npm:@material/progress-indicator",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/radio": [
+      {
+        "source": "npm:@material/radio",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/radio",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/radio",
+        "target": "npm:@material/density",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/radio",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/radio",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/radio",
+        "target": "npm:@material/focus-ring",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/radio",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/radio",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/radio",
+        "target": "npm:@material/touch-target",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/radio",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/ripple": [
+      {
+        "source": "npm:@material/ripple",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/ripple",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/ripple",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/ripple",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/ripple",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/ripple",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/ripple",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/rtl": [
+      {
+        "source": "npm:@material/rtl",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/rtl",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/segmented-button": [
+      {
+        "source": "npm:@material/segmented-button",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/segmented-button",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/segmented-button",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/segmented-button",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/segmented-button",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/segmented-button",
+        "target": "npm:@material/touch-target",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/segmented-button",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/segmented-button",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/select": [
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/density",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/floating-label",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/line-ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/list",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/menu",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/menu-surface",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/notched-outline",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/select",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/shape": [
+      {
+        "source": "npm:@material/shape",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/shape",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/shape",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/shape",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/slider": [
+      {
+        "source": "npm:@material/slider",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/slider",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/slider",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/slider",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/slider",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/slider",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/slider",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/slider",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/slider",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/slider",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/slider",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/snackbar": [
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:@material/button",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:@material/icon-button",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/snackbar",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/switch": [
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:@material/density",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:@material/focus-ring",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:safevalues",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/switch",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/tab": [
+      {
+        "source": "npm:@material/tab",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab",
+        "target": "npm:@material/focus-ring",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab",
+        "target": "npm:@material/tab-indicator",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/tab-bar": [
+      {
+        "source": "npm:@material/tab-bar",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-bar",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-bar",
+        "target": "npm:@material/density",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-bar",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-bar",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-bar",
+        "target": "npm:@material/tab",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-bar",
+        "target": "npm:@material/tab-indicator",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-bar",
+        "target": "npm:@material/tab-scroller",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-bar",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-bar",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-bar",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/tab-indicator": [
+      {
+        "source": "npm:@material/tab-indicator",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-indicator",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-indicator",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-indicator",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-indicator",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/tab-scroller": [
+      {
+        "source": "npm:@material/tab-scroller",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-scroller",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-scroller",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-scroller",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-scroller",
+        "target": "npm:@material/tab",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tab-scroller",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/textfield": [
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/density",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/floating-label",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/line-ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/notched-outline",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/textfield",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/theme": [
+      {
+        "source": "npm:@material/theme",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/theme",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/tokens": [
+      {
+        "source": "npm:@material/tokens",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      }
+    ],
+    "npm:@material/tooltip": [
+      {
+        "source": "npm:@material/tooltip",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tooltip",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tooltip",
+        "target": "npm:@material/button",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tooltip",
+        "target": "npm:@material/dom",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tooltip",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tooltip",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tooltip",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tooltip",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tooltip",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tooltip",
+        "target": "npm:@material/tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tooltip",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tooltip",
+        "target": "npm:safevalues",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/tooltip",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/top-app-bar": [
+      {
+        "source": "npm:@material/top-app-bar",
+        "target": "npm:@material/animation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/top-app-bar",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/top-app-bar",
+        "target": "npm:@material/elevation",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/top-app-bar",
+        "target": "npm:@material/ripple",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/top-app-bar",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/top-app-bar",
+        "target": "npm:@material/shape",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/top-app-bar",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/top-app-bar",
+        "target": "npm:@material/typography",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/top-app-bar",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/touch-target": [
+      {
+        "source": "npm:@material/touch-target",
+        "target": "npm:@material/base",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/touch-target",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/touch-target",
+        "target": "npm:@material/rtl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/touch-target",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@material/typography": [
+      {
+        "source": "npm:@material/typography",
+        "target": "npm:@material/feature-targeting",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/typography",
+        "target": "npm:@material/theme",
+        "type": "static"
+      },
+      {
+        "source": "npm:@material/typography",
+        "target": "npm:tslib",
         "type": "static"
       }
     ],
