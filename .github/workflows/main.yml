@@ -37,7 +37,7 @@ jobs:
           port: ${{ secrets.DO_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: 'dist/'
-          target: '/var/www/memorial-platform'
+          target: '/home/runcloud/webapps'
 
       - name: Install PM2
         run: npm install pm2@latest -g
@@ -50,5 +50,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.DO_PORT }}
           script: |
-            cd /var/www/memorial-platform
+            cd /home/runcloud/webapps/
             pm2 restart api
