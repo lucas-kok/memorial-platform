@@ -3,8 +3,7 @@
  * This is only a minimal backend to get started.
  */
 
-import { config } from 'dotenv';
-config({ path: '.env' });
+require('dotenv').config();
 
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
