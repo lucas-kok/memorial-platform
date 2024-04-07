@@ -27,7 +27,7 @@ jobs:
         run: nx build angular-memorial-platform
 
       - name: Build NestJS App
-        run: nx build api --prod
+        run: nx build api
 
       - name: Deploy Angular App
         uses: appleboy/scp-action@master

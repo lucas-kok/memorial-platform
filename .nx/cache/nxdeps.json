@@ -37,7 +37,7 @@
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.5.0",
-    "tslib": "^2.3.0",
+    "tslib": "^2.6.2",
     "zone.js": "~0.12.0",
     "@angular-devkit/build-angular": "^15.0.0",
     "@angular/cli": "~15.0.0",
@@ -998,11 +998,11 @@
           },
           {
             "file": "apps/angular-memorial-platform/src/main.ts",
-            "hash": "9374417435436826166",
+            "hash": "10291858862962143981",
             "dependencies": [
               {
-                "target": "npm:@angular/platform-browser-dynamic",
                 "source": "angular-memorial-platform",
+                "target": "npm:@angular/platform-browser-dynamic",
                 "type": "static"
               }
             ]
@@ -1831,26 +1831,31 @@
           },
           {
             "file": "apps/api/src/main.ts",
-            "hash": "14995717032706875494",
+            "hash": "1435671566796667448",
             "dependencies": [
               {
+                "source": "api",
                 "target": "npm:dotenv",
-                "source": "api",
                 "type": "static"
               },
               {
+                "source": "api",
                 "target": "npm:@nestjs/common",
-                "source": "api",
                 "type": "static"
               },
               {
+                "source": "api",
                 "target": "npm:@nestjs/core",
-                "source": "api",
                 "type": "static"
               },
               {
-                "target": "npm:express-session",
                 "source": "api",
+                "target": "npm:express-session",
+                "type": "static"
+              },
+              {
+                "source": "api",
+                "target": "npm:body-parser",
                 "type": "static"
               }
             ]
@@ -15652,6 +15657,11 @@
       {
         "source": "api",
         "target": "npm:express-session",
+        "type": "static"
+      },
+      {
+        "source": "api",
+        "target": "npm:body-parser",
         "type": "static"
       }
     ],
