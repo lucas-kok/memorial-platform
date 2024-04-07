@@ -37,7 +37,7 @@ jobs:
           port: ${{ secrets.DO_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: 'dist/apps/angular-memorial-platform/*'
-          target: '/home/runcloud/webapps/angular-memorial-platform'
+          target: '/home/memorial-platform/htdocs/memorial-platform.pekict.dev'
 
       - name: Deploy NestJS App
         uses: appleboy/scp-action@master
@@ -47,7 +47,7 @@ jobs:
           port: ${{ secrets.DO_PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: 'dist/apps/api/*'
-          target: '/home/runcloud/webapps/api'
+          target: '/home/memorial-platform-api/htdocs/memorial-platform-api.pekict.dev'
 
       - name: Install PM2
         run: npm install -g pm2@latest

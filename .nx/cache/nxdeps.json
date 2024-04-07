@@ -1856,10 +1856,6 @@
             ]
           },
           {
-            "file": "apps/api/src/variables.env",
-            "hash": "11050961462917416759"
-          },
-          {
             "file": "apps/api/tsconfig.app.json",
             "hash": "15626038663789729877"
           },
