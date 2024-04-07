@@ -48,14 +48,3 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: 'dist/apps/api/*'
           target: '/var/www/memorial-platform-api/'
-
-      - name: Restart Server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.DO_HOST }}
-          username: ${{ secrets.DO_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.DO_PORT }}
-          script: |
-            cd /var/www/memorial-platform-api
-            pm2 restart memorial-platform-api
