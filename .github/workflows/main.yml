@@ -48,3 +48,26 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: 'dist/apps/api/*'
           target: '/var/www/memorial-platform-api/'
+
+      - name: Transfer package.json
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          port: ${{ secrets.DO_PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: 'package.json'
+          target: '/var/www/'
+
+      - name: Install dependencies on VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          port: ${{ secrets.DO_PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/memorial-platform
+            npm install --production
+            cd /var/www/memorial-platform-api
+            npm install --production
