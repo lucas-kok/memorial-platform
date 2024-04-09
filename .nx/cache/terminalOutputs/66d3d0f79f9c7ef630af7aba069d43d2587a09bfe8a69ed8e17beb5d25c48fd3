@@ -1,0 +1,15 @@
+
+ [31m>[39m [0m[7m[1m[31m NX [39m[22m[27m[0m  [31mThe C:\Users\lucas\OneDrive\Documenten\School - Avans\Jaar 2\Blok 2\ClientSide\memorial-platform PC\memorial-platform\apps\api\.env asset path must start with the project source root: apps/api/src[39m
+
+
+Error: The C:\Users\lucas\OneDrive\Documenten\School - Avans\Jaar 2\Blok 2\ClientSide\memorial-platform PC\memorial-platform\apps\api\.env asset path must start with the project source root: apps/api/src
+    at C:\Users\lucas\OneDrive\Documenten\School - Avans\Jaar 2\Blok 2\ClientSide\memorial-platform PC\memorial-platform\node_modules\@nrwl\webpack\src\executors\webpack\lib\normalize-options.js:45:23
+    at Array.map (<anonymous>)
+    at normalizeAssets (C:\Users\lucas\OneDrive\Documenten\School - Avans\Jaar 2\Blok 2\ClientSide\memorial-platform PC\memorial-platform\node_modules\@nrwl\webpack\src\executors\webpack\lib\normalize-options.js:39:19)
+    at normalizeOptions (C:\Users\lucas\OneDrive\Documenten\School - Avans\Jaar 2\Blok 2\ClientSide\memorial-platform PC\memorial-platform\node_modules\@nrwl\webpack\src\executors\webpack\lib\normalize-options.js:10:427)
+    at webpackExecutor_1 (C:\Users\lucas\OneDrive\Documenten\School - Avans\Jaar 2\Blok 2\ClientSide\memorial-platform PC\memorial-platform\node_modules\@nrwl\webpack\src\executors\webpack\webpack.impl.js:70:66)
+    at webpackExecutor_1.next (<anonymous>)
+    at resume (C:\Users\lucas\OneDrive\Documenten\School - Avans\Jaar 2\Blok 2\ClientSide\memorial-platform PC\memorial-platform\node_modules\tslib\tslib.js:281:48)
+    at C:\Users\lucas\OneDrive\Documenten\School - Avans\Jaar 2\Blok 2\ClientSide\memorial-platform PC\memorial-platform\node_modules\tslib\tslib.js:280:125
+    at new Promise (<anonymous>)
+    at i.<computed> [as next] (C:\Users\lucas\OneDrive\Documenten\School - Avans\Jaar 2\Blok 2\ClientSide\memorial-platform PC\memorial-platform\node_modules\tslib\tslib.js:280:67)

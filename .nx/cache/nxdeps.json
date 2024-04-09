@@ -27,7 +27,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.4.5",
     "express-session": "^1.17.3",
     "mongodb-memory-server": "^8.10.1",
     "mongoose": "^6.7.5",
@@ -1061,7 +1061,8 @@
               "main": "apps/api/src/main.ts",
               "tsConfig": "apps/api/tsconfig.app.json",
               "assets": [
-                "apps/api/src/assets"
+                "apps/api/src/assets",
+                "apps/api/src/.env"
               ]
             },
             "configurations": {
@@ -1136,7 +1137,7 @@
           },
           {
             "file": "apps/api/project.json",
-            "hash": "14423256278886546462"
+            "hash": "7590741956538668134"
           },
           {
             "file": "apps/api/src/app/.gitkeep",
@@ -1166,7 +1167,7 @@
           },
           {
             "file": "apps/api/src/app/app.module.ts",
-            "hash": "9875612969882831330",
+            "hash": "3735756914906313345",
             "dependencies": [
               {
                 "source": "api",
@@ -1831,13 +1832,8 @@
           },
           {
             "file": "apps/api/src/main.ts",
-            "hash": "1435671566796667448",
+            "hash": "6863099970470141345",
             "dependencies": [
-              {
-                "source": "api",
-                "target": "npm:dotenv",
-                "type": "static"
-              },
               {
                 "source": "api",
                 "target": "npm:@nestjs/common",
@@ -1856,6 +1852,11 @@
               {
                 "source": "api",
                 "target": "npm:body-parser",
+                "type": "static"
+              },
+              {
+                "source": "api",
+                "target": "npm:dotenv",
                 "type": "static"
               }
             ]
@@ -15646,11 +15647,6 @@
       },
       {
         "source": "api",
-        "target": "npm:dotenv",
-        "type": "static"
-      },
-      {
-        "source": "api",
         "target": "npm:@nestjs/core",
         "type": "static"
       },
@@ -15662,6 +15658,11 @@
       {
         "source": "api",
         "target": "npm:body-parser",
+        "type": "static"
+      },
+      {
+        "source": "api",
+        "target": "npm:dotenv",
         "type": "static"
       }
     ],

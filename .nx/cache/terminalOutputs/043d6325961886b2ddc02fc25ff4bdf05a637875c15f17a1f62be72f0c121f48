@@ -1,0 +1,5 @@
+asset main.js 140 KiB [emitted] (name: main) 1 related asset
+asset .env 188 bytes [emitted] [from: apps/api/src/.env] [copied]
+asset assets/.gitkeep 0 bytes [emitted] [from: apps/api/src/assets/.gitkeep] [copied]
+  
+webpack 5.76.1 compiled successfully (f7e5bb1171fc50ac)

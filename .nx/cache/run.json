@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx build api --verbose",
+    "startTime": "2024-04-09T15:32:39.567Z",
+    "endTime": "2024-04-09T15:32:39.579Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "api:build",
+      "target": "build",
+      "projectName": "api",
+      "hash": "b8cd786449a0d4c6e54fbd5a230244612b70afafa1de4961a7039dd70f2b513d",
+      "startTime": "2024-04-09T15:32:39.572Z",
+      "endTime": "2024-04-09T15:32:39.579Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    }
+  ]
+}

@@ -3,16 +3,18 @@
  * This is only a minimal backend to get started.
  */
 
-require('dotenv').config();
-
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import * as session from 'express-session';
 
 import { AppModule } from './app/app.module';
 import * as bodyParser from 'body-parser';
+import { config } from 'dotenv';
+
+config();
 
 async function bootstrap() {
+  console.log(process.env);
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);

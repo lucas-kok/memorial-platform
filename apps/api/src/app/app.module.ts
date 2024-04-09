@@ -12,7 +12,9 @@ import { MessageModule } from './messages/message.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env['MONGODB_CONNECTION_STRING']!),
+    MongooseModule.forRoot(
+      'mongodb+srv://lucaskok:NJodUVy3VcAjgZKx@cluster0.sd9vdzv.mongodb.net/'
+    ),
     UsersModule,
     AuthModule,
     PersonModule,
