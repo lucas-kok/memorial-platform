@@ -1061,8 +1061,7 @@
               "main": "apps/api/src/main.ts",
               "tsConfig": "apps/api/tsconfig.app.json",
               "assets": [
-                "apps/api/src/assets",
-                "apps/api/src/.env"
+                "apps/api/src/assets"
               ]
             },
             "configurations": {
@@ -1137,7 +1136,7 @@
           },
           {
             "file": "apps/api/project.json",
-            "hash": "7590741956538668134"
+            "hash": "14423256278886546462"
           },
           {
             "file": "apps/api/src/app/.gitkeep",
