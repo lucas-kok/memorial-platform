@@ -28,11 +28,6 @@ jobs:
 
       - name: Build NestJS App
         run: nx build api
-        env:
-          NEO4J_URI: ${{ secrets.NEO4J_URI }}
-          NEO4J_USERNAME: ${{ secrets.NEO4J_USERNAME }}
-          NEO4J_PASSWORD: ${{ secrets.NEO4J_PASSWORD }}
-          MONGODB_CONNECTION_STRING: ${{ secrets.MONGODB_CONNECTION_STRING }}
 
       - name: Deploy Angular App
         uses: appleboy/scp-action@master
@@ -53,26 +48,3 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: 'dist/apps/api/*'
           target: '/var/www/memorial-platform-api/'
-
-      - name: Transfer package.json
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.DO_HOST }}
-          username: ${{ secrets.DO_USERNAME }}
-          port: ${{ secrets.DO_PORT }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: 'package.json'
-          target: '/var/www/'
-
-      - name: Install dependencies on VPS
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.DO_HOST }}
-          username: ${{ secrets.DO_USERNAME }}
-          port: ${{ secrets.DO_PORT }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd /var/www/memorial-platform
-            npm install --production
-            cd /var/www/memorial-platform-api
-            npm install --production
